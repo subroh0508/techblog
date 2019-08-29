@@ -1,0 +1,22 @@
+$vertical-margin: 36px;
+
+.header {
+  display: flex;
+
+  h1 {
+    flex: 3;
+    margin: $vertical-margin 0;
+  }
+  nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    > ul {
+      > li {
+        display: inline;
+        margin-left: 8px;
+      }
+    }
+  }
+}
