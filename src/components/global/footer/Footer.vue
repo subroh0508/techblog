@@ -1,5 +1,3 @@
-<template src='./footer.html'/>
-<style src='./footer.scss'>
 <script>
 const data = { year: Date.now().year };
 
@@ -9,3 +7,5 @@ export default {
   data,
 }
 </script>
+<template src='./footer.html'/>
+<style src='./footer.scss'>
