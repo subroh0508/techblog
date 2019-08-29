@@ -1,7 +1,7 @@
 {
-  "name": "vue-sample",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "Vue.js Sample App",
+  "description": "subroh_0508's tech blog",
   "main": "index.js",
   "author": "subroh_0508",
   "license": "MIT",
