@@ -1,10 +1,41 @@
 body {
   background-color: ghostwhite;
+  font-size: 18px;
+  line-height: 1.85;
 }
 section {
   max-width: 800px;
   margin: 0 auto;
 }
+h1, h2 {
+  margin: 48px 0 0 0;
+}
+h3, h4, h5, h6 {
+  margin: 24px 0 0 0;
+}
 hr {
   color: gainsboro;
+}
+table {
+  border-spacing: 0;
+}
+thead {
+  background-color: lightgray;
+}
+td, th {
+  padding: 12px;
+}
+tbody {
+  td {
+    position: relative;
+
+    &:after {
+      content: '';
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      border-bottom: 1px solid thistle;
+    }
+  }
 }
