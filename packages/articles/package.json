@@ -1,0 +1,11 @@
+{
+  "name": "@techblog/articles",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "subroh_0508",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "front-matter": "^3.0.2"
+  }
+}
