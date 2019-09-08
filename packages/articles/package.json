@@ -9,6 +9,11 @@
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "front-matter": "^3.0.2"
+    "front-matter": "^3.0.2",
+    "highlight.js": "^9.15.10",
+    "marked": "^0.7.0"
+  },
+  "scripts": {
+    "build": "babel-node ./scripts/build.js"
   }
 }
