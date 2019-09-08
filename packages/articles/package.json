@@ -6,6 +6,9 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
     "front-matter": "^3.0.2"
   }
 }
