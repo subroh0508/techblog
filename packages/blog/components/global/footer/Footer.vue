@@ -1,11 +1,9 @@
 <script>
-const data = { year: Date.now().year };
-
-Object.freeze(data);
-
 export default {
-  data,
+  data() {
+    return Object.freeze({ year: new Date().getFullYear() });
+  },
 }
 </script>
 <template src='./footer.html'/>
-<style src='./footer.scss'>
+<style src='./footer.scss'/>

@@ -4,7 +4,7 @@ import path from 'path';
 import md2json from './md2json';
 
 const fsp = fs.promises;
-const jsonModule = json => `modules.export=${JSON.stringify(json)}`;
+const jsonModule = json => `module.exports=${JSON.stringify(json)}`;
 
 const build = async () => {
   const buildDir = path.resolve(__dirname, '../build');

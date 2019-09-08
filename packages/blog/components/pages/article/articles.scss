@@ -1,0 +1,19 @@
+.articles {
+  .summary {
+    margin: 0 0 48px;
+  }
+  .display-title {
+    margin: 0 0 12px;
+  }
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    height: 33px;
+    padding: 0 10px;
+    text-decoration: underline;
+  }
+  .tag {
+    padding-right: 15px;
+  }
+}
