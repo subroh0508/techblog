@@ -2,6 +2,7 @@
 
 body {
   background-color: $background;
+  font-family: 'Nunito Sans', 'M PLUS 1p', 'sans-serif';
   font-size: 18px;
   line-height: 1.85;
   color: $text;
@@ -68,4 +69,9 @@ tbody {
       border-bottom: 1px solid $table-body-line;
     }
   }
+}
+a {
+  text-decoration: underline;
+  color: $link-text;
+  cursor: pointer;
 }
