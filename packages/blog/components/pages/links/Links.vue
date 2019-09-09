@@ -11,5 +11,5 @@ export default {
   }
 }
 </script>
-<template src='./link.html'/>
-<style src='./link.scss'/>
+<template src='./links.html'/>
+<style src='./links.scss'/>

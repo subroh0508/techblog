@@ -5,7 +5,7 @@ import HomeView from './components/pages/home/Home';
 import ArticlesView from './components/pages/article/Articles';
 import ArticleView from './components/pages/article/Article';
 import AboutView from './components/pages/about/About';
-import LinkView from './components/pages/link/Link';
+import LinksView from './components/pages/links/Links';
 
 Vue.use(VueRouter);
 
@@ -16,6 +16,6 @@ export default new VueRouter({
     { path: '/articles', name: 'articles', component: ArticlesView },
     { path: '/articles/:title', name: 'article', component: ArticleView },
     { path: '/about', name: 'about', component: AboutView },
-    { path: '/link', name: 'link', component: LinkView },
+    { path: '/links', name: 'links', component: LinksView },
   ],
 });

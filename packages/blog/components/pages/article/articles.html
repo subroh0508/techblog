@@ -1,15 +1,15 @@
 <section class='articles'>
   <div class='summary' v-for='article in articles'>
     <div>
-      <span class='published-at'>{{ article.publishedAtFormatted }}</span>
-      <h2 class='display-title' v-on:click="readMore(article.title)">{{ article.displayTitle }}</h2>
+      <span class='subtitle'>{{ article.publishedAtFormatted }}</span>
+      <h2 v-on:click="readMore(article.title)">{{ article.displayTitle }}</h2>
+    </div>
+    <div class='tags-bar'>
+      <span class='tag' v-for='tag in article.tags'>#{{ tag }}</span>
     </div>
     <div>
       {{ article.description }}
-      <a class='read-more' v-on:click="readMore(article.title)">Read more >></a>
-    </div>
-    <div>
-      <span class='tag' v-for='tag in article.tags'>#{{ tag }}</span>
+      <a class='link' v-on:click="readMore(article.title)">Read more >></a>
     </div>
   </div>
 </section>

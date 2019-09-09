@@ -1,3 +1,6 @@
+@import '../../global';
+@import '../../color';
+
 $vertical-margin: 36px;
 
 .header {
@@ -13,9 +16,17 @@ $vertical-margin: 36px;
     align-items: center;
 
     > ul {
+      padding: 0;
+
       > li {
         display: inline;
-        margin-left: 8px;
+
+        > a {
+          padding: 0 10px;
+          text-decoration: underline;
+          color: $link-text;
+          cursor: pointer;
+        }
       }
     }
   }

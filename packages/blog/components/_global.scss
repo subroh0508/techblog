@@ -1,7 +1,10 @@
+@import './color';
+
 body {
-  background-color: ghostwhite;
+  background-color: $background;
   font-size: 18px;
   line-height: 1.85;
+  color: $text;
 }
 section {
   max-width: 800px;
@@ -12,20 +15,42 @@ section {
   height: 18px;
   padding-right: 4px;
 }
+.subtitle {
+  color: $subtitle;
+}
+.tag {
+  color: $subtitle;
+  padding-right: 15px;
+}
+.link {
+  height: 33px;
+  font-size: 16px;
+  text-decoration: underline;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+.link:hover {
+  background: silver;
+}
 h1, h2 {
   margin: 48px 0 0 0;
+  color: $title;
 }
 h3, h4, h5, h6 {
   margin: 24px 0 0 0;
+  color: $title;
 }
 hr {
-  color: gainsboro;
+  color: $horizontal-rule;
 }
 table {
   border-spacing: 0;
 }
 thead {
-  background-color: lightgray;
+  background-color: $table-head;
 }
 td, th {
   padding: 12px;
@@ -40,7 +65,7 @@ tbody {
       right: 0;
       bottom: 0;
       position: absolute;
-      border-bottom: 1px solid thistle;
+      border-bottom: 1px solid $table-body-line;
     }
   }
 }
