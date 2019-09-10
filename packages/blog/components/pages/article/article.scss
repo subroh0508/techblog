@@ -1,0 +1,16 @@
+@import '../../color';
+
+.article {
+  h2.display-title {
+    margin: 0;
+  }
+  a {
+    color: $text;
+  }
+  .summary {
+    margin: 0 0 48px;
+  }
+  .tags-bar {
+    margin: 0 0 12px;
+  }
+}

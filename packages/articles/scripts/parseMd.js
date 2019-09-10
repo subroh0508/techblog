@@ -9,7 +9,7 @@ mdRenderer.heading = (text, level, _, slugger) => {
 
   return (
     `<h${lv} id=${id}>` +
-    `<a href='${id}' data-hash-link>#</a>` +
+    `<a href='#${id}' data-hash-link>#</a>` +
     `<span>${text}</span>` +
     `</h${lv}>`
   )

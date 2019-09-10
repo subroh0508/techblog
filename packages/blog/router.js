@@ -14,7 +14,7 @@ export default new VueRouter({
   routes: [
     { path: '/', name: 'home', component: HomeView },
     { path: '/articles', name: 'articles', component: ArticlesView },
-    { path: '/articles/:title', name: 'article', component: ArticleView },
+    { path: '/articles/:title', name: 'article', component: ArticleView, props: true },
     { path: '/about', name: 'about', component: AboutView },
     { path: '/links', name: 'links', component: LinksView },
   ],
