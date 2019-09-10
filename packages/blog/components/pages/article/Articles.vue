@@ -14,8 +14,8 @@ export default {
           ...article,
           publishedAt,
           updatedAt,
-          publishedAtFormatted: `${publishedAt.getFullYear()}/${publishedAt.getMonth()}/${publishedAt.getDate()}`,
-          updatedAtFormatted: `${updatedAt.getFullYear()}/${updatedAt.getMonth()}/${updatedAt.getDate()}`,
+          publishedAtFormatted: `${publishedAt.getFullYear()}/${publishedAt.getMonth().toString().padStart(2, '0')}/${publishedAt.getDate().toString().padStart(2, '0')}`,
+          updatedAtFormatted: `${updatedAt.getFullYear()}/${updatedAt.getMonth().toString().padStart(2, '0')}/${updatedAt.getDate().toString().padStart(2, '0')}`,
         };
       }).sort((a, b) => b.updatedAt - a.updatedAt),
     };
