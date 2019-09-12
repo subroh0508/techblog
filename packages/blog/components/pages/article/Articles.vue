@@ -1,31 +1,37 @@
 <script>
-import router from '../../../router';
+import ArticleSummary from '../../organisms/ArticleSummary';
 
 import articles from '@techblog/articles/build/list';
 
 export default {
+  components: {
+    ArticleSummary,
+  },
   data() {
     return {
       articles: articles.map(article => {
-        const publishedAt = new Date(article.publishedAt);
-        const updatedAt = new Date(article.updatedAt);
-
         return {
           ...article,
-          publishedAt,
-          updatedAt,
-          publishedAtFormatted: `${publishedAt.getFullYear()}/${publishedAt.getMonth().toString().padStart(2, '0')}/${publishedAt.getDate().toString().padStart(2, '0')}`,
-          updatedAtFormatted: `${updatedAt.getFullYear()}/${updatedAt.getMonth().toString().padStart(2, '0')}/${updatedAt.getDate().toString().padStart(2, '0')}`,
+          publishedAt: new Date(article.publishedAt),
+          updatedAt: new Date(article.updatedAt),
         };
       }).sort((a, b) => b.updatedAt - a.updatedAt),
     };
   },
-  methods: {
-    readMore: (title) => {
-      router.push({ name: 'article', params: { title } });
-    },
-  }
 }
 </script>
-<template src='./articles.html'/>
-<style src='./articles.scss'/>
+<template>
+  <section class='articles'>
+    <h1>全ての記事</h1>
+    <div v-for='(article, idx) in articles' v-bind:key="'article-' + idx">
+      <article-summary v-bind='{ article }'/>
+    </div>
+  </section>
+</template>
+<style scoped lang='scss'>
+.articles {
+  > div {
+    margin: 24px 0 48px;
+  }
+}
+</style>
