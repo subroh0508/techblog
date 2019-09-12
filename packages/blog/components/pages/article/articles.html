@@ -2,10 +2,10 @@
   <div class='summary' v-for='article in articles'>
     <div>
       <span class='subtitle'>{{ article.publishedAtFormatted }}</span>
-      <h2 v-on:click="readMore(article.title)">{{ article.displayTitle }}</h2>
+      <h2 class='display-title' v-on:click="readMore(article.title)">{{ article.displayTitle }}</h2>
     </div>
     <div class='tags-bar'>
-      <span class='tag' v-for='tag in article.tags'>#{{ tag }}</span>
+      <a class='tag' v-for='tag in article.tags'>{{ tag }}</a>
     </div>
     <div>
       {{ article.description }}

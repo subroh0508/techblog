@@ -22,6 +22,14 @@ section {
 .tag {
   color: $subtitle;
   padding-right: 15px;
+  text-decoration: none;
+
+  &:before {
+    content: '#';
+  }
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .link {
   height: 33px;
@@ -32,9 +40,10 @@ section {
   align-items: center;
   border: 1px solid transparent;
   border-radius: 3px;
-}
-.link:hover {
-  background: silver;
+
+  &:hover {
+    background: silver;
+  }
 }
 h1, h2 {
   margin: 48px 0 0 0;

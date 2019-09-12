@@ -5,7 +5,7 @@
       <h2 class='display-title'>{{ article.displayTitle }}</h2>
     </div>
     <div class='tags-bar'>
-      <span class='tag' v-for='tag in article.tags'>#{{ tag }}</span>
+      <a class='tag' v-for='tag in article.tags'>{{ tag }}</a>
     </div>
   </div>
   <span v-show='article.body' v-html='article.body'></span>
