@@ -26,7 +26,7 @@ export default {
 <template>
   <div>
     <date v-bind="{ className: 'subtitle', value: publishedAt }"/>
-    <display-title v-bind='{ value: displayTitle, onClick: openArticle.bind(null, title) }'/>
+    <display-title v-bind="{ className: 'link', value: displayTitle, onClick: openArticle.bind(null, title) }"/>
     <tagbar v-bind='{ tags }'/>
   </div>  
 </template>

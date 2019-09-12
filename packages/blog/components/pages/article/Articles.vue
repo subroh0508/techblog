@@ -31,7 +31,7 @@ export default {
 <style scoped lang='scss'>
 .articles {
   > div {
-    margin: 24px 0 48px;
+    margin: 36px 0 48px;
   }
 }
 </style>
