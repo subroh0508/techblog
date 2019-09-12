@@ -1,11 +1,11 @@
 <script>
-import ArticleSummary from '../../organisms/ArticleSummary';
+import ArticlesTemplate from '../../templates/ArticlesTemplate';
 
 import articles from '@techblog/articles/build/list';
 
 export default {
   components: {
-    ArticleSummary,
+    ArticlesTemplate,
   },
   data() {
     return {
@@ -22,16 +22,8 @@ export default {
 </script>
 <template>
   <section class='articles'>
-    <h1>全ての記事</h1>
-    <div v-for='(article, idx) in articles' v-bind:key="'article-' + idx">
-      <article-summary v-bind='{ article }'/>
-    </div>
-  </section>
+    <articles-template v-bind="{ articles }">
+      全ての記事
+    </articles-template>
+  </section>  
 </template>
-<style scoped lang='scss'>
-.articles {
-  > div {
-    margin: 36px 0 48px;
-  }
-}
-</style>
