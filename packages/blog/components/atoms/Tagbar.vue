@@ -2,12 +2,13 @@
 export default {
   props: {
     tags: Array,
+    onClick: Function,
   }
 }
 </script>
 <template>
   <div class='bar'>
-    <a v-for='(tag, idx) in tags' v-bind:key='idx'>{{ tag }}</a>
+    <a v-for='(tag, idx) in tags' v-bind:key='idx' v-on:click='onClick(tag)'>{{ tag }}</a>
   </div>
 </template>
 <style scoped lang='scss'>

@@ -1,7 +1,7 @@
 <script>
 import ArticlesTemplate from '../../templates/ArticlesTemplate';
 
-import articles from '@techblog/articles/build/list';
+import { searchArticles } from './finder';
 
 export default {
   components: {
@@ -9,21 +9,20 @@ export default {
   },
   data() {
     return {
-      articles: articles.map(article => {
-        return {
-          ...article,
-          publishedAt: new Date(article.publishedAt),
-          updatedAt: new Date(article.updatedAt),
-        };
-      }).sort((a, b) => b.updatedAt - a.updatedAt),
+      articles: searchArticles(this.$route.query),
     };
+  },
+  methods: {
+    title() {
+      return this.$route.query.tag ? `タグ: ${this.$route.query.tag}` : '全ての記事';
+    }
   },
 }
 </script>
 <template>
   <section class='articles'>
     <articles-template v-bind="{ articles }">
-      全ての記事
+      {{ title() }}
     </articles-template>
   </section>  
 </template>

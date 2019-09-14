@@ -1,22 +1,7 @@
 <script>
 import ArticleHeader from '../../molecules/ArticleHeader';
 
-import articles from '@techblog/articles/build/list';
-
-const findArticle = async title => {
-  const article = articles.find(a => a.title === title);
-
-  const fullArticle = await import(`@techblog/articles/build/articles/${title}`);
-
-  const publishedAt = new Date(fullArticle.publishedAt);
-  const updatedAt = new Date(fullArticle.updatedAt);
-
-  return {
-    ...fullArticle,
-    publishedAt: new Date(fullArticle.publishedAt),
-    updatedAt: new Date(fullArticle.updatedAt),
-  }
-};
+import { findArticle } from './finder';
 
 export default {
   components: {

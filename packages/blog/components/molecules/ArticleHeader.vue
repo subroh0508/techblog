@@ -24,6 +24,9 @@ export default {
     openArticle: (title) => {
       router.push({ name: 'article', params: { title } });
     },
+    searchByTag: (tag) => {
+      router.push({ name: 'articles', query: { tag } });
+    }
   }
 }
 </script>
@@ -38,6 +41,9 @@ export default {
       value: displayTitle,
       onClick: openArticle.bind(null, title)
     }"/>
-    <tagbar v-bind='{ tags }'/>
+    <tagbar v-bind='{
+      tags,
+      onClick: searchByTag,
+    }'/>
   </div>  
 </template>
