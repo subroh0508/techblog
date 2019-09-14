@@ -25,6 +25,12 @@ export default {
       router.push({ name: 'article', params: { title } });
     },
     searchByTag: (tag) => {
+      const currentPath = router.currentRoute.path;
+      const currentTag = router.currentRoute.query.tag;
+      if (currentPath === '/articles' && currentTag === tag) {
+        return;
+      }
+
       router.push({ name: 'articles', query: { tag } });
     }
   }

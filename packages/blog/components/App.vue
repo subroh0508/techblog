@@ -1,17 +1,17 @@
 <script>
-import HeaderView from './global/header/Header';
+import SiteHeader from './molecules/SiteHeader';
 import FooterView from './global/footer/Footer';
 
 export default {
   components: {
-    HeaderView,
+    SiteHeader,
     FooterView,
   },
 }
 </script>
 <template>
   <div>
-    <header-view/>
+    <site-header/>
     <router-view/>
     <footer-view/>
   </div>

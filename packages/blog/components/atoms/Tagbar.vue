@@ -3,7 +3,7 @@ export default {
   props: {
     tags: Array,
     onClick: Function,
-  }
+  },
 }
 </script>
 <template>
