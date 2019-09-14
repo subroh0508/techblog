@@ -1,7 +1,7 @@
 <script>
-import GithubIcon from './icons/Github';
-import MastodonIcon from './icons/Mastodon';
-import TwitterIcon from './icons/Twitter';
+import GithubIcon from '../../atoms/icons/Github';
+import MastodonIcon from '../../atoms/icons/Mastodon';
+import TwitterIcon from '../../atoms/icons/Twitter';
 
 export default {
   components: {

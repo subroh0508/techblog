@@ -1,17 +1,20 @@
 <script>
 import ArticleHeader from '../../molecules/ArticleHeader';
+import ShareButtons from '../../organisms/ShareButtons';
 
 import { findArticle } from './finder';
 
 export default {
   components: {
     ArticleHeader,
+    ShareButtons,
   },
   props: {
     title: String,
   },
   data: () => ({
     article: {},
+    url: window.location.href,
   }),
   async created() {
     this.article = await findArticle(this.title);
@@ -22,6 +25,10 @@ export default {
   <section class='article'>
     <article-header v-bind="{ className: { displayTitle: 'text' }, ...article }"/>
     <span v-show='article.body' v-html='article.body'></span>
+    <share-buttons v-bind="{
+      url,
+      displayTitle: article.displayTitle,
+    }"/>
   </section>
 </template>
 <style scoped lang='scss'>

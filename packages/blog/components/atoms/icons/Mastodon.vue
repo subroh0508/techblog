@@ -5,7 +5,7 @@
   </svg>
 </template>
 <style scoped lang='scss'>
-@import '../../../color';
+@import '../../color';
 
 svg {
   path:last-child {
