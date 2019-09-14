@@ -1,11 +1,11 @@
 <script>
-import SiteHeader from './molecules/SiteHeader';
-import FooterView from './global/footer/Footer';
+import SiteHeader from './organisms/SiteHeader';
+import SiteFooter from './organisms/SiteFooter';
 
 export default {
   components: {
     SiteHeader,
-    FooterView,
+    SiteFooter,
   },
 }
 </script>
@@ -13,7 +13,7 @@ export default {
   <div>
     <site-header/>
     <router-view/>
-    <footer-view/>
+    <site-footer/>
   </div>
 </template>
 <style src='./_global.scss'/>

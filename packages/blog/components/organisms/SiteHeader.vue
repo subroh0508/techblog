@@ -7,6 +7,13 @@ export default {
   components: {
     NavMenu,
   },
+  data: () => ({
+    menuList: [
+      { name: 'articles', display: 'Articles' },
+      { name: 'about', display: 'About' },
+      { name: 'links', display: 'Links' },
+    ],
+  }),
   methods: {
     redirectTo: (name) => {
       const currentName = router.currentRoute.name;
@@ -24,14 +31,7 @@ export default {
 <template>
   <section class="header">
     <h1 class='site-name' v-on:click="redirectTo('home')">横須賀第765管区情報局</h1>
-    <nav-menu v-bind="{
-      menuList: [
-        { name: 'articles', display: 'Articles' },
-        { name: 'about', display: 'About' },
-        { name: 'links', display: 'Links' },
-      ],
-      onClick: redirectTo
-    }"/>
+    <nav-menu v-bind="{ menuList, onClick: redirectTo }"/>
   </section>
 </template>
 <style scoped lang="scss" >
