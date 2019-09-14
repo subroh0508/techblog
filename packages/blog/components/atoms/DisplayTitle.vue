@@ -8,10 +8,20 @@ export default {
     value: String,
     onClick: Function,
   },
+  methods: {
+    handleOnClick() {
+      if (this.className === 'text') return;
+
+      this.onClick();
+    },
+  }
 }
 </script>
 <template>
-  <h2 v-bind:class="'title is-' + className" v-on:click='onClick()'>{{ value }}</h2>
+  <h2
+    v-bind:class="'title is-' + className"
+    v-on:click='handleOnClick()'
+  >{{ value }}</h2>
 </template>
 <style scoped lang='scss'>
 .title {

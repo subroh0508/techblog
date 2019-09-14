@@ -11,6 +11,10 @@ export default {
     Tagbar,
   },
   props: {
+    className: {
+      type: Object,
+      default: () => ({ displayTitle: 'link', publishedAt: 'subtitle' }),
+    },
     title: String,
     displayTitle: String,
     publishedAt: Date,
@@ -25,8 +29,15 @@ export default {
 </script>
 <template>
   <div>
-    <date v-bind="{ className: 'subtitle', value: publishedAt }"/>
-    <display-title v-bind="{ className: 'link', value: displayTitle, onClick: openArticle.bind(null, title) }"/>
+    <date v-bind="{
+      className: className.publishedAt,
+      value: publishedAt
+    }"/>
+    <display-title v-bind="{
+      className: className.displayTitle,
+      value: displayTitle,
+      onClick: openArticle.bind(null, title)
+    }"/>
     <tagbar v-bind='{ tags }'/>
   </div>  
 </template>

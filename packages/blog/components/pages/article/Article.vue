@@ -1,4 +1,6 @@
 <script>
+import ArticleHeader from '../../molecules/ArticleHeader';
+
 import articles from '@techblog/articles/build/list';
 
 const findArticle = async title => {
@@ -11,12 +13,15 @@ const findArticle = async title => {
 
   return {
     ...fullArticle,
-    publishedAtFormatted: `${publishedAt.getFullYear()}/${publishedAt.getMonth().toString().padStart(2, '0')}/${publishedAt.getDate().toString().padStart(2, '0')}`,
-    updatedAtFormatted: `${updatedAt.getFullYear()}/${updatedAt.getMonth().toString().padStart(2, '0')}/${updatedAt.getDate().toString().padStart(2, '0')}`,
+    publishedAt: new Date(fullArticle.publishedAt),
+    updatedAt: new Date(fullArticle.updatedAt),
   }
 };
 
 export default {
+  components: {
+    ArticleHeader,
+  },
   props: {
     title: String,
   },
@@ -28,5 +33,34 @@ export default {
   }
 }
 </script>
-<template src='./article.html'/>
-<style src='./article.scss'/>
+<template>
+  <section class='article'>
+    <article-header v-bind="{ className: { displayTitle: 'text' }, ...article }"/>
+    <span v-show='article.body' v-html='article.body'></span>
+  </section>
+</template>
+<style scoped lang='scss'>
+@import '../../color';
+
+.article /deep/ {
+  h1, h2, h3, h4, h5, h6 {
+    &:hover > a[data-hash-link] {
+      opacity: 1;
+    }
+  }
+  a[data-hash-link] {
+    display: inline-block;
+    margin-left: -1em;
+    padding-right: 0.3em;
+    color: $text;
+
+    text-decoration: none;
+
+    opacity: 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+</style>
