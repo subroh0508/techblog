@@ -45,10 +45,21 @@ export default {
 .article /deep/ {
   @import 'highlight.js/styles/androidstudio';
 
-  pre > code {
+  pre {
+    background: $code-background;
     border-radius: 0.25rem;
 
-    &.hljs {
+    > div.filename {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0 0.5em;
+      border-radius: 0.25rem;
+      color: $light-text;
+    }
+
+    > code.hljs {
+      margin: 0;
+      border: none;
       font-size: 1.2rem;
     }
   }

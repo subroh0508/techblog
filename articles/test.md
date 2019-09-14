@@ -24,7 +24,7 @@ __斜体__
 
 文中では`fun hogeString(): String = "aaa"`こんな感じでハイライトが効くよ
 
-```kotlin
+```kotlin:test.kt
 fun test() {
     val test: String = "test"
     println(test.split('').joinToString("/"))
