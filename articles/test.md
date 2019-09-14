@@ -22,7 +22,7 @@ tags:
 **太字**
 __斜体__
 
-`fun hogeString(): String = "aaa"`
+文中では`fun hogeString(): String = "aaa"`こんな感じでハイライトが効くよ
 
 ```kotlin
 fun test() {
@@ -31,5 +31,5 @@ fun test() {
 }
 ```
 
-[Google先生](https://google.co.jp)
+文中リンクは[Google先生](https://google.co.jp)こんな感じになるよ
 ![担当](https://millionlive.info/?plugin=attach&refer=%E7%9C%9F%E5%A3%81%E7%91%9E%E5%B8%8C&openfile=%E7%91%9E%E5%B8%8C.png)

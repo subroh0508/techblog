@@ -1,8 +1,11 @@
 @import './color';
 
+html {
+  font-family: 'Nunito Sans', 'M PLUS 1p', 'sans-serif';
+}
+
 body {
   background-color: $background;
-  font-family: 'Nunito Sans', 'M PLUS 1p', 'sans-serif';
   font-size: 18px;
   line-height: 1.85;
   color: $text;
@@ -54,7 +57,24 @@ tbody {
   }
 }
 a {
+  font-weight: bold;
   text-decoration: underline;
-  color: $link-text;
+  color: $text;
   cursor: pointer;
+
+  &:hover {
+    color: $link-text;
+  }
+}
+code {
+  font-family: 'Inconsolata', monospace;
+  padding: 2px 4px;
+  margin: 0 2px;
+  border: 1px solid $inline-code-border;
+  border-radius: 4px;
+  background-color: $inline-code-background;
+  color: $inline-code-text;
+}
+img {
+  max-width: 100%;
 }

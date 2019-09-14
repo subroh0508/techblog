@@ -22,6 +22,7 @@ mdRenderer.link = (href, title, text) => href.match(/^(https?:\/\/|\/\/)/)
 const options = {
   gfm: true,
   breaks: true,
+  langPrefix: 'hljs ',
   highlight(code, lang) {
     return lang ? highlight(lang, code).value : highlightAuto(code).value
   },

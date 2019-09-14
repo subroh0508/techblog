@@ -43,6 +43,16 @@ export default {
 @import '../../color';
 
 .article /deep/ {
+  @import 'highlight.js/styles/androidstudio';
+
+  pre > code {
+    border-radius: 0.25rem;
+
+    &.hljs {
+      font-size: 1.2rem;
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
     &:hover > a[data-hash-link] {
       opacity: 1;
