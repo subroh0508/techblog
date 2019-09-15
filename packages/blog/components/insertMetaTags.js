@@ -18,7 +18,7 @@ export default (to) => {
       forHome();
       break;  
   }
-}
+};
 
 const SITE_NAME = '横須賀第765管区情報局';
 
@@ -45,7 +45,7 @@ const forArticles = (query) => {
       '全ての記事',
     );
   }
-}
+};
 
 const forAbout = () => setAllAttributes(
   TYPE_WEBSITE,
@@ -59,14 +59,17 @@ const forLinks = () => setAllAttributes(
   '筆者のネットにおける位置情報',
 );
 
-const forArticle = ({ displayTitle, description }) => setAllAttributes(
+const forArticle = ({ displayTitle, description, publishedAt, updatedAt, tags }) => setAllAttributes(
   TYPE_ARTICLE,
   `${displayTitle} - ${SITE_NAME}`,
   description,
+  publishedAt,
+  updatedAt,
+  tags,
 );
 
 const setAllAttributes = (
-  type, title, description,
+  type, title, description, publishedAt, updatedAt, tags,
 ) => {
   document.title = title;
   document.querySelector("meta[name='description']")
@@ -81,10 +84,60 @@ const setAllAttributes = (
   document.querySelector("meta[property='og:url']")
     .setAttribute('content', window.location.href);
 
+  removeArticleTags();
+  if (type === TYPE_ARTICLE) {
+    appendArticleTags(publishedAt, updatedAt, tags);
+  }
+
   document.querySelector("meta[name='twitter:title']")
     .setAttribute('content', title);
   document.querySelector("meta[name='twitter:description']")
     .setAttribute('content', type === TYPE_ARTICLE ? description : '');
   document.querySelector("meta[name='twitter:url']")
     .setAttribute('content', window.location.href);
-}
+};
+
+const appendArticleTags = (publishedAt, updatedAt, tags) => {
+  const fragment = document.createDocumentFragment();
+
+  const published = document.createElement('meta');
+  const modified = document.createElement('meta');
+  const author = document.createElement('meta');
+
+  published.setAttribute('property', 'article:published_time');
+  modified.setAttribute('property', 'article:modified_time');
+  author.setAttribute('property', 'article:author');
+
+  published.setAttribute('content', publishedAt);
+  modified.setAttribute('content', updatedAt);
+  author.setAttribute('content', 'subroh_0508');
+
+  fragment.appendChild(published);
+  fragment.appendChild(modified);
+  fragment.appendChild(author);
+
+  tags.forEach(t => {
+    const tag = document.createElement('meta');
+    tag.setAttribute('property', 'article:tag');
+    tag.setAttribute('content', t);
+    fragment.appendChild(tag);
+  })
+
+  document.head.appendChild(fragment);
+};
+
+const removeArticleTags = () => {
+  const published = document.querySelector("meta[property='article:published_time']");
+  const modified = document.querySelector("meta[property='article:modified_time']");
+  const author = document.querySelector("meta[property='article:author']");
+  const tags = document.querySelectorAll("meta[property='article:tag']");
+
+  const head = document.head;
+
+  if (published) head.removeChild(published);
+  if (modified) head.removeChild(modified);
+  if (author) head.removeChild(author);
+  if (tags.length) {
+    tags.forEach(tag => head.removeChild(tag));
+  }
+};
