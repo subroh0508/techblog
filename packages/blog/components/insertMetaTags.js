@@ -70,14 +70,21 @@ const setAllAttributes = (
 ) => {
   document.title = title;
   document.querySelector("meta[name='description']")
-    .setAttribute('content', description)
+    .setAttribute('content', description);
 
   document.querySelector("meta[property='og:type']")
-    .setAttribute('content', type)
+    .setAttribute('content', type);
   document.querySelector("meta[property='og:title']")
-    .setAttribute('content', title)
+    .setAttribute('content', title);
   document.querySelector("meta[property='og:description']")
-    .setAttribute('content', description)
+    .setAttribute('content', description);
   document.querySelector("meta[property='og:url']")
-    .setAttribute('content', window.location.href)
+    .setAttribute('content', window.location.href);
+
+  document.querySelector("meta[name='twitter:title']")
+    .setAttribute('content', title);
+  document.querySelector("meta[name='twitter:description']")
+    .setAttribute('content', type === TYPE_ARTICLE ? description : '');
+  document.querySelector("meta[name='twitter:url']")
+    .setAttribute('content', window.location.href);
 }
