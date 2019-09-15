@@ -1,22 +1,29 @@
 <script>
 export default {
   props: {
-    name: String,
     href: String,
   },
 }
 </script>
 <template>
-  <a class='share-button' v-bind:href='href'><slot/></a>
+  <a class='share-button' target='_blank' v-bind:href='href'><slot/></a>
 </template>
 <style scoped lang='scss'>
+@import '../color';
+
 .share-button {
-  width: 32px;
-  height: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  height: 44px;
+  width: 44px;
+  box-shadow: inset 0 0 0 2px $title;
+  border-radius: 100%;
 
   > svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 }
 </style>
