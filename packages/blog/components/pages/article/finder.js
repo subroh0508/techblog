@@ -1,7 +1,9 @@
 import articles from '@techblog/articles/build/list';
 
-export const findArticle = async title => {
-  const article = articles.find(a => a.title === title);
+export const findArticle = title => articles.find(a => a.title === title);
+
+export const findFullArticle = async title => {
+  const article = findArticle(title);
   if (!article) {
     return null;
   }
@@ -30,4 +32,4 @@ export const searchArticles = query => {
   })).sort((a, b) => b.updatedAt - a.updatedAt)
 };
 
-export default { searchArticles, findArticle };
+export default { searchArticles, findArticle, findFullArticle };

@@ -2,7 +2,7 @@
 import ArticleHeader from '../../molecules/ArticleHeader';
 import ShareButtons from '../../organisms/ShareButtons';
 
-import { findArticle } from './finder';
+import { findFullArticle } from './finder';
 
 export default {
   components: {
@@ -17,7 +17,7 @@ export default {
     url: window.location.href,
   }),
   async created() {
-    this.article = await findArticle(this.title);
+    this.article = await findFullArticle(this.title);
   }
 }
 </script>
