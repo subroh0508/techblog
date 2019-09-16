@@ -7,22 +7,28 @@ export default {
   components: {
     ArticlesTemplate,
   },
-  data() {
-    return {
-      articles: searchArticles(this.$route.query),
-    };
+  data: () => ({
+    articles: [],
+  }),
+  mounted() {
+    this.articles = searchArticles(this.$route.query);
   },
-  methods: {
-    title() {
+  computed: {
+    title: function() {
       return this.$route.query.tag ? `タグ: ${this.$route.query.tag}` : '全ての記事';
-    }
+    },
   },
+  watch: {
+    '$route.query': function() {
+      this.articles = searchArticles(this.$route.query)
+    },
+  }
 }
 </script>
 <template>
   <section class='articles'>
     <articles-template v-bind="{ articles }">
-      {{ title() }}
+      {{ title }}
     </articles-template>
   </section>  
 </template>
