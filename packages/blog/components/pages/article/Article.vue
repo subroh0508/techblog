@@ -18,11 +18,17 @@ export default {
   }),
   async created() {
     this.article = await findFullArticle(this.title);
+  },
+  computed: {
+    notFound() {
+      return this.article === null;
+    }
   }
 }
 </script>
 <template>
-  <section class='article'>
+  <not-found v-if='notFound'/>
+  <section class='article' v-else>
     <article-header v-bind="{ className: { displayTitle: 'text' }, ...article }"/>
     <span v-show='article.body' v-html='article.body'></span>
     <share-buttons v-bind="{

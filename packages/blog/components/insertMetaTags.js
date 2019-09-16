@@ -12,7 +12,8 @@ export default (to) => {
       forLinks();
       break;
     case 'article':
-      forArticle(findArticle(to.params.title));
+      const article = findArticle(to.params.title)
+      article ? forArticle(article) : forHome();
       break;
     default:
       forHome();
