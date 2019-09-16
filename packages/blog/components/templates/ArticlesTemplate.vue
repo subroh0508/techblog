@@ -17,6 +17,9 @@ export default {
 
       return articles.slice(0, (page + 1) * limit);
     },
+    emptyItems: function() {
+      return !this.articles.length;
+    },
     showLoadOlder: function() {
       const { pagination, articles, limit, page } = this;
 
@@ -44,6 +47,7 @@ export default {
     <div class='load-older' v-show='showLoadOlder'>
       <a v-on:click='loadOlder()'>次の{{ limit }}件</a>
     </div>
+    <div class='empty' v-show='emptyItems'>記事が見つかりません😴</div>
   </div>
 </template>
 <style scoped lang='scss'>
@@ -57,6 +61,9 @@ export default {
     margin-bottom: $margin-bottom;
     display: flex;
     justify-content: center;
+  }
+  .empty {
+    padding: 48px 0;
   }
 }
 </style>

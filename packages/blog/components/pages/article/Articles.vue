@@ -9,18 +9,16 @@ export default {
   },
   data: () => ({
     articles: [],
+    title: '全ての記事',
   }),
   mounted() {
     this.articles = searchArticles(this.$route.query);
-  },
-  computed: {
-    title: function() {
-      return this.$route.query.tag ? `タグ: ${this.$route.query.tag}` : '全ての記事';
-    },
+    this.title = this.$route.query.tag ? `タグ: ${this.$route.query.tag}` : '全ての記事';
   },
   watch: {
     '$route.query': function() {
-      this.articles = searchArticles(this.$route.query)
+      this.articles = searchArticles(this.$route.query);
+      this.title = this.$route.query.tag ? `タグ: ${this.$route.query.tag}` : '全ての記事';
     },
   }
 }

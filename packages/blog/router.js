@@ -20,4 +20,7 @@ export default new VueRouter({
     { path: '/links', name: 'links', component: Links },
     { path: '*', component: NotFound },
   ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  },
 });
