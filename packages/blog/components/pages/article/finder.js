@@ -17,7 +17,7 @@ export const findFullArticle = async title => {
   };
 };
 
-export const searchArticles = query => {
+export const searchArticles = (query = {}) => {
   const list = [];
   if (!Object.keys(query).length) {
     list.push(...articles);
