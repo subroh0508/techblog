@@ -52,13 +52,10 @@ export default {
 </template>
 <style scoped lang='scss'>
 .articles-template {
-  $margin-bottom: 48px;
-
   .article-list {
-    margin: 36px 0 $margin-bottom;
+    margin: 36px 0 48px;
   }
   .load-older {
-    margin-bottom: $margin-bottom;
     display: flex;
     justify-content: center;
   }
