@@ -1,12 +1,12 @@
 <script>
 export default {
   props: {
-    href: String,
+    onClick: Function,
   },
 }
 </script>
 <template>
-  <a class='share-button' target='_blank' v-bind:href='href'><slot/></a>
+  <a class='share-button' v-on:click='onClick()'><slot/></a>
 </template>
 <style scoped lang='scss'>
 @import '../color';

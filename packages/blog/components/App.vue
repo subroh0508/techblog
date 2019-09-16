@@ -3,6 +3,7 @@ import SiteHeader from './organisms/SiteHeader';
 import SiteFooter from './organisms/SiteFooter';
 
 import insertMetaTags from './insertMetaTags';
+import { updateConfig } from './analytics';
 
 export default {
   components: {
@@ -10,10 +11,12 @@ export default {
     SiteFooter,
   },
   mounted() {
+    updateConfig(this.$route);
     insertMetaTags(this.$route);
   },
   watch: {
     '$route': function (to, from) {
+      updateConfig(to);
       insertMetaTags(to);
     }
   }

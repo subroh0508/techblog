@@ -4,6 +4,12 @@ import FacebookIcon from '../atoms/icons/Facebook';
 import HatenaIcon from '../atoms/icons/Hatena';
 import PocketIcon from '../atoms/icons/Pocket';
 import ShareButton from '../atoms/ShareButton';
+import {
+  trackTwitterShare,
+  trackFacebookShare,
+  trackHatenaShare,
+  trackPocketShare,
+} from '../analytics';
 
 export default {
   components: {
@@ -14,45 +20,58 @@ export default {
     ShareButton,
   },
   props: {
+    title: String,
     displayTitle: String,
     url: String,
   },
   methods: {
-    hrefForTwitter() {
-      return 'https://twitter.com/intent/tweet' +
+    shareOnTwitter() {
+      const url = 'https://twitter.com/intent/tweet' +
         `?url=${encodeURIComponent(this.url)}` +
         `&text=${encodeURIComponent(this.displayTitle + ' - 横須賀第765管区情報局')}`;
+
+      trackTwitterShare(this.title);
+      window.open(url, '_blank');
     },
-    hrefForFacebook() {
-      return 'https://www.facebook.com/dialog/share' +
+    shareOnFacebook() {
+      const url = 'https://www.facebook.com/dialog/share' +
         '?app_id=510289996426924' +
         '&display=popup' +
         `&href=${encodeURIComponent(this.url)}` +
         `&redirect_uri=${encodeURIComponent(this.url)}`;
+
+      trackFacebookShare(this.title);
+      window.open(url, '_blank');
     },
-    hrefForHatena() {
-      return `https://b.hatena.ne.jp/entry/s/${this.url.replace('https:://', '')}`;
+    shareOnHatena() {
+      const url = `https://b.hatena.ne.jp/entry/s/${this.url.replace('https:://', '')}`;
+
+      trackHatenaShare(this.title);
+      window.open(url, '_blank');
     },
-    hrefForPocket() {
-      return 'https://getpocket.com/edit' +
+    shareOnPocket() {
+      const url = 'https://getpocket.com/edit' +
         `?url=${encodeURIComponent(this.url)}` +
         `&title=${encodeURIComponent(this.displayTitle + ' - 横須賀第765管区情報局')}`;
+
+      trackPocketShare(this.title);
+      window.open(url, '_blank');
     },
   },
 }
 </script>
 <template>
   <div class='share-buttons'>
-    <share-button v-bind:href='hrefForTwitter()'>
+    <share-button v-bind:onClick='shareOnTwitter'>
       <twitter-icon/>
     </share-button>
-    <share-button v-bind:href='hrefForFacebook()'>
+    <share-button v-bind:onClick='shareOnFacebook'>
       <facebook-icon/>
     </share-button>
-    <share-button v-bind:href='hrefForHatena()'>
+    <share-button v-bind:onClick='shareOnHatena'>
       <hatena-icon/>
     </share-button>
-    <share-button v-bind:href='hrefForPocket()'>
+    <share-button v-bind:onClick='shareOnPocket'>
       <pocket-icon/>
     </share-button>
   </div>

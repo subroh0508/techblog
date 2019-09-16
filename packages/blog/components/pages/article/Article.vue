@@ -27,6 +27,7 @@ export default {
     <span v-show='article.body' v-html='article.body'></span>
     <share-buttons v-bind="{
       url,
+      title: article.title,
       displayTitle: article.displayTitle,
     }"/>
   </section>
