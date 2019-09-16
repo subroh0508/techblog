@@ -37,6 +37,7 @@ export default {
 <style scoped lang="scss" >
 .header {
   display: flex;
+  margin: 0 auto;
 
   .site-name {
     flex: 2;
