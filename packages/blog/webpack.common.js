@@ -1,16 +1,13 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: ['@babel/polyfill', './index.js'],
   output: {
     path: path.resolve(__dirname, './build'),
     publicPath: '/',
-    filename: 'bundle.js',
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, './public'),
-    historyApiFallback: true,
+    filename: '[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -45,5 +42,8 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: './index.template.html',
+    }),
   ],
 };
