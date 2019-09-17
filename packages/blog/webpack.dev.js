@@ -12,4 +12,12 @@ module.exports = merge(common, {
     ],  
     historyApiFallback: true,
   },
+  module: {
+    rules: [
+      {
+        test: /(\.css|\.scss)/,
+        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
 });
