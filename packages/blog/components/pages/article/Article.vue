@@ -1,8 +1,8 @@
 <script>
-import ArticleHeader from '../../molecules/ArticleHeader';
-import ShareButtons from '../../organisms/ShareButtons';
+import ArticleHeader from '@components/molecules/ArticleHeader';
+import ShareButtons from '@components/organisms/ShareButtons';
 
-import { findFullArticle } from './finder';
+import { findFullArticle } from '@components/pages/article/finder';
 
 export default {
   components: {
@@ -39,7 +39,7 @@ export default {
   </section>
 </template>
 <style scoped lang='scss'>
-@import '../../color';
+@import '~@components/_color';
 
 .article /deep/ {
   @import 'highlight.js/styles/androidstudio';

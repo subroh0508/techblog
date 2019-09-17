@@ -1,7 +1,7 @@
 <script>
-import router from '../../router';
-import OutlinedButton from '../atoms/OutlinedButton';
-import ArticleHeader from '../molecules/ArticleHeader';
+import router from 'app-router';
+import OutlinedButton from '@components/atoms/OutlinedButton';
+import ArticleHeader from '@components/molecules/ArticleHeader';
 
 export default {
   components: {

@@ -12,7 +12,7 @@ export default {
   </div>
 </template>
 <style scoped lang='scss'>
-@import '../color';
+@import '~@components/_color';
 
 .bar {
   margin: 0 0 12px;

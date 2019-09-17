@@ -1,8 +1,8 @@
 <script>
-import router from '../../router';
-import Date from '../atoms/Date';
-import DisplayTitle from '../atoms/DisplayTitle';
-import Tagbar from '../atoms/Tagbar';
+import router from 'app-router';
+import Date from '@components/atoms/Date';
+import DisplayTitle from '@components/atoms/DisplayTitle';
+import Tagbar from '@components/atoms/Tagbar';
 
 export default {
   components: {

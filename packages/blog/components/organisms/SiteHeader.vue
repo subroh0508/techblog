@@ -1,7 +1,7 @@
 <script>
-import router from '../../router';
+import router from 'app-router';
 
-import NavMenu from '../atoms/NavMenu';
+import NavMenu from '@components/atoms/NavMenu';
 
 export default {
   components: {
@@ -35,7 +35,7 @@ export default {
   </section>
 </template>
 <style scoped lang="scss" >
-@import '../breakpoints';
+@import '~@components/_breakpoints';
 
 .header {
   display: flex;

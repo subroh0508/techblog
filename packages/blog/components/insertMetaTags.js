@@ -1,4 +1,4 @@
-import { findArticle } from './pages/article/finder';
+import { findArticle } from '@components/pages/article/finder';
 
 export default (to) => {
   switch (to.name) {

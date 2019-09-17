@@ -1,12 +1,12 @@
 <script>
-import GithubIcon from '../../atoms/icons/Github';
-import MastodonIcon from '../../atoms/icons/Mastodon';
-import TwitterIcon from '../../atoms/icons/Twitter';
+import GithubIcon from '@components/atoms/icons/Github';
+import MastodonIcon from '@components/atoms/icons/Mastodon';
+import TwitterIcon from '@components/atoms/icons/Twitter';
 import {
   trackRedirectToTwitter,
   trackRedirectToMastodon,
   trackRedirectToGithub,
-} from '../../analytics';
+} from '@components/analytics';
 
 export default {
   components: {

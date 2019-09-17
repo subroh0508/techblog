@@ -1,5 +1,5 @@
 <script>
-import ArticleSummary from '../organisms/ArticleSummary';
+import ArticleSummary from '@components/organisms/ArticleSummary';
 
 export default {
   components: {

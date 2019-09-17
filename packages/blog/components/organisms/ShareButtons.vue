@@ -1,15 +1,15 @@
 <script>
-import TwitterIcon from '../atoms/icons/Twitter';
-import FacebookIcon from '../atoms/icons/Facebook';
-import HatenaIcon from '../atoms/icons/Hatena';
-import PocketIcon from '../atoms/icons/Pocket';
-import ShareButton from '../atoms/ShareButton';
+import TwitterIcon from '@components/atoms/icons/Twitter';
+import FacebookIcon from '@components/atoms/icons/Facebook';
+import HatenaIcon from '@components/atoms/icons/Hatena';
+import PocketIcon from '@components/atoms/icons/Pocket';
+import ShareButton from '@components/atoms/ShareButton';
 import {
   trackTwitterShare,
   trackFacebookShare,
   trackHatenaShare,
   trackPocketShare,
-} from '../analytics';
+} from '@components/analytics';
 
 export default {
   components: {

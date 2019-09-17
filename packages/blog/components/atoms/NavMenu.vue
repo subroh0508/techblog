@@ -16,7 +16,7 @@ export default {
   </nav>
 </template>
 <style scoped lang='scss'>
-@import '../breakpoints';
+@import '~@components/_breakpoints';
 
 .nav-menu {
   display: flex;

@@ -23,7 +23,7 @@ export default {
   <span v-bind:class="'date-' + className">{{ format(value) }}</span>
 </template>
 <style scoped lang='scss'>
-@import '../color';
+@import '~@components/_color';
 
 .date {
   &-title {

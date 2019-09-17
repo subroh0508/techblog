@@ -11,7 +11,7 @@ export default {
   </a>
 </template>
 <style scoped lang='scss'>
-@import '../color';
+@import '~@components/_color';
 
 .outlined-button {
   height: 33px;

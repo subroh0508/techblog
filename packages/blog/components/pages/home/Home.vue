@@ -1,7 +1,7 @@
 <script>
-import ArticlesTemplate from '../../templates/ArticlesTemplate';
+import ArticlesTemplate from '@components/templates/ArticlesTemplate';
 
-import { searchArticles } from '../../pages/article/finder';
+import { searchArticles } from '@components/pages/article/finder';
 
 export default {
   components: {

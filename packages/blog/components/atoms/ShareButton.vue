@@ -9,7 +9,7 @@ export default {
   <a class='share-button' v-on:click='onClick()'><slot/></a>
 </template>
 <style scoped lang='scss'>
-@import '../color';
+@import '~@components/_color';
 
 .share-button {
   display: flex;
