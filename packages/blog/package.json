@@ -23,6 +23,8 @@
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.3",
+    "webpack-bundle-analyzer": "^3.5.0",
+    "webpack-cdn-plugin": "^3.1.4",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.2"
@@ -39,6 +41,7 @@
   },
   "scripts": {
     "dev": "yarn run webpack-dev-server --config webpack.dev.js",
-    "build": "yarn run rimraf ./build && yarn run webpack --config webpack.prod.js"
+    "build": "yarn run rimraf ./build && yarn run webpack --config webpack.prod.js",
+    "analyze": "yarn run rimraf ./build && yarn run webpack --config webpack.analyze.js"
   }
 }
