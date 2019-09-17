@@ -35,6 +35,8 @@ export default {
   </section>
 </template>
 <style scoped lang="scss" >
+@import '../breakpoints';
+
 .header {
   display: flex;
   margin: 0 auto;
@@ -48,4 +50,20 @@ export default {
     flex: 1;
   }
 }
+
+@media screen and (max-width: $breakpoint-md) {
+  .header {
+    display: block;
+    margin: 0;
+
+    .site-name {
+      margin: 24px 0 0;
+    }
+    nav {
+      margin: 0;
+      justify-content: flex-end;
+    }
+  }
+}
+
 </style>

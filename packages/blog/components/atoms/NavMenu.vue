@@ -16,6 +16,8 @@ export default {
   </nav>
 </template>
 <style scoped lang='scss'>
+@import '../breakpoints';
+
 .nav-menu {
   display: flex;
   align-items: center;
@@ -29,6 +31,12 @@ export default {
       > a {
         padding: 0 10px;
       }
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    > ul {
+      margin-top: 0;
     }
   }
 }
