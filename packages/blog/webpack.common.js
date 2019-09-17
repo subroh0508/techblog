@@ -23,7 +23,7 @@ module.exports = {
   },
   externals: {
     vue: 'Vue',
-    'vue-router': 'VueRouter', 
+    'vue-router': 'VueRouter',
   },
   module: {
     rules: [
@@ -52,12 +52,12 @@ module.exports = {
         {
           name: 'vue',
           var: 'Vue',
-          path: 'dist/vue.js',
+          path: `dist/vue.${mode === 'production' ? 'min.' : ''}js`,
         },
         {
           name: 'vue-router',
           var: 'VueRouter',
-          path: 'dist/vue-router.js',
+          path: `dist/vue-router.${mode === 'production' ? 'min.' : ''}js`,
         },
       ],
       prod: mode === 'production',
