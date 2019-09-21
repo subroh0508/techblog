@@ -7,7 +7,7 @@ const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: ['@babel/polyfill', path.resolve(__dirname, './index.js')],
+  entry: ['core-js', 'regenerator-runtime/runtime', path.resolve(__dirname, './index.js')],
   output: {
     path: path.resolve(__dirname, './build'),
     publicPath: '/',
