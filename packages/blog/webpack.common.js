@@ -56,7 +56,7 @@ module.exports = {
         },
         {
           name: 'regenerator-runtime',
-          path: `runtime.js`,
+          path: 'runtime.js',
           prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
         },
         {
