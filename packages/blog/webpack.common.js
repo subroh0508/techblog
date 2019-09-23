@@ -7,7 +7,7 @@ const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: ['core-js', 'regenerator-runtime/runtime', path.resolve(__dirname, './index.js')],
+  entry: path.resolve(__dirname, './index.js'),
   output: {
     path: path.resolve(__dirname, './build'),
     publicPath: '/',
@@ -24,6 +24,7 @@ module.exports = {
   externals: {
     vue: 'Vue',
     'vue-router': 'VueRouter',
+    'core-js-bundle': 'core-js-bundle',
   },
   module: {
     rules: [
@@ -50,14 +51,23 @@ module.exports = {
     new WebpackCdnPlugin({
       modules: [
         {
+          name: 'core-js-bundle',
+          path: `${mode === 'production' ? 'minified' : 'index'}.js`,
+        },
+        {
+          name: 'regenerator-runtime',
+          path: `runtime.js`,
+          prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
+        },
+        {
           name: 'vue',
           var: 'Vue',
-          path: `dist/vue.${mode === 'production' ? 'min.' : ''}js`,
+          path: `dist/vue${mode === 'production' ? '.min' : ''}.js`,
         },
         {
           name: 'vue-router',
           var: 'VueRouter',
-          path: `dist/vue-router.${mode === 'production' ? 'min.' : ''}js`,
+          path: `dist/vue-router${mode === 'production' ? '.min' : ''}.js`,
         },
       ],
       prod: mode === 'production',
