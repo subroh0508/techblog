@@ -1,6 +1,9 @@
 import { findArticle } from '@components/pages/article/finder';
+import { removeLinkTag } from '@components/prerenderLink';
 
 export default (to) => {
+  removeLinkTag();
+
   switch (to.name) {
     case 'articles':
       forArticles(to.query);

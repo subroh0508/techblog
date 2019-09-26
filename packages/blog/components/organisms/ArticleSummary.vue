@@ -1,5 +1,6 @@
 <script>
 import router from 'app-router';
+import { removeLinkTag, appendLinkTag } from '@components/prerenderLink';
 import OutlinedButton from '@components/atoms/OutlinedButton';
 import ArticleHeader from '@components/molecules/ArticleHeader';
 
@@ -12,14 +13,18 @@ export default {
     article: Object,
   },
   methods: {
-    readMore: (title) => {
+    readMore: title => {
       router.push({ name: 'article', params: { title } });
+    },
+    prerender: title => {
+      removeLinkTag();
+      appendLinkTag(`/articles/${title}`);
     },
   },
 }
 </script>
 <template>
-  <div class='article-summary'>
+  <div class='article-summary' v-on:mouseover='prerender(article.title)'>
     <article-header v-bind='article'/>
     <div>
       {{ article.description }}
