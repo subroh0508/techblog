@@ -8,7 +8,7 @@ export const findFullArticle = async title => {
     return null;
   }
 
-  const fullArticle = await import(`@techblog/articles/build/articles/${title}`);
+  const fullArticle = await import(/* webpackPreload: true */ `@techblog/articles/build/articles/${title}`);
 
   return {
     ...fullArticle,
