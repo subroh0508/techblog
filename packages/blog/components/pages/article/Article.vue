@@ -20,6 +20,9 @@ export default {
     this.article = await findFullArticle(this.title);
   },
   computed: {
+    loading() {
+      return !Object.keys(this.article).length;
+    },
     notFound() {
       return this.article === null;
     }
@@ -28,6 +31,7 @@ export default {
 </script>
 <template>
   <not-found v-if='notFound'/>
+  <div v-else-if='loading'/>
   <section class='article' v-else>
     <article-header v-bind="{ className: { displayTitle: 'text' }, ...article }"/>
     <span v-show='article.body' v-html='article.body'></span>
