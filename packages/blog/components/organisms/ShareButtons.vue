@@ -44,7 +44,7 @@ export default {
       window.open(url, '_blank');
     },
     shareOnHatena() {
-      const url = `https://b.hatena.ne.jp/entry/s/${this.url.replace('https:://', '')}`;
+      const url = `https://b.hatena.ne.jp/entry/s/${this.url.replace('https://', '')}`;
 
       trackHatenaShare(this.title);
       window.open(url, '_blank');
