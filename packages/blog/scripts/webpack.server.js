@@ -16,7 +16,7 @@ module.exports = merge(common, {
   }),
   output: {
     ...common.output,
-    path: path.resolve(__dirname, '../build/server'),
+    path: path.resolve(__dirname, '../functions/assets'),
     filename: 'server.[chunkhash].js',
     libraryTarget: 'commonjs2',
   },
@@ -34,6 +34,8 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'common.[chunkhash].css',
     }),
-    new VueSSRServerPlugin(),
+    new VueSSRServerPlugin({
+      filename: 'server-bundle.json',
+    }),
   ],
 });

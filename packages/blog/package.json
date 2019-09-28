@@ -44,10 +44,10 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
-    "prod": "node server",
-    "build": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
-    "build:client": "yarn run rimraf ./build/client && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",
-    "build:server": "yarn run rimraf ./build/server && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
+    "prod": "node ./functions/server",
+    "build": "yarn run rimraf ./build && yarn run rimraf ./functions/assets && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
+    "build:client": "yarn run rimraf ./build/client && yarn run rimraf ./functions/assets/index.html && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",
+    "build:server": "yarn run rimraf ./functions/assets/server-bundle.json && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
     "analyze": "yarn run rimraf ./build/client && NODE_ENV=production yarn run webpack --config scripts/webpack.client-analyze.js"
   }
 }

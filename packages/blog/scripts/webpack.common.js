@@ -39,7 +39,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../index.template.html'),
-      filename: '../index.html',
+      filename: path.resolve(__dirname, '../functions/assets/index.html'),
     }),
     new webpack.DefinePlugin({
       'process.env': {
