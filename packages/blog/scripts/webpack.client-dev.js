@@ -1,10 +1,14 @@
-const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',
+  entry: [
+    'core-js',
+    'regenerator-runtime/runtime',
+    path.resolve(__dirname, '../entry-client.js'),
+  ],
   devtool: 'inline-source-map',
   devServer: {
     contentBase: [
