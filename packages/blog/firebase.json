@@ -1,7 +1,8 @@
 {
   "hosting": {
-    "public": "build",
+    "public": "build/client",
     "ignore": [
+      "index.html",
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
@@ -9,8 +10,13 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/index.html"
+        "function": "ritsuko"
       }
+    ]
+  },
+  "functions": {
+    "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" run lint"
     ]
   }
 }
