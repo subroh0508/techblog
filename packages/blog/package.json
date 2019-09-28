@@ -42,8 +42,8 @@
     ]
   },
   "scripts": {
-    "dev": "NODE_ENV=development yarn run webpack-dev-server --config webpack.dev.js",
-    "build": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config webpack.prod.js",
-    "analyze": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config webpack.analyze.js"
+    "dev": "NODE_ENV=development yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
+    "build": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",
+    "analyze": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config scripts/webpack.client-analyze.js"
   }
 }

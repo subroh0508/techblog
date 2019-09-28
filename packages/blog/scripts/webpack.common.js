@@ -7,9 +7,9 @@ const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: path.resolve(__dirname, './index.js'),
+  entry: path.resolve(__dirname, '../index.js'),
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, '../build'),
     publicPath: '/',
     filename: '[name].[chunkhash].js',
   },
@@ -17,8 +17,8 @@ module.exports = {
     extensions: ['.js', '.vue'],
     alias: {
       vue$: 'vue/dist/vue.esm.js',
-      '@components': path.resolve(__dirname, './components'),
-      'app-router': path.resolve(__dirname, './router.js'),
+      '@components': path.resolve(__dirname, '../components'),
+      'app-router': path.resolve(__dirname, '../router.js'),
     },
   },
   externals: {
@@ -46,7 +46,7 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: './index.template.html',
+      template: path.resolve(__dirname, '../index.template.html'),
     }),
     new WebpackCdnPlugin({
       modules: [
@@ -71,7 +71,7 @@ module.exports = {
         },
       ],
       prod: mode === 'production',
-      pathToNodeModules: path.resolve(__dirname, '../../'),
+      pathToNodeModules: path.resolve(__dirname, '../../../'),
       publicPath: '/',
     }),
     new webpack.DefinePlugin({
