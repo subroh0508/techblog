@@ -29,7 +29,8 @@
     "webpack-cdn-plugin": "^3.1.4",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "@techblog/articles": "0.0.1",
@@ -44,7 +45,10 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
-    "build": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",
-    "analyze": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config scripts/webpack.client-analyze.js"
+    "prod": "node server",
+    "build": "yarn run rimraf ./build && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
+    "build:client": "yarn run rimraf ./build/client && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",
+    "build:server": "yarn run rimraf ./build/server && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
+    "analyze": "yarn run rimraf ./build/client && NODE_ENV=production yarn run webpack --config scripts/webpack.client-analyze.js"
   }
 }

@@ -12,7 +12,10 @@
   "scripts": {
     "build:articles": "lerna run build --scope @techblog/articles --stream",
     "build:blog": "lerna run build --scope @techblog/blog --stream",
+    "build:client": "lerna run build:client --scope @techblog/blog --stream",
+    "build:server": "lerna run build:server --scope @techblog/blog --stream",
     "dev": "lerna run dev --stream",
+    "prod": "lerna run prod --stream",
     "analyze": "lerna run analyze --stream"
   }
 }

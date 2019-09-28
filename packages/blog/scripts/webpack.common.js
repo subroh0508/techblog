@@ -7,9 +7,9 @@ const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, '../build'),
+    path: path.resolve(__dirname, '../build/client'),
     publicPath: '/',
-    filename: 'client.[chunkhash].js',
+    filename: '[name].[chunkhash].js',
   },
   resolve: {
     extensions: ['.js', '.vue'],
@@ -39,6 +39,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../index.template.html'),
+      filename: '../index.html',
     }),
     new webpack.DefinePlugin({
       'process.env': {

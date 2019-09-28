@@ -23,10 +23,12 @@ export default {
 }
 </script>
 <template>
-  <div>
-    <site-header/>
-    <router-view/>
-    <site-footer/>
+  <div id="app">
+    <div>
+      <site-header/>
+      <router-view/>
+      <site-footer/>
+    </div>
   </div>
 </template>
 <style src='./_global.scss'/>

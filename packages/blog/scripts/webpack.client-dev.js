@@ -13,7 +13,7 @@ module.exports = merge(common, {
   devServer: {
     contentBase: [
       path.resolve(__dirname, '../../../node_modules'),
-      path.resolve(__dirname, '../build'),
+      path.resolve(__dirname, '../build/client'),
       path.resolve(__dirname, '../public'),
     ],  
     historyApiFallback: true,
