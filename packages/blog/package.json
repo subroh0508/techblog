@@ -34,7 +34,8 @@
   "dependencies": {
     "@techblog/articles": "0.0.1",
     "vue": "^2.6.10",
-    "vue-router": "^3.1.3"
+    "vue-router": "^3.1.3",
+    "vue-server-renderer": "^2.6.10"
   },
   "babel": {
     "presets": [
