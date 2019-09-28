@@ -7,7 +7,7 @@ const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
   output: {
-    path: path.resolve(__dirname, '../build/client'),
+    path: path.resolve(__dirname, '../build'),
     publicPath: '/',
     filename: '[name].[chunkhash].js',
   },

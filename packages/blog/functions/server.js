@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV === 'development') {
-  app.use(express.static(path.join(__dirname, '../build/client')));
+  app.use(express.static(path.join(__dirname, '../build')));
   app.use(express.static(path.join(__dirname, '../public')));
 }
 
