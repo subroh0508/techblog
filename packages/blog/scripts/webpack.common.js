@@ -44,6 +44,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: `"${mode}"`,
+        BASE_URL: `"${mode === 'development' ? 'http://localhost:8080' : 'https://subroh0508.net'}"`,
       },
     }),
   ],

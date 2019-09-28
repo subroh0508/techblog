@@ -14,7 +14,6 @@ export default {
   },
   data: () => ({
     article: {},
-    url: window.location.href,
   }),
   async created() {
     this.article = await findFullArticle(this.title);
@@ -36,7 +35,7 @@ export default {
     <article-header v-bind="{ className: { displayTitle: 'text' }, ...article }"/>
     <span v-show='article.body' v-html='article.body'></span>
     <share-buttons v-bind="{
-      url,
+      baseUrl: '/article',
       title: article.title,
       displayTitle: article.displayTitle,
     }"/>

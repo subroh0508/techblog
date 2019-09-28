@@ -22,12 +22,12 @@ export default {
   props: {
     title: String,
     displayTitle: String,
-    url: String,
+    baseUrl: String,
   },
   methods: {
     shareOnTwitter() {
       const url = 'https://twitter.com/intent/tweet' +
-        `?url=${encodeURIComponent(this.url)}` +
+        `?url=${encodeURIComponent(this.href)}` +
         `&text=${encodeURIComponent(this.displayTitle + ' - 横須賀第765管区情報局')}`;
 
       trackTwitterShare(this.title);
@@ -37,25 +37,30 @@ export default {
       const url = 'https://www.facebook.com/dialog/share' +
         '?app_id=510289996426924' +
         '&display=popup' +
-        `&href=${encodeURIComponent(this.url)}` +
-        `&redirect_uri=${encodeURIComponent(this.url)}`;
+        `&href=${encodeURIComponent(this.href)}` +
+        `&redirect_uri=${encodeURIComponent(this.href)}`;
 
       trackFacebookShare(this.title);
       window.open(url, '_blank');
     },
     shareOnHatena() {
-      const url = `https://b.hatena.ne.jp/entry/s/${this.url.replace('https://', '')}`;
+      const url = `https://b.hatena.ne.jp/entry/s/${this.href.replace(/^(http|https):\/\//, '')}`;
 
       trackHatenaShare(this.title);
       window.open(url, '_blank');
     },
     shareOnPocket() {
       const url = 'https://getpocket.com/edit' +
-        `?url=${encodeURIComponent(this.url)}` +
+        `?url=${encodeURIComponent(this.href)}` +
         `&title=${encodeURIComponent(this.displayTitle + ' - 横須賀第765管区情報局')}`;
 
       trackPocketShare(this.title);
       window.open(url, '_blank');
+    },
+  },
+  computed: {
+    href() {
+      return `${process.env.BASE_URL}${this.baseUrl}/${this.title}`;
     },
   },
 }
