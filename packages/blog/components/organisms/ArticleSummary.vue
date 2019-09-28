@@ -1,5 +1,4 @@
 <script>
-import router from 'app-router';
 import OutlinedButton from '@components/atoms/OutlinedButton';
 import ArticleHeader from '@components/molecules/ArticleHeader';
 
@@ -12,8 +11,8 @@ export default {
     article: Object,
   },
   methods: {
-    readMore: title => {
-      router.push({ name: 'article', params: { title } });
+    readMore(title) {
+      this.$router.push({ name: 'article', params: { title } });
     },
     prerender: async title => import(
       /* webpackPreload: true */ `@techblog/articles/build/articles/${title}`

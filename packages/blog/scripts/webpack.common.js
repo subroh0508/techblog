@@ -7,7 +7,7 @@ const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: path.resolve(__dirname, '../index.js'),
+  entry: path.resolve(__dirname, '../entry-client.js'),
   output: {
     path: path.resolve(__dirname, '../build'),
     publicPath: '/',

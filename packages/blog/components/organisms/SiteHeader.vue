@@ -1,6 +1,4 @@
 <script>
-import router from 'app-router';
-
 import NavMenu from '@components/atoms/NavMenu';
 
 export default {
@@ -15,15 +13,15 @@ export default {
     ],
   }),
   methods: {
-    redirectTo: (name) => {
-      const currentName = router.currentRoute.name;
-      const currentQuery = router.currentRoute.query;
+    redirectTo(name) {
+      const currentName = this.$router.currentRoute.name;
+      const currentQuery = this.$router.currentRoute.query;
 
       if (currentName === name && !Object.keys(currentQuery).length) {
         return;
       }
 
-      router.push({ name });
+      this.$router.push({ name });
     },
   },
 }

@@ -10,7 +10,7 @@ import NotFound from './components/pages/global/NotFound';
 
 Vue.use(VueRouter);
 
-export default new VueRouter({
+export const createRouter = () => new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', name: 'home', component: Home },

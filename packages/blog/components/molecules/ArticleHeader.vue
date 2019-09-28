@@ -1,5 +1,4 @@
 <script>
-import router from 'app-router';
 import Date from '@components/atoms/Date';
 import DisplayTitle from '@components/atoms/DisplayTitle';
 import Tagbar from '@components/atoms/Tagbar';
@@ -21,17 +20,17 @@ export default {
     tags: Array,
   },
   methods: {
-    openArticle: (title) => {
-      router.push({ name: 'article', params: { title } });
+    openArticle(title) {
+      this.$router.push({ name: 'article', params: { title } });
     },
-    searchByTag: (tag) => {
-      const currentPath = router.currentRoute.path;
-      const currentTag = router.currentRoute.query.tag;
+    searchByTag(tag) {
+      const currentPath = this.$router.currentRoute.path;
+      const currentTag = this.$router.currentRoute.query.tag;
       if (currentPath === '/articles' && currentTag === tag) {
         return;
       }
 
-      router.push({ name: 'articles', query: { tag } });
+      this.$router.push({ name: 'articles', query: { tag } });
     }
   }
 }
