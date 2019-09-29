@@ -3,6 +3,8 @@ import path from 'path';
 import { createBundleRenderer } from 'vue-server-renderer';
 import fs from 'fs';
 
+import metatags from './metatags';
+
 const renderer = createBundleRenderer(path.resolve('./assets/server-bundle.json'), {
   template: fs.readFileSync(path.resolve('./assets/index.html'), 'utf-8'),
 });
@@ -15,8 +17,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.get('*', (req, res) => {
-  const context = { url: req.url };
-
+  const context = { ...metatags(req.path, req.query), url: req.url };
   renderer.renderToString(context, (error, html) => {
     res.end(html);
   });
