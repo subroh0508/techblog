@@ -1,4 +1,4 @@
-const functions = require('firebase-functions');
-const app = require('./server');
+import { https } from 'firebase-functions';
+import app from './server';
 
-exports.ritsuko = functions.https.onRequest(app);
+export const ritsuko = https.onRequest(app);

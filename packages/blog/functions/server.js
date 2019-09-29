@@ -1,16 +1,17 @@
-const express = require('express');
-const path = require('path');
-const { createBundleRenderer } = require('vue-server-renderer');
+import express from 'express';
+import path from 'path';
+import { createBundleRenderer } from 'vue-server-renderer';
+import fs from 'fs';
 
-const renderer = createBundleRenderer(path.resolve(__dirname, './assets/server-bundle.json'), {
-  template: require('fs').readFileSync(path.resolve(__dirname, './assets/index.html'), 'utf-8'),
+const renderer = createBundleRenderer(path.resolve('./assets/server-bundle.json'), {
+  template: fs.readFileSync(path.resolve('./assets/index.html'), 'utf-8'),
 });
 const app = express();
 const port = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV === 'development') {
-  app.use(express.static(path.join(__dirname, '../build')));
-  app.use(express.static(path.join(__dirname, '../public')));
+  app.use(express.static(path.resolve('../build')));
+  app.use(express.static(path.resolve('../public')));
 }
 
 app.get('*', (req, res) => {
@@ -23,4 +24,4 @@ app.get('*', (req, res) => {
 
 app.listen(port, () => console.log('Server start: 8080'));
 
-module.exports = app;
+export default app;
