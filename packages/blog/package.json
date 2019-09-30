@@ -60,6 +60,7 @@
     "clean": "run-p clean:client clean:server clean:functions",
     "clean:client": "yarn run rimraf ./build && yarn run rimraf ./functions/assets/index.html",
     "clean:server": "yarn run rimraf ./functions/assets/server-bundle.json",
-    "clean:functions": "yarn run rimraf ./functions/build"
+    "clean:functions": "yarn run rimraf ./functions/build",
+    "firebase:local": "firebase serve --only functions:ritsuko,hosting"
   }
 }
