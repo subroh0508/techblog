@@ -2,7 +2,7 @@ const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: path.resolve(__dirname, './index.js'),
   target: 'node',
   output: {
     path: path.resolve(__dirname, './build'),
@@ -27,7 +27,11 @@ module.exports = {
           }
         ],
         exclude: /node_modules/,
-      }
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
     ]
   },
   externals: [nodeExternals()],

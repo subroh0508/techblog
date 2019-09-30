@@ -5,4 +5,7 @@ module.exports = {
       "corejs": 3,
     }],
   ],
+  plugins: [
+    "transform-html-import-require-to-string",
+  ],
 };

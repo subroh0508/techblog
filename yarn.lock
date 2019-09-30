@@ -1214,6 +1214,11 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
+babel-plugin-transform-html-import-require-to-string@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-html-import-require-to-string/-/babel-plugin-transform-html-import-require-to-string-0.0.3.tgz#67c1a797fa616d58c809db57af3efaf88ea0021e"
+  integrity sha512-tANZz2t1iPVDE1EpeMEbR7Uath4nwesgITAxuZPEH9FS5iafl0Gy6jvk1ntOO/DKnAokZbeDLa6Kc3dnOeqszw==
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"

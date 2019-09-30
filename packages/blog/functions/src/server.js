@@ -1,13 +1,12 @@
 import express from 'express';
 import path from 'path';
 import { createBundleRenderer } from 'vue-server-renderer';
-import fs from 'fs';
+import serverBundle from '../assets/server-bundle.json';
+import template from '../assets/index.html';
 
 import metatags from './metatags';
 
-const renderer = createBundleRenderer(path.resolve(__dirname, '../assets/server-bundle.json'), {
-  template: fs.readFileSync(path.resolve(__dirname, '../assets/index.html'), 'utf-8'),
-});
+const renderer = createBundleRenderer(serverBundle, { template });
 const app = express();
 const port = process.env.PORT || 8080;
 
