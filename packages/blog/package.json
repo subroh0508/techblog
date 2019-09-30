@@ -47,8 +47,8 @@
   },
   "scripts": {
     "dev": "run-p dev:client dev:server",
-    "dev:client": "yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
-    "dev:server": "yarn run webpack --watch --config scripts/webpack.server.js & nodemon --exec babel-node functions/src/server.js --config-file ./scripts/babel.config.js",
+    "dev:client": "yarn run webpack --watch --config scripts/webpack.client-dev.js",
+    "dev:server": "yarn run webpack --watch --config scripts/webpack.server.js & nodemon --exec NODE_ENV=development babel-node functions/src/server.js --config-file ./scripts/babel.config.js",
     "prod": "node ./functions/server",
     "build": "yarn run rimraf ./build && yarn run rimraf ./functions/assets && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
     "build:client": "yarn run rimraf ./build && yarn run rimraf ./functions/assets/index.html && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",

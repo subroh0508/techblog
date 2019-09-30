@@ -11,8 +11,10 @@ const renderer = createBundleRenderer(path.resolve(__dirname, '../assets/server-
 const app = express();
 const port = process.env.PORT || 8080;
 
-app.use(express.static(path.resolve(__dirname, '../../build')));
-app.use(express.static(path.resolve(__dirname, '../../public')));
+if (process.env.NODE_ENV === 'development') {
+  app.use(express.static(path.resolve(__dirname, '../../build')));
+  app.use(express.static(path.resolve(__dirname, '../../public')));
+}
 
 app.get('*', (req, res) => {
   const context = { ...metatags(req.path, req.query), url: req.url };

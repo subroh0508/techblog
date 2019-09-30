@@ -11,10 +11,6 @@ module.exports = merge(common, {
     path.resolve(__dirname, '../entry-client.js'),
   ],
   devtool: 'inline-source-map',
-  devServer: {
-    writeToDisk: true,
-    historyApiFallback: true,
-  },
   module: {
     rules: [
       {
