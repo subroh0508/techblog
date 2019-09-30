@@ -16,6 +16,8 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.3",
+    "npm-run-all": "^4.1.5",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",
     "sass-loader": "^7.3.1",
@@ -43,7 +45,9 @@
     ]
   },
   "scripts": {
-    "dev": "NODE_ENV=development yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
+    "dev": "run-p dev:client dev:server",
+    "dev:client": "yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
+    "dev:server": "yarn run webpack --watch --config scripts/webpack.server.js & nodemon --exec babel-node functions/src/server.js --config-file ./scripts/babel.config.js",
     "prod": "node ./functions/server",
     "build": "yarn run rimraf ./build && yarn run rimraf ./functions/assets && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
     "build:client": "yarn run rimraf ./build && yarn run rimraf ./functions/assets/index.html && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",

@@ -11,12 +11,7 @@ module.exports = merge(common, {
   ],
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: [
-      path.resolve(__dirname, '../../../node_modules'),
-      path.resolve(__dirname, '../build'),
-      path.resolve(__dirname, '../public'),
-      path.resolve(__dirname, '../functions/assets'),
-    ],  
+    writeToDisk: true,
     historyApiFallback: true,
   },
   module: {
