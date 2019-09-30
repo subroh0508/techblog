@@ -12,9 +12,11 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-html-import-require-to-string": "^0.0.3",
     "clean-webpack-plugin": "^3.0.0",
+    "copyfiles": "^2.1.1",
     "core-js-bundle": "3",
     "css-loader": "^3.2.0",
     "express": "^4.17.1",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
@@ -52,8 +54,9 @@
     "dev:server": "yarn run webpack --watch --config scripts/webpack.server.js & nodemon --exec NODE_ENV=development babel-node functions/src/server.js --config-file ./scripts/babel.config.js",
     "prod": "node ./functions/server",
     "build": "yarn run rimraf ./build && yarn run rimraf ./functions/assets && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
-    "build:client": "yarn run rimraf ./build && yarn run rimraf ./functions/assets/index.html && NODE_ENV=production yarn run webpack --config scripts/webpack.client-prod.js",
-    "build:server": "yarn run rimraf ./functions/assets/server-bundle.json && NODE_ENV=production yarn run webpack --config scripts/webpack.server.js",
+    "build:client": "yarn run rimraf ./build && yarn run rimraf ./functions/assets/index.html && NODE_ENV=production yarn run webpack --config ./scripts/webpack.client-prod.js",
+    "build:server": "yarn run rimraf ./functions/assets/server-bundle.json && NODE_ENV=production yarn run webpack --config ./scripts/webpack.server.js",
+    "build:functions": "yarn run rimraf ./functions/build && NODE_ENV=production yarn run webpack --config ./scripts/webpack.functions.js && yarn run copyfiles -f ./functions/package.json ./functions/build",
     "analyze": "yarn run rimraf ./build && yarn run rimraf ./functions/assets/index.html && NODE_ENV=production yarn run webpack --config scripts/webpack.client-analyze.js"
   }
 }
