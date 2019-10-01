@@ -2,8 +2,8 @@
 title: build-owned-techblog-by-vuejs-1
 displayTitle: Vue.jsを使って自作技術ブログを作る(1 - 概要)
 description: Vue.jsで技術ブログを作ってみたシリーズ。初回の概要解説は、良かった点やつらかったことをざっくりと。
-publishedAt: 2019-09-01T12:00:00+09:00
-updatedAt: 2019-09-01T12:00:00+09:00
+publishedAt: 2019-10-02T00:35:00+09:00
+updatedAt: 2019-10-02T00:35:00+09:00
 tags:
   - Frontend
   - Vue.js
