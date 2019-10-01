@@ -32,7 +32,13 @@ export default {
   <not-found v-if='notFound'/>
   <div v-else-if='loading'/>
   <section class='article' v-else>
-    <article-header v-bind="{ className: { displayTitle: 'text' }, ...article }"/>
+    <article-header class='article-header' v-bind="{
+      className: { displayTitle: 'text' },
+      title: article.title,
+      displayTitle: article.displayTitle,
+      publishedAt: article.publishedAt,
+      tags: article.tags,
+    }"/>
     <span v-show='article.body' v-html='article.body'></span>
     <share-buttons v-bind="{
       baseUrl: '/article',
@@ -66,6 +72,9 @@ export default {
     }
   }
 
+  .article-header {
+    margin-bottom: 48px;
+  }
   h1, h2, h3, h4, h5, h6 {
     &:hover > a[data-hash-link] {
       opacity: 1;

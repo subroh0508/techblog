@@ -84,6 +84,8 @@ export default {
 <style scoped lang='scss'>
 .share-buttons {
   display: flex;
+  justify-content: flex-end;
+  margin-top: 48px;
 
   .share-button {
     &:not(:first-child) {
