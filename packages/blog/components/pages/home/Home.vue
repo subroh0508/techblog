@@ -17,7 +17,7 @@ export default {
 </script>
 <template>
   <section class='home'>
-    <div class='top-img'><img src='/home.jpg'/></div>
+    <div class='top-img'><img src='/home.webp'/></div>
     <hr>
     <articles-template v-bind="{ articles, limit: 3, pagination: false }">
       最近の記事

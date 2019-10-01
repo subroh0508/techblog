@@ -106,7 +106,7 @@ const metaTemplate = (title, description, type, path, publishedAt = null, update
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="https://subroh0508.net${path}">
-  <meta property='og:image' content='https://subroh0508.net/icon.jpg'/>
+  <meta property='og:image' content='https://subroh0508.net/icon.webp'/>
   ${type === TYPE_ARTICLE ? articleMetaTemplate(publishedAt, updatedAt, tags) : ''}
 
   <meta name='twitter:card' content='summary'/>
@@ -115,7 +115,7 @@ const metaTemplate = (title, description, type, path, publishedAt = null, update
   <meta name="twitter:url" content="https://subroh0508.net${path}">
   <meta name='twitter:site' content='@subroh_0508'/>
   <meta name='twitter:creator' content='@subroh_0508'/>
-  <meta name='twitter:image' content='https://subroh0508.net/icon.jpg'/>
+  <meta name='twitter:image' content='https://subroh0508.net/icon.webp'/>
 
   <meta name='fb:app_id' content='510289996426924'/>
 `;
