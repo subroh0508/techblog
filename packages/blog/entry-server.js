@@ -6,6 +6,8 @@ export default (context) => {
 
     router.push(context.url);
 
-    resolve(app);
+    router.onReady(() => {
+      resolve(app);
+    });
   });
 };
