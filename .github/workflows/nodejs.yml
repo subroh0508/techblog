@@ -18,7 +18,7 @@ jobs:
     - name: yarn add lerna
       run: |
         ~/.nodenv/bin/nodenv local 10.16.3
-        ~/.nodenv/shims/yarn add lerna
+        ~/.nodenv/shims/yarn global add lerna
     - name: yarn install, build for packages
       run: |
         ~/.nodenv/shims/yarn install
