@@ -1,5 +1,3 @@
 .firebase
 node_modules
 build
-public/robots.txt
-public/sitemap.xml
