@@ -15,11 +15,11 @@ jobs:
         ~/.nodenv/bin/nodenv install 8.16.1
         ~/.nodenv/bin/nodenv install 10.16.3
         ~/.nodenv/bin/nodenv rehash
-    - name: yarn add lerna
+    - name: yarn global add lerna
       run: |
         ~/.nodenv/bin/nodenv local 10.16.3
         ~/.nodenv/shims/yarn global add lerna
-    - name: yarn install, build for packages
+    - name: yarn install and prepublish for packages
       run: |
         ~/.nodenv/shims/yarn install
         ~/.nodenv/shims/yarn run prepublish --if-present
@@ -30,3 +30,13 @@ jobs:
         ~/.nodenv/bin/nodenv local 8.16.1
         ~/.nodenv/shims/yarn install
         cd ${root}/packages/blog
+    - name: Archive Production Artifact for blog
+      uses: actions/upload-artifact@master
+      with:
+        name: blog
+        path: ./packages/blog/build
+    - name: Archive Production Artifact for functions
+      uses: actions/upload-artifact@master
+      with:
+        name: functions
+        path: ./packages/blog/functions/build
