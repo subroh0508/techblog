@@ -17,11 +17,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build
+    - name: yarn add lerna
+      run: |
+        yarn global add lerna
+    - name: yarn install, build for packages
       run: |
         yarn install
         yarn run prepublish --if-present
-    - name: npm install for functions
+    - name: yarn install for functions
       run: |
         cd $HOME/packages/blog/functions/build
         yarn install
