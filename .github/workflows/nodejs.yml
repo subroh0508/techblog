@@ -45,11 +45,17 @@ jobs:
       with:
         name: blog
         path: ./packages/blog/build
-    - name: Download Artifact of blog
+    - name: Download Artifact of functions
       uses: actions/download-artifact@master
       with:
         name: functions
         path: ./packages/blog/functions/build
+    - name: yarn install for functions
+      run: |
+        root=`pwd`
+        cd ${root}/packages/blog/functions/build
+        yarn install
+        cd ${root}/packages/blog
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
