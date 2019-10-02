@@ -27,6 +27,6 @@ jobs:
       run: |
         root=`pwd`
         cd ${root}/packages/blog/functions/build
-        ${root}/.nodenv/bin/nodenv local 8.16.1
-        ${root}/.nodenv/shims/yarn install
+        ~/.nodenv/bin/nodenv local 8.16.1
+        ~/.nodenv/shims/yarn install
         cd ${root}/packages/blog
