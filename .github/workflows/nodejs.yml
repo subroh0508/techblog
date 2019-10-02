@@ -26,6 +26,7 @@ jobs:
         yarn run prepublish --if-present
     - name: yarn install for functions
       run: |
-        cd $HOME/packages/blog/functions/build
+        root=`pwd`
+        cd ${root}/packages/blog/functions/build
         yarn install
-        cd $HOME/packages/blog
+        cd ${root}/packages/blog
