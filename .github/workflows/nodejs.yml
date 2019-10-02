@@ -1,35 +1,26 @@
 name: Node CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Install nodenv
-      run: |
-        git clone https://github.com/nodenv/nodenv.git ~/.nodenv
-        git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
-        git clone https://github.com/pine/nodenv-yarn-install.git ~/.nodenv/plugins/nodenv-yarn-install
-        ~/.nodenv/bin/nodenv install 8.16.1
-        ~/.nodenv/bin/nodenv install 10.16.3
-        ~/.nodenv/bin/nodenv rehash
+    - name: Setup node with 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
     - name: yarn global add lerna
       run: |
-        ~/.nodenv/bin/nodenv local 10.16.3
-        ~/.nodenv/shims/yarn global add lerna
+        yarn global add lerna
     - name: yarn install and prepublish for packages
       run: |
-        ~/.nodenv/shims/yarn install
-        ~/.nodenv/shims/yarn run prepublish --if-present
-    - name: yarn install for functions
-      run: |
-        root=`pwd`
-        cd ${root}/packages/blog/functions/build
-        ~/.nodenv/bin/nodenv local 8.16.1
-        ~/.nodenv/shims/yarn install
-        cd ${root}/packages/blog
+        yarn install
+        yarn run prepublish --if-present
     - name: Archive Production Artifact for blog
       uses: actions/upload-artifact@master
       with:
@@ -40,3 +31,28 @@ jobs:
       with:
         name: functions
         path: ./packages/blog/functions/build
+  deploy:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup node with 8.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 8.x
+    - name: Download Artifact of blog
+      uses: actions/download-artifact@master
+      with:
+        name: blog
+        path: ./packages/blog/build
+    - name: Download Artifact of blog
+      uses: actions/download-artifact@master
+      with:
+        name: functions
+        path: ./packages/blog/functions/build
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting:ritsuko,hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
