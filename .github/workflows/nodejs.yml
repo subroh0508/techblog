@@ -33,7 +33,7 @@ jobs:
         path: ./packages/blog/functions/build
   deploy:
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: build
     steps:
     - uses: actions/checkout@v1
     - name: Setup node with 8.x
