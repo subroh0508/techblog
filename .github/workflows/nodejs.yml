@@ -4,29 +4,30 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
     - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+    - name: Install nodenv
+      run: |
+        git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+        git clone https://github.com/nodenv/node-build.git ~/.nodenv/plugins/node-build
+        git clone https://github.com/pine/nodenv-yarn-install.git ~/.nodenv/plugins/nodenv-yarn-install
+        ~/.nodenv/init
+        ~/.nodenv/bin/nodenv 8.16.1
+        ~/.nodenv/bin/nodenv 10.16.3
+        ~/.nodenv/bin/nodenv rehash
     - name: yarn add lerna
       run: |
-        yarn global add lerna
+        ~/.nodenv/bin/nodenv local 10.16.3
+        ~/.nodenv/shims/yarn add lerna
     - name: yarn install, build for packages
       run: |
-        yarn install
-        yarn run prepublish --if-present
+        ~/.nodenv/shims/yarn install
+        ~/.nodenv/shims/yarn run prepublish --if-present
     - name: yarn install for functions
       run: |
         root=`pwd`
         cd ${root}/packages/blog/functions/build
-        yarn install
+        ${root}/.nodenv/bin/nodenv local 8.16.1
+        ${root}/.nodenv/shims/yarn install
         cd ${root}/packages/blog
