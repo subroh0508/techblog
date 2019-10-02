@@ -50,15 +50,17 @@ jobs:
       with:
         name: functions
         path: ./packages/blog/functions/build
-    - name: yarn install for functions
+    - name: yarn add --dev firebase-tools
+      working-directory: ./packages/blog
       run: |
-        root=`pwd`
-        cd ${root}/packages/blog/functions/build
-        yarn install
-        cd ${root}/packages/blog
+        yarn add --dev firebase-tools
+    - name: yarn install for functions
+      working-directory: ./packages/blog/functions/build
+      run: |
+        yarn install    
     - name: Deploy to Firebase
-      uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting:ritsuko,hosting
+      working-directory: ./packages/blog
+      run: |
+        ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN --only functions:ritsuko,hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
