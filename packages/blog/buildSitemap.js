@@ -1,4 +1,5 @@
 import XmlBuilder from 'xmlbuilder';
+import moment from 'moment-timezone';
 import fs from 'fs';
 import path from 'path';
 
@@ -15,7 +16,7 @@ const build = async () => {
   list.forEach((article) => {
     builder = builder.ele('url')
       .ele('loc', `https://subroh0508.net/articles/${article.title}`).up()
-      .ele('lastmod', article.updatedAt).up()
+      .ele('lastmod', moment.tz(article.updatedAt, 'Asia/Tokyo').format()).up()
     .up();
   });
 
