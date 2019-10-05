@@ -15,6 +15,7 @@
     "build:blog": "lerna run build --scope @techblog/blog --stream",
     "build:client": "lerna run build:client --scope @techblog/blog --stream",
     "build:server": "lerna run build:server --scope @techblog/blog --stream",
+    "firebase:local": "lerna run firebase:local --stream",
     "dev": "lerna run dev --stream",
     "analyze": "lerna run analyze --stream"
   }
