@@ -11,7 +11,9 @@ tags:
   - JaCoCo
   - Kotlin DSL
 ---
-JVM言語のカバレッジレポートツール・[JaCoCo](https://github.com/jacoco/jacoco)。Androidの開発において、ユニットテスト環境の整備時に採用されることの多いライブラリですが、マルチモジュール構成 + Kotlin DSLなAndroidプロジェクトに導入した事例がまだまだ表に出てきていないので、知見をネットの海に放流したいと思います。
+JVM言語のカバレッジレポートツール・[JaCoCo](https://github.com/jacoco/jacoco)。Androidの開発において、ユニットテスト環境の整備時に採用されることの多いライブラリですが、マルチモジュール構成 + Kotlin DSLなAndroidプロジェクトに導入した事例はまだまだ少ないように見えます。
+
+そんな中、先日業務で関わるAndroidプロジェクトにJaCoCoを導入するタスクを消化したので、その時得た知見をネットの海に放流したいと思います。
 
 # 前提条件
 
@@ -76,7 +78,7 @@ android {
 
 後者の方法は、カバレッジを単一のレポートファイルにまとめる必要がある場合に用います。また、モジュールの数が増えた場面でも、生成ファイルを1ヶ所にまとめることができるため、ファイルの取り回しがしやすくなる利点もあります。
 
-ここから先は、カバレッジを1ファイルにマージする方法について、スクリプトの実装を解説していきます。
+という訳で、ここから先はカバレッジを1ファイルにマージする方法について、スクリプトの実装を解説していきます。
 
 ## 大まかなタスクの流れ
 
@@ -92,7 +94,7 @@ android {
 
 ## カバレッジのマージ
 
-JaCoCoには`JacocoMerge`というカバレッジマージ用のタスクが定義されているため、これを**ユニットテストの後**に実行するよう、新しくタスクを定義します。
+JaCoCoには`JacocoMerge`というカバレッジマージ用のタスクが定義されているため、これを**ユニットテストの後に実行**するよう、新しくタスクを定義します。
 
 ```kotlin:build.gradle.kts
 tasks.create("jacocoMergeReports", JacocoMerge::class.java) {
@@ -119,9 +121,9 @@ tasks.create("jacocoMergeReports", JacocoMerge::class.java) {
 
 ## 1ファイルにまとめたカバレッジからレポート出力
 
-`JacocoReport`がレポートの出力タスクになります。このタスクを、**カバレッジマージタスクの後**に実行するよう、依存関係を定義します。
+`JacocoReport`がレポートの出力タスクになります。このタスクを、**カバレッジマージタスクの後に実行**するよう、依存関係を定義します。
 
-xml・htmlファイルでレポートを出力する場合は、以下のようにタスクを定義します。
+xml・html形式でレポートを出力する場合は、以下のようにタスクを定義します。
 
 ```kotlin:build.gradle.kts
 val jacocoMergeReports = tasks.create("jacocoMergeReports", JacocoMerge::class.java) { ... }
@@ -177,11 +179,11 @@ tasks.create("jacocoTestReports", JacocoReport::class.java) {
   - Kotlinの場合、`${buildDir}/tmp/kotlin-classes/${BuildVariants}`
   - Javaの場合、`${buildDir}/intermediates/classes/${BuildVariants}`
 
-これでスクリプト実装は終了です。`./gradlew jacocoTestReports`を実行し、全てのモジュールでユニットテストが実行され、カバレッジレポートが生成されているか確認してみましょう。Robolectricを使うユニットテストが存在する場合、`includeNoLocationClasses = true`の設定を忘れないように！
+これでスクリプト実装は終了です。`./gradlew jacocoTestReports`を実行し、全てのモジュールでユニットテストが実行され、カバレッジレポートが生成されているか確認してみましょう。Robolectricを使うユニットテストが存在する場合、`includeNoLocationClasses = true`の設定も忘れないように！
 
 # Kotlin DSLで書く利点
 
-**初めて使うプロパティやメソッドの存在、および実装をIDEのタグジャンプで探せること**が最大の利点だと、個人的には思います。Gradleの公式リファレンスにも必要な情報は存在しますが、「JaCoCoのGradleタスクにどんな設定値が存在するか」くらいの情報なら、コードベースで探した方が圧倒的に早く得られる実感があります。
+**初めて使うプロパティやメソッドの存在、および実装をIDEのタグジャンプで探せること**が最大の利点だと、個人的には思います。Gradleの公式リファレンスにも必要な情報は存在しますが、「JaCoCoのGradleタスクにどんな設定値が存在するか」くらいの情報ならば、コードベースで探した方が圧倒的に早く得られる実感があります。
 
 # まとめ
 
