@@ -41,7 +41,7 @@ export default {
     }"/>
     <span v-show='article.body' v-html='article.body'></span>
     <share-buttons v-bind="{
-      baseUrl: '/article',
+      baseUrl: '/articles',
       title: article.title,
       displayTitle: article.displayTitle,
     }"/>
