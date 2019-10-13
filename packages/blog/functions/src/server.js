@@ -1,8 +1,8 @@
 import express from 'express';
 import path from 'path';
 import { createBundleRenderer } from 'vue-server-renderer';
-import admin from 'firebase-admin';
-import serviceAccount from '../secrets/serviceAccount.json';
+// import admin from 'firebase-admin';
+// import serviceAccount from '../secrets/serviceAccount.json';
 import serverBundle from '../assets/server-bundle.json';
 import template from '../assets/index.html';
 
@@ -10,10 +10,12 @@ import metatags from './metatags';
 
 const renderer = createBundleRenderer(serverBundle, { template });
 const app = express();
+/*
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://techblog-cc1e4.firebaseio.com"
 });
+*/
 const port = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV === 'development') {
