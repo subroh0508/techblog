@@ -46,7 +46,7 @@ NHKキッズの方でも、「保守性を維持しつつ、複雑な画面遷�
 
 <blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">イベントアプリ怖いよねわかる（技術書典アプリもドキドキする） <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a></p>&mdash; なかざん (@Nkzn) <a href="https://twitter.com/Nkzn/status/1182467087991595008?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
 
-長岡花火当日、荒れるCrashlyticsに夜なべで対応した話に呼応するツイート。技術書典公式アプリの製作者もこの場にいるの、半端じゃなかった(こなみ)。
+長岡花火当日、荒れるCrashlyticsに夜なべで対応した話に呼応するツイート。技術書典公式アプリの製作者も同じ場にいるの、半端じゃないと思いました(こなみ)。
 
 ## LiveData with Databinding実用レポート: 渡邉耕史
 
