@@ -20,7 +20,7 @@ jobs:
     - name: yarn install and prepublish for packages
       run: |
         yarn install
-        yarn run prepublish --if-present
+        yarn run prepublish
     - name: Archive Production Artifact for blog
       uses: actions/upload-artifact@master
       with:
