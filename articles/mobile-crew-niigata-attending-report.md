@@ -2,8 +2,8 @@
 title: mobile-crew-niigata-attending-report
 displayTitle: MOBILE CREW NIIGATA参加レポート
 description: 先週、新潟で開催されたモバイルアプリエンジニア向けカンファレンスに参加してきました。その参加レポートです。
-publishedAt: 2019-10-16T23:00:00+09:00
-updatedAt: 2019-10-16T23:00:00+09:00
+publishedAt: 2019-10-21T22:35:12+09:00
+updatedAt: 2019-10-21T22:35:12+09:00
 tags:
   - Event
   - Android
