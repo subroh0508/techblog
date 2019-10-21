@@ -7,9 +7,12 @@ updatedAt: 2019-10-16T23:00:00+09:00
 tags:
   - Event
   - Android
+  - iOS
+  - React Native
+  - Architecture
   - Trip
 ---
-2019年10月11日、新潟にて[MOBILE CREW NIIGATA](https://www.mobilecrew.jp/)という技術カンファレンスイベントに参加してきました！
+2019年10月11日、新潟にて[MOBILE CREW NIIGATA](https://www.mobilecrew.jp/)という技術カンファレンスに参加してきました！
 
 モバイルアプリにフォーカスしており、かつ地方開催という珍しいフォーマットで、更に登壇者も豪華な方々だったため、個人的にはかなり早い内(=イベント開催決定告知の翌日)から参加を決め当日を楽しみに待っていました。
 
@@ -45,8 +48,6 @@ tags:
 NHKキッズの方でも、「保守性を維持しつつ、複雑な画面遷移やアニメーションの実装を進める」ためにSingle Activityによる実装を選定したとのこと。正に、モダンな技術を随時キャッチアップしつつ、これを「新しいから」ではなく「要求される仕様や取り巻く環境に最も適合するから」という理由で採用している様子が、エンジニアとしてあるべき姿そのものだと感じました。
 
 <blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">イベントアプリ怖いよねわかる（技術書典アプリもドキドキする） <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a></p>&mdash; なかざん (@Nkzn) <a href="https://twitter.com/Nkzn/status/1182467087991595008?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
-
-長岡花火当日、荒れるCrashlyticsに夜なべで対応した話に呼応するツイート。技術書典公式アプリの製作者も同じ場にいるの、半端じゃないと思いました(こなみ)。
 
 ## LiveData with Databinding実用レポート: 渡邉耕史
 
@@ -91,20 +92,76 @@ NHKキッズの方でも、「保守性を維持しつつ、複雑な画面遷�
 
 # セッションパート(午後)
 
-## 地方IT企業の戦略を広げる技術選択としてのREACT NATIVE: [@Nkzn](https://twitter.com/Nkzn)
+## 地方IT企業の戦略を広げる技術選択としてのReact Native: [@Nkzn](https://twitter.com/Nkzn)
 
 <a class="embedly-card" data-card-controls="0" href="https://speakerdeck.com/nkzn/di-fang-itqi-ye-falsezhan-lue-woguang-geru-ji-shu-xuan-ze-tositefalsereact-native">地方IT企業の戦略を広げる 技術選択としてのReact Native</a>
+
+午後の1人目、ウォーターセル株式会社の中川さん。BtoB(toB)の事業、かつ人材流動性の低い地方でIT企業として生き残るため[React Native](https://facebook.github.io/react-native/)を選定した道筋と、React Nativeメインの開発組織で生み出す価値を最大化するためのポイントを聞くことができました。
+
+決してキラキラではない、前例もリソースもないなかで泥臭く目の前の課題と向き合い今日まで価値を生み出し続けたことがヒシヒシと伝わり、ものすごくためになるセッションでした。技術選定の上で、「新しいから」「流行りだから」ではなく、「自分達が抱える課題の解決に最も適しているか否か」という視点で中川さん以上に突き詰めた人は、東京にもそういないのではと感じました。中川さんの下で働くことができるエンジニアのみなさんがめちゃくちゃ羨ましいです！
+
+それから、セッションの本筋とはズレてしまうもののこんな感想も抱いたというツイート🤔
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">「地方=人材リソースが限られている」状況下で価値を出すための話だったけど、都内のベンチャーも「リソースで殴って人材を確保」してもそれは幸せな採用と言えるのか🤔っていう命題は存在するはずで、その辺りにも示唆をいただけてなかざんさんの話マジ学びでした( ˘ω˘) <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a></p>&mdash; [¥275,644]にしこりさぶろ〜 (@subroh_0508) <a href="https://twitter.com/subroh_0508/status/1182523379502309377?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
 
 ## 考察 : モバイルエンジニアの機械学習との付き合い方: [@jollyjoester](https://twitter.com/jollyjoester)
 
 <a class="embedly-card" data-card-controls="0" href="https://speakerdeck.com/jollyjoester/kao-cha-mobairuenziniafalseji-jie-xue-xi-tofalsefu-kihe-ifang">考察 : モバイルエンジニアの機械学習との付き合い方</a>
 
+お昼にたまたまエンカウントした、七島さんのセッション！個人的にエンジニアコミュニティでのオーガナイザー(およびカンパイヤー)としての印象が強かったので、七島さんのゴリゴリ技術の話もとても楽しみにしていました！
+
+メインは、「ここ数年、機械学習におけるモデル作成のハードルが大きく下がったことで、新たなアプリの機能開発の道が拓けるのでは？」という内容でした。ネット上の文献も紹介しつつ「機械学習を機能開発にどう組み込むのか」「組み込む際に考えるべきこと」の2点がシンプルにまとまっており、機械学習とアプリ開発を組み合わせた未来を解像度高くイメージできたように思います。
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">ユーザー体験の先頭に立ってるモバイル(フロントエンドも含む？)エンジニアだから、MLを使った機能実装やってみようよ！というメッセージ、なるほどみが深い <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a></p>&mdash; [¥275,644]にしこりさぶろ〜 (@subroh_0508) <a href="https://twitter.com/subroh_0508/status/1182530068314083329?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
+
+近年のAIバブルの影響で、僕も機械学習に対して誤った先入観を抱きがちなのですが、アプリ開発における新たな課題解決・価値創出の道として紹介してもらえたおかげで、今までとは明らかに違う「機械学習触ってみよう！」のモチベーションが湧いてきました！一応ネタはある、なにから触ろう…🤔
+
 ## WEBベースでアプリライクなUI／UXが実現できる「PWA×SPA」という選択肢: [@cw_iri_meets](https://twitter.com/cw_iri_meets)
 
 <a class="embedly-card" data-card-controls="0" href="https://speakerdeck.com/iri/webbesudeapuriraikunaui-uxgashi-xian-dekiru-pwaxspa-toiuxuan-ze-zhi">WebベースでアプリライクなUI／UXが実現できる「PWA×SPA」という選択肢</a>
+
+午後3本目。株式会社クーネルワークCTOの入澤さんのセッションです。Web歴の長い入澤さんのセッションは、「モバイルフレンドリーなWebアプリを作るための技術紹介」がメインです。
+
+特にAMP・PWA・SPAの3つについての解説がされましたが、モバイルアプリエンジニアにとっては正に「かゆい所に手が届く」内容だったと感じます。Web技術、興味はあるものの、いざキャッチアップのために調べると新旧入り交じった大量の情報が出てきて溺れてしまった経験が僕自身何度もあるのですが、このセッションではAMP・PWA・SPAの勘所を独特の言い回しでわかりやすく伝えていたので、とても勉強になりました！
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">新潟直送計画の合言葉は「米しかないと、思うなよ。」<br><br>バチクソかっこいいじゃん……<a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a></p>&mdash; なかざん (@Nkzn) <a href="https://twitter.com/Nkzn/status/1182535826472783872?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
+
+余談ですが運営しているECサイトの合言葉、マジでかっこいいと思います👍
 
 ## INTEGRATE YOUR APP TO MODERN WORLD: [@d_date](https://twitter.com/d_date)
 
 <a class="embedly-card" data-card-controls="0" href="https://speakerdeck.com/d_date/integrate-your-app-to-modern-world-in-niigata">Integrate your app to modern world in Niigata</a>
 
+次はtry!Swiftオーガナイザーの松館さん！
+
+内容はガッツリ[Swift UI](https://developer.apple.com/xcode/swiftui/)のお話。iOS13以上が要求されるSwift UIへ、将来的に完全移行するために従来のUI Kitで頑張るノウハウがコードベースで解説されていました。
+
+コードからなんとなく香る「Swiftの言語機能をモリモリ使って実装した」感がエンジニアとしてとてもワクワクしたのですが、如何せんSwiftを知らなすぎたせいもあり雰囲気しか掴むことができませんでした。興味はめちゃくちゃあるので、これを気にiOSもキャッチアップしていきたいお気持ちが高まっています！
+
 ## 長岡花火を支える技術: 伊津惇
+
+ラストはFULLER株式会社新潟支社の伊津さんのトーク！長岡花火公式アプリの開発、および花火当日の運用裏話を聞かせていただきました。
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">運営本部にアナログな形で情報が集まってくる→フラー社員が手打ちしてpush通知<br><br>血の滲むタイプのアレだ… <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a></p>&mdash; [¥275,644]にしこりさぶろ〜 (@subroh_0508) <a href="https://twitter.com/subroh_0508/status/1182562407178072069?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">足で駐車場情報取りに行ったのすごく素晴らしい <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a></p>&mdash; ⑨ (@circled9) <a href="https://twitter.com/circled9/status/1182563468504731648?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
+
+開発・運用の裏で、上記のような「それが最適解であればアナログな手法も厭わず実行する」姿勢がとても印象強く残っています。また、花火当日に本部に集まったデータを「Pull Requestの形でミスがないかレビューできるよう」にCSV+GitHubで管理し、[Bitrise](https://www.bitrise.io)を使ってCloud Firestoreの更新をかけた話は、本当に長岡花火の事例でしか聞けない内容だったと思います。
+
+# まとめ
+
+新潟のエンジニアの方々、ゲストスピーカーの方々、全員からユーザーに対する価値提供と眼前の課題解決に真摯に取り組んでいることがヒシヒシと伝わってきたことが1番の思い出です。そして、純粋に技術だけは乗り越えられない壁を八方手を尽くして越えた経験、これを普段ITの最新情報やリアルの空気感に触れることが難しいであろう新潟という地で共有する姿は、僕を含めた聴講者の多くが影響を受けたのではと感じます。
+
+間違いなく、すごく良いカンファレンスでした！来年以降も開催されれば参加したいです！
+
+# 懇親会と🍶
+
+東京の宅配🍕&🍣も大好きですが、新潟のご飯は格別でした！肉もポテトもめちゃくちゃ美味しかった！
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">懇親会〜！ <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a> <a href="https://t.co/b1IAUKT9mZ">pic.twitter.com/b1IAUKT9mZ</a></p>&mdash; Hideyuki Nanashima (@jollyjoester) <a href="https://twitter.com/jollyjoester/status/1182595530381131776?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
+
+それから訂正。今回のカンファレンス1番の思い出はコレでした😇　技術力が上がる水です😇
+
+<blockquote class="twitter-tweet tw-align-center"><p lang="ja" dir="ltr">本日のハイライト <a href="https://twitter.com/hashtag/mcniigata?src=hash&amp;ref_src=twsrc%5Etfw">#mcniigata</a> <a href="https://t.co/Z1WSHyXF62">pic.twitter.com/Z1WSHyXF62</a></p>&mdash; [¥275,644]にしこりさぶろ〜 (@subroh_0508) <a href="https://twitter.com/subroh_0508/status/1182635637310021632?ref_src=twsrc%5Etfw">October 11, 2019</a></blockquote>
+
+<small>マジな話、割と飲んだのに翌日殆ど2日酔いしなかったので、新潟の日本酒は最高なのです🥰</small>
