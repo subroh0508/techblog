@@ -2,8 +2,6 @@
 import ArticleHeader from '@components/molecules/ArticleHeader';
 import ShareButtons from '@components/organisms/ShareButtons';
 
-import { findFullArticle } from '@components/pages/article/finder';
-
 export default {
   components: {
     ArticleHeader,
@@ -12,11 +10,18 @@ export default {
   props: {
     title: String,
   },
-  data: () => ({
-    article: {},
-  }),
-  async created() {
-    this.article = await findFullArticle(this.title);
+  serverPrefetch() {
+    return this.fetchArticle();
+  },
+  mounted() {
+    if (this.loading) {
+      this.fetchArticle();
+    }
+  },
+  methods: {
+    fetchArticle() {
+      return this.$store.dispatch('fetchArticle', this.title);
+    }
   },
   computed: {
     loading() {
@@ -24,6 +29,9 @@ export default {
     },
     notFound() {
       return this.article === null;
+    },
+    article() {
+      return this.$store.state.article;
     }
   }
 }
