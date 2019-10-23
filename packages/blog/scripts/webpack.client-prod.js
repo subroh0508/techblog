@@ -11,6 +11,7 @@ module.exports = merge(common, {
   externals: {
     vue: 'Vue',
     'vue-router': 'VueRouter',
+    vuex: 'Vuex',
     'core-js-bundle': 'core-js-bundle',
   },
   module: {
@@ -42,6 +43,11 @@ module.exports = merge(common, {
           name: 'vue-router',
           var: 'VueRouter',
           path: 'dist/vue-router.min.js',
+        },
+        {
+          name: 'vuex',
+          var: 'Vuex',
+          path: 'dist/vuex.min.js',
         },
       ],
       prod: true,

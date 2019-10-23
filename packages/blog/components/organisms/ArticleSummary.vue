@@ -14,14 +14,14 @@ export default {
     readMore(title) {
       this.$router.push({ name: 'article', params: { title } });
     },
-    prerender: async title => import(
-      /* webpackPreload: true */ `@techblog/articles/build/articles/${title}`
-    ),
+    async prefetch(title) {
+      return this.$store.dispatch('fetchArticle', title);
+    },
   },
 }
 </script>
 <template>
-  <div class='article-summary' v-on:mouseover='prerender(article.title)'>
+  <div class='article-summary' v-on:mouseover='prefetch(article.title)'>
     <article-header v-bind='article'/>
     <div>
       {{ article.description }}
