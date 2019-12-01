@@ -6,6 +6,7 @@ publishedAt: 2019-12-06T00:00:00+09:00
 updatedAt: 2019-12-06T00:00:00+09:00
 tags:
   - Advent Calendar
+  - THE IDOLM@STER
   - 怪文書
 ---
 
