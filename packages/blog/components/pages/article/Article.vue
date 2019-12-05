@@ -102,5 +102,12 @@ export default {
       text-decoration: underline;
     }
   }
+  blockquote {
+    background: $blockquote-background;
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
 }
 </style>
