@@ -3,7 +3,7 @@ title: advent-calendar-2019-kotlin
 displayTitle: Kotlin/JSのバンドルファイルを頑張って1/6に削減した
 description: Kotlin/JS + KotlinWebpackPluginで実装したWebアプリのバンドルファイルがやたら大きくて発狂したので頑張りました
 publishedAt: 2019-12-16T00:00:00+09:00
-updatedAt: 2019-12-16T00:00:00+09:00
+updatedAt: 2019-12-16T00:01:40+09:00
 tags:
   - Advent Calendar
   - Kotlin
@@ -37,7 +37,7 @@ tags:
 
 ![図1. productionモードでそのままビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-1.png?alt=media&token=e3528d5a-b865-4eb7-9596-8257d6ae9439)
 
- 何も考えずproductionモードでビルドし、出力されたバンドルファイルのサイズはなんと<u>**1.2MB**</u>！流石にデカすぎる…、このままで本番環境にデプロイするのはめちゃくちゃ気が引ける…😣
+ 何も考えずproductionモードでビルドし、出力されたバンドルファイルのサイズはなんと<u>**1.12MB**</u>！流石にデカすぎる…、このままで本番環境にデプロイするのはめちゃくちゃ気が引ける…😣
 
  というわけで、このデカすぎバンドルファイルを小さくしていきます。
 
@@ -51,7 +51,7 @@ tags:
 - kotlinx-html-js.js: 602KB -> 121KB
 
 
- KotlinWebpackPluginでは、`optimize`オプションでこのツールを有効にすることができます。デフォルトの設定では`kotlin_build`というディレクトリにJS変換後のファイルが出力されるので、`yarn run webpack`の実行後正しく出力されるか確認してもるとよいでしょう。
+ KotlinWebpackPluginでは、`optimize`オプションでこのツールを有効にすることができます。デフォルトの設定では`kotlin_build`というディレクトリにJS変換後のファイルが出力されるので、`yarn run webpack`の実行後正しく出力されるか確認してみるとよいでしょう。
 
 ```js:webpack.config.js
 const path = require('path');
@@ -80,7 +80,7 @@ module.exports = {
 
 ![図2. kotlin-dce-jsを有効にしてビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-2.png?alt=media&token=ad8908ca-6885-4342-9ec7-0d3c43b9744e)
 
- さっきと同じ<u>**1.2MB**</u>！全然変わってなーい！！！ナンデー？？？
+ さっきと同じ<u>**1.12MB**</u>！全然変わってなーい！！！ナンデー？？？
 
 ## (2) kotlin-dce-jsを通した後のJSファイルを優先的に読み込むよう設定を修正
 
@@ -107,7 +107,7 @@ module.exports = {
 
 ![図3. モジュールの読み込み順を変更してビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-3.png?alt=media&token=acd1edb0-b0aa-4f2c-ad59-48e20b21a735)
 
-1.2MBあったバンドルファイルが<u>**185KB**</u>まで小さくなりました！大勝利！！！
+1.12MBあったバンドルファイルが<u>**185KB**</u>まで小さくなりました！大勝利！！！
 
 # 余談: Gradleではどうするの？
 
