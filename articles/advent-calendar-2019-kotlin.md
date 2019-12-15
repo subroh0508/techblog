@@ -26,6 +26,7 @@ tags:
 1. KotlinのコードをJavaScriptに変換
 1. 変換後得られたJavaScriptのコードをWebpackで1ファイルにまとめ、minify
 
+
  Kotlin->JS変換とWebpackのバンドル処理は、npmとGradleのどちらでも実行可能です。今回はフロントエンドエンジニアを想定読者としたため、Kotlin->JS変換に[KotlinWebpackPlugin](https://github.com/JetBrains/create-react-kotlin-app/tree/master/packages/kotlin-webpack-plugin)というnpmモジュールを使う構成にしています。
 
  そして、実際に実装したWebアプリがこちら。
@@ -36,18 +37,19 @@ tags:
 
 ![図1. productionモードでそのままビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-1.png?alt=media&token=e3528d5a-b865-4eb7-9596-8257d6ae9439)
 
- 何も考えずproductionモードでビルドし、出力されたバンドルファイルのサイズはなんと**1.2MB**！流石にデカすぎる…、このままで本番環境にデプロイするのはめちゃくちゃ気が引ける…😣
+ 何も考えずproductionモードでビルドし、出力されたバンドルファイルのサイズはなんと<u>**1.2MB**</u>！流石にデカすぎる…、このままで本番環境にデプロイするのはめちゃくちゃ気が引ける…😣
 
  というわけで、このデカすぎバンドルファイルを小さくしていきます。
 
 ## (1) kotlin-dce-jsを有効にする
 
- Kotlin/JSには、JS変換時に使われていないメソッドを自動判別し、これらを削除するツール「kotlin-dce-js」が存在します(参考: https://kotlinlang.org/docs/reference/javascript-dce.html)。これを利用することで、**Kotlin/JSの標準ライブラリ、およびKotlin製ライブラリのJS変換後のファイルサイズを大幅に削減**することが可能になります。
+ Kotlin/JSには、JS変換時に使われていないメソッドを自動判別し、これらを削除するツール「kotlin-dce-js」が存在します(参考: [kotlinlang.org/docs/reference/javascript-dce.html](https://kotlinlang.org/docs/reference/javascript-dce.html))。これを利用することで、**Kotlin/JSの標準ライブラリ、およびKotlin製ライブラリのJS変換後のファイルサイズを大幅に削減**することが可能になります。
 
 #### 参考: kotlin-dce-js適用前後のファイルサイズ比較
 
 - kotlin.js: 2.1MB -> 274KB
 - kotlinx-html-js.js: 602KB -> 121KB
+
 
  KotlinWebpackPluginでは、`optimize`オプションでこのツールを有効にすることができます。デフォルトの設定では`kotlin_build`というディレクトリにJS変換後のファイルが出力されるので、`yarn run webpack`の実行後正しく出力されるか確認してもるとよいでしょう。
 
@@ -78,11 +80,11 @@ module.exports = {
 
 ![図2. kotlin-dce-jsを有効にしてビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-2.png?alt=media&token=ad8908ca-6885-4342-9ec7-0d3c43b9744e)
 
- さっきと同じ**1.2MB**！全然変わってなーい！！！ナンデー？？？
+ さっきと同じ<u>**1.2MB**</u>！全然変わってなーい！！！ナンデー？？？
 
 ## (2) kotlin-dce-jsを通した後のJSファイルを優先的に読み込むよう設定を修正
 
- kotlin-dce-jsを通したにも関わらず、バンドルサイズが全く変わらない問題。こちらは、JSモジュールを1つのバンドルファイルにまとめる過程で、**kotlin-dce-jsを通す前のファイルを読み込んでしまう**ことが原因です。これを解決するには、`webpack.config.js`に以下の記述を追加します。
+ kotlin-dce-jsを通したにも関わらず、バンドルサイズが全く変わらない問題。こちらは、JSモジュールを1つのバンドルファイルにまとめる過程で、**kotlin-dce-jsを通す前のファイルを読み込んでしまうことが原因**です。これを解決するには、`webpack.config.js`に以下の記述を追加します。
 
 ```js:webpack.config.js
 const path = require('path');
@@ -105,11 +107,11 @@ module.exports = {
 
 ![図3. モジュールの読み込み順を変更してビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-3.png?alt=media&token=acd1edb0-b0aa-4f2c-ad59-48e20b21a735)
 
-1.2MBあったバンドルファイルが**185KB**まで小さくなりました！大勝利！！！
+1.2MBあったバンドルファイルが<u>**185KB**</u>まで小さくなりました！大勝利！！！
 
 # 余談: Gradleではどうするの？
 
- Kotlin/JSのGradle Pluginでのkotlin-dce-jsサポートは[v1.3.70で正式に入る](https://youtrack.jetbrains.com/issue/KT-32323)ようです。現状でも利用できないことはなかったはずですが、正直しんどかった記憶…🤔
+ Kotlin/JSのGradle Pluginでのkotlin-dce-jsサポートは[v1.3.70で正式に入る](https://youtrack.jetbrains.com/issue/KT-32323)ようです。現状でも利用できないことはないはずですが、正直しんどかった記憶…🤔
 
 # まとめ
 
