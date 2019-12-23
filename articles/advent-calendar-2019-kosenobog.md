@@ -1,5 +1,5 @@
 ---
-title: advent-calendar-2019-kosenobog.md
+title: advent-calendar-2019-kosenobog
 displayTitle: 今年登壇した高専関係+αのイベントを振り返る
 description: 1月から数えたら18回もイベント登壇していたので、高専関連のイベントを中心に振り返ります
 publishedAt: 2019-12-24T00:00:00+09:00
