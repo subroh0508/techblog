@@ -8,7 +8,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "firebase-admin": "^8.12.1",
-    "firebase-functions": "^3.8.1",
+    "firebase-functions": "^3.8.0",
     "vue-server-renderer": "^2.6.11"
   },
   "private": true
