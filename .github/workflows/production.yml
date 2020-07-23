@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Setup node with 10.x
+    - name: Setup node with 12.x
       uses: actions/setup-node@v1
       with:
-        node-version: 10.x
+        node-version: 12.x
     - name: yarn global add lerna
       run: |
         yarn global add lerna
@@ -36,10 +36,10 @@ jobs:
     needs: build
     steps:
     - uses: actions/checkout@v1
-    - name: Setup node with 8.x
+    - name: Setup node with 12.x
       uses: actions/setup-node@v1
       with:
-        node-version: 8.x
+        node-version: 12.x
     - name: Download Artifact of blog
       uses: actions/download-artifact@master
       with:

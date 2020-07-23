@@ -49,6 +49,6 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(port, () => console.log('Server start: 8080'));
+app.listen(port, () => console.log(`Server start: ${port}`));
 
 export default app;
