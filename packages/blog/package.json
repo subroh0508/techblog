@@ -54,7 +54,7 @@
   },
   "scripts": {
     "dev": "run-p dev:client dev:server",
-    "dev:client": "yarn run webpack --watch --config scripts/webpack.client-dev.js",
+    "dev:client": "yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
     "dev:server": "yarn run webpack --watch --config scripts/webpack.server.js & nodemon --exec NODE_ENV=development babel-node functions/src/server.js --config-file ./scripts/babel.config.js",
     "build": "run-p build:client build:server && yarn run build:functions && babel-node buildSitemap && babel-node buildRss",
     "build:client": "yarn run clean:client && NODE_ENV=production yarn run webpack --config ./scripts/webpack.client-prod.js && yarn run copyfiles -f ./public/*.* ./build",

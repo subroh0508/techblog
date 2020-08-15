@@ -22,6 +22,10 @@
     <meta content='#99b7dc' name='theme-color'>
   </head>
   <body>
-    <!--vue-ssr-outlet-->
+    <% if (dev) { %>
+      <div id='app'></div>
+    <% } else { %>
+      <!--vue-ssr-outlet-->
+    <% } %>
   </body>
 </html>

@@ -4,6 +4,10 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
+const dev = mode === 'development';
+const htmlOutputPath = dev ?
+  path.resolve(__dirname, '../build/index.html') :
+  path.resolve(__dirname, '../functions/assets/index.html');
 
 module.exports = {
   output: {
@@ -38,13 +42,14 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../index.template.html'),
-      filename: path.resolve(__dirname, '../functions/assets/index.html'),
+      template: path.resolve(__dirname, '../index.template.ejs'),
+      filename: htmlOutputPath,
+      templateParameters: { dev },
     }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: `"${mode}"`,
-        BASE_URL: `"${mode === 'development' ? 'http://localhost:8080' : 'https://subroh0508.net'}"`,
+        BASE_URL: `"${dev ? 'http://localhost:8080' : 'https://subroh0508.net'}"`,
       },
     }),
   ],

@@ -19,6 +19,14 @@ module.exports = merge(common, {
       },
     ],
   },
+  devServer: {
+    contentBase: [
+      path.resolve(__dirname, '../build'),
+      path.resolve(__dirname, '../public'),
+    ],
+    historyApiFallback: true,
+    port: 8080,
+  },
   plugins: [
     new CleanWebpackPlugin(),
   ]
