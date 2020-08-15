@@ -2,8 +2,8 @@ name: Production build and deploy
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - v*
 
 jobs:
   build:
