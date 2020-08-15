@@ -16,7 +16,6 @@ admin.initializeApp({
   databaseURL: "https://techblog-cc1e4.firebaseio.com"
 });
 */
-const port = process.env.PORT || 8080;
 
 if (process.env.NODE_ENV === 'development') {
   app.use(express.static(path.resolve(__dirname, '../../build')));
@@ -48,7 +47,5 @@ app.get('*', (req, res) => {
     res.end(html);
   });
 });
-
-app.listen(port, () => console.log(`Server start: ${port}`));
 
 export default app;
