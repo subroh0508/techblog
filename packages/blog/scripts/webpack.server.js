@@ -12,7 +12,7 @@ module.exports = merge(common, {
     path.resolve(__dirname, '../entry-server.js'),
   ],
   externals: nodeExternals({
-    whitelist: /\.css$/,
+    allowlist: /\.css$/,
   }),
   output: {
     ...common.output,
