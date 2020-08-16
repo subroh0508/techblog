@@ -48,4 +48,8 @@ app.get('*', (req, res) => {
   });
 });
 
+if (process.env.NODE_ENV === 'development') {
+  app.listen(8080, () => console.log('listening port: 8080'));
+}
+
 export default app;

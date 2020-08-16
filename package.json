@@ -11,15 +11,15 @@
   ],
   "scripts": {
     "prepublish": "yarn run build:articles && yarn run build:blog",
-    "preview": "yarn run preview:articles & yarn run preview:blog",
+    "preview:articles": "yarn run watch:articles & yarn run watch:client",
+    "preview:ssr": "yarn run build:articles && yarn run build:client && yarn run watch:server",
     "build:articles": "lerna run build --scope @techblog/articles --stream",
     "build:blog": "lerna run build --scope @techblog/blog --stream",
     "build:client": "lerna run build:client --scope @techblog/blog --stream",
-    "build:server": "lerna run build:server --scope @techblog/blog --stream",
-    "preview:articles": "lerna run preview --scope @techblog/articles --stream",
-    "preview:blog": "lerna run preview --scope @techblog/blog --stream",
+    "watch:articles": "lerna run watch --scope @techblog/articles --stream",
+    "watch:client": "lerna run watch:client --scope @techblog/blog --stream",
+    "watch:server": "lerna run watch:server --scope @techblog/blog --stream",
     "firebase:local": "lerna run firebase:local --stream",
-    "dev": "lerna run dev --stream",
     "analyze": "lerna run analyze --stream"
   }
 }

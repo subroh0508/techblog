@@ -18,6 +18,6 @@
   },
   "scripts": {
     "build": "babel-node ./scripts/build.js",
-    "preview": "babel-watch ./scripts/build.js --watch ../../articles"
+    "watch": "babel-watch ./scripts/build.js --watch ../../articles"
   }
 }
