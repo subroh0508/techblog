@@ -45,6 +45,7 @@ module.exports = {
       template: path.resolve(__dirname, '../index.template.ejs'),
       filename: htmlOutputPath,
       templateParameters: { dev },
+      minify: { removeComments: false },
     }),
     new webpack.DefinePlugin({
       'process.env': {
