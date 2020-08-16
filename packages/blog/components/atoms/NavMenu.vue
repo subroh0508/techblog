@@ -16,6 +16,7 @@ export default {
   </nav>
 </template>
 <style scoped lang='scss'>
+@import '~@components/_color';
 @import '~@components/_breakpoints';
 
 .nav-menu {
@@ -29,6 +30,8 @@ export default {
       display: inline;
 
       > a {
+        font-weight: bold;
+        color: $text;
         padding: 0 10px;
       }
     }
