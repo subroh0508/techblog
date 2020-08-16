@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "prepublish": "yarn run build:articles && yarn run build:blog",
+    "firebase:local": "lerna run firebase:local --stream",
     "preview:articles": "yarn run watch:articles & yarn run watch:client",
     "preview:ssr": "yarn run build:articles && yarn run build:client && yarn run watch:server",
     "build:articles": "lerna run build --scope @techblog/articles --stream",
@@ -19,7 +20,6 @@
     "watch:articles": "lerna run watch --scope @techblog/articles --stream",
     "watch:client": "lerna run watch:client --scope @techblog/blog --stream",
     "watch:server": "lerna run watch:server --scope @techblog/blog --stream",
-    "firebase:local": "lerna run firebase:local --stream",
     "analyze": "lerna run analyze --stream"
   }
 }
