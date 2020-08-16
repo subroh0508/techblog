@@ -16,6 +16,8 @@ export default {
 
 .bar {
   margin: 0 0 12px;
+  display: flex;
+  flex-wrap: wrap;
 
   > a {
     color: $subtitle;
