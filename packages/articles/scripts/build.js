@@ -42,8 +42,10 @@ const build = async () => {
   );
 };
 
-build().catch(e => {
-  console.error(e);
+build()
+  .then(() => console.log('completed!'))
+  .catch(e => {
+    console.error(e);
 
-  return process.exit(1);
-});
+    return process.exit(1);
+  });

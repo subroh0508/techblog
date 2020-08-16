@@ -17,6 +17,7 @@
     "moment-timezone": "^0.5.26"
   },
   "scripts": {
-    "build": "babel-node ./scripts/build.js"
+    "build": "babel-node ./scripts/build.js",
+    "preview": "babel-watch ./scripts/build.js --watch ../../articles"
   }
 }
