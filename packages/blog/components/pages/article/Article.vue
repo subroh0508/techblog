@@ -17,6 +17,11 @@ export default {
     if (this.loading) {
       this.fetchArticle();
     }
+
+    // Initialize Twitter widgets when transit article
+    if (twttr) {
+      twttr.widgets.load();
+    }
   },
   methods: {
     fetchArticle() {
