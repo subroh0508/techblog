@@ -2,4 +2,3 @@ node_modules/
 assets/
 secrets/
 firebase-debug.log
-yarn.lock
