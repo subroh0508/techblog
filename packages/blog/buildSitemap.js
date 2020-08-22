@@ -20,7 +20,7 @@ const build = async () => {
     .up();
   });
 
-  ['/', '/articles', '/about', '/links'].forEach((path) => {
+  ['/', '/articles', '/about'].forEach((path) => {
     builder = builder.ele('url')
       .ele('loc', `https://subroh0508.net${path}`).up()
     .up();

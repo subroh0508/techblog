@@ -9,7 +9,6 @@ export default {
     menuList: [
       { name: 'articles', display: 'Articles' },
       { name: 'about', display: 'About' },
-      { name: 'links', display: 'Links' },
     ],
   }),
   methods: {

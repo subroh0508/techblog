@@ -41,7 +41,6 @@ const build = async () => {
     { path:'/', id: 'home', title: SITE_NAME, description: 'Subroh Nishikoriの技術ブログ' },
     { path: '/articles', id: 'articles', title: `全ての記事 - ${SITE_NAME}`, description: '全ての記事' },
     { path: '/about', id: 'about', title: `このサイトについて - ${SITE_NAME}`, description: 'このサイトや筆者について' },
-    { path: '/links', id: 'links', title: `リンク集 - ${SITE_NAME}`, description: '筆者のネットにおける位置情報' },
   ].forEach(({ path, id, title, description }) => {
     builder = builder.ele('item')
       .ele('title', title).up()

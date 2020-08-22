@@ -21,10 +21,12 @@ export default {
 
 .nav-menu {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
 
   > ul {
     padding: 0;
+    margin-right: 48px;
 
     > li {
       display: inline;

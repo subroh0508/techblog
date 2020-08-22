@@ -10,8 +10,6 @@ export default (path, query) => {
       return articles(path, query);
     case '/about':
       return about(path);
-    case '/links':
-      return links(path);
     default:
       return home(path);  
   }
@@ -82,15 +80,6 @@ const about = (path) => ({
   head: metaTemplate(
     `このサイトについて - ${SITE_NAME}`,
     'このサイトや筆者について',
-    TYPE_WEBSITE,
-    path,
-  ),
-});
-
-const links = (path) => ({
-  head: metaTemplate(
-    `リンク集 - ${SITE_NAME}`,
-    '筆者のネットにおける位置情報',
     TYPE_WEBSITE,
     path,
   ),

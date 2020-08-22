@@ -8,9 +8,6 @@ export default (to) => {
     case 'about':
       forAbout();
       break;
-    case 'links':
-      forLinks();
-      break;
     case 'article':
       const article = findArticle(to.params.title)
       article ? forArticle(article) : forHome();
@@ -52,12 +49,6 @@ const forAbout = () => setAllAttributes(
   TYPE_WEBSITE,
   `このサイトについて - ${SITE_NAME}`,
   'このサイトや筆者について',
-);
-
-const forLinks = () => setAllAttributes(
-  TYPE_WEBSITE,
-  `リンク集 - ${SITE_NAME}`,
-  '筆者のネットにおける位置情報',
 );
 
 const forArticle = ({ displayTitle, description, publishedAt, updatedAt, tags }) => setAllAttributes(
