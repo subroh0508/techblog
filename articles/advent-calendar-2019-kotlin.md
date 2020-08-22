@@ -35,7 +35,7 @@ tags:
 
  見ての通り、一切スタイルをいじらない素朴なWebアプリとなっています。使用しているライブラリも数少なく、出力されるバンドルファイルも大したサイズにはならないと高を括っていたのですが…
 
-![図1. productionモードでそのままビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-1.png?alt=media&token=e3528d5a-b865-4eb7-9596-8257d6ae9439)
+![図1. productionモードでそのままビルド](https://subroh0508.net/images/advent-calendar-2019-kotlin-1.png)
 
  何も考えずproductionモードでビルドし、出力されたバンドルファイルのサイズはなんと<u>**1.12MB**</u>！流石にデカすぎる…、このままで本番環境にデプロイするのはめちゃくちゃ気が引ける…😣
 
@@ -78,7 +78,7 @@ module.exports = {
 
  さて、kotlin-dce-jsも有効になったところで、再度ビルドを走らせて見ましょう！どのくらい小さくなったかな…！
 
-![図2. kotlin-dce-jsを有効にしてビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-2.png?alt=media&token=ad8908ca-6885-4342-9ec7-0d3c43b9744e)
+![図2. kotlin-dce-jsを有効にしてビルド](https://subroh0508.net/images/advent-calendar-2019-kotlin-2.png)
 
  さっきと同じ<u>**1.12MB**</u>！全然変わってなーい！！！ナンデー？？？
 
@@ -105,7 +105,7 @@ module.exports = {
 
  これで準備は整った…！いざ、ビルド実行！！！
 
-![図3. モジュールの読み込み順を変更してビルド](https://firebasestorage.googleapis.com/v0/b/techblog-cc1e4.appspot.com/o/images%2Fadvent-calendar-2019-kotlin-3.png?alt=media&token=acd1edb0-b0aa-4f2c-ad59-48e20b21a735)
+![図3. モジュールの読み込み順を変更してビルド](https://subroh0508.net/images/advent-calendar-2019-kotlin-3.png)
 
 1.12MBあったバンドルファイルが<u>**185KB**</u>まで小さくなりました！大勝利！！！
 
