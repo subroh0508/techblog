@@ -26,7 +26,6 @@ export default {
 
   > ul {
     padding: 0;
-    margin-right: 48px;
 
     > li {
       display: inline;
