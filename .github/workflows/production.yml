@@ -15,11 +15,9 @@ jobs:
       with:
         node-version: 12.x
     - name: Get serviceAccount.json
+      working-directory: ./packages/blog/functions/secrets
       run: |
         echo "$GCLOUD_STORAGE_SERVICE_ACCOUNT" | base64 --decode > serviceAccount.json
-      with:
-        name: functions/secrets
-        path: ./packages/blog/functions/secrets
       env:
         GCLOUD_STORAGE_SERVICE_ACCOUNT: ${{ secrets.GCLOUD_STORAGE_SERVICE_ACCOUNT }} 
     - name: yarn global add lerna
