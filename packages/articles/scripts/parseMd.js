@@ -19,6 +19,13 @@ mdRenderer.link = (href, title, text) => href.match(/^(https?:\/\/|\/\/)/)
   ? `<a href="${href}" title="${title || ''}" target="_blank" rel="noopener">${text}</a>`
   : `<a href="${href}" title="${title || ''}" data-vue-router-link>${text}</a>`;
 
+const IMAGE_PREFIX = 'images/';
+const THUMBS_BASE_URL = 'https://storage.googleapis.com/thumbs.subroh0508.net';
+
+mdRenderer.image = (href, title, text) => href.startsWith(IMAGE_PREFIX)
+  ? `<img src="${THUMBS_BASE_URL}/${href.replace(IMAGE_PREFIX, '')}" alt="${text || ''}">${title || ''}</img>`
+  : `<img src="${href}" alt="${text || ''}">${title || ''}</img>`;
+
 mdRenderer.code = function(code, infostring, escaped) {
   const lang = infostring.split(':')[0];
   const fileName = infostring.split(':')[1];
