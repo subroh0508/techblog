@@ -14,7 +14,10 @@ const upload = async () => {
     credential: admin.credential.cert(serviceAccount),
   });
   
-  (await forUploadingImages(path.resolve(__dirname, '../../../articles/images'), IMAGES_BUCKET_NAME)).forEach(filename => downsizeImage(filename));
+  await Promise.all(
+    (await forUploadingImages(path.resolve(__dirname, '../../../articles/images'), IMAGES_BUCKET_NAME))
+      .map(async filename => await downsizeImage(filename))
+  );
 
   const imagesDir = path.resolve(__dirname, '../../../articles/images');
   const thumbsDir = path.resolve(__dirname, '../../../articles/thumbs');
@@ -35,11 +38,13 @@ const forUploadingImages = async (localDir, bucketName) => {
   return localFiles.filter(f => bucketFiles.indexOf(f) === -1);
 };
 
-const uploadImages = async (localDir, filename, bucketName) =>
-  await admin.storage()
+const uploadImages = async (localDir, filename, bucketName) => {
+  const res = await admin.storage()
     .bucket(bucketName)
-    .upload(path.resolve(localDir, filename))
-    .makePublic();
+    .upload(path.resolve(localDir, filename));
+
+  await res[0].makePublic();  
+}
 
 upload()
   .then(files => {
