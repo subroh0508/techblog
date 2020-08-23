@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { createBundleRenderer } from 'vue-server-renderer';
 import admin from 'firebase-admin';
-import serviceAccount from '../secrets/serviceAccount.json';
+import serviceAccount from '../../../../secrets/serviceAccount.json';
 import serverBundle from '../assets/server-bundle.json';
 import template from '../assets/index.html';
 
