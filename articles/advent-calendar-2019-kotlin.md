@@ -35,7 +35,7 @@ tags:
 
  見ての通り、一切スタイルをいじらない素朴なWebアプリとなっています。使用しているライブラリも数少なく、出力されるバンドルファイルも大したサイズにはならないと高を括っていたのですが…
 
-![図1. productionモードでそのままビルド](https://subroh0508.net/images/advent-calendar-2019-kotlin-1.png)
+![図1. productionモードでそのままビルド](https://storage.googleapis.com/thumbs.subroh0508.net/advent-calendar-2019-kotlin-1.webp)
 
  何も考えずproductionモードでビルドし、出力されたバンドルファイルのサイズはなんと<u>**1.12MB**</u>！流石にデカすぎる…、このままで本番環境にデプロイするのはめちゃくちゃ気が引ける…😣
 
@@ -78,7 +78,7 @@ module.exports = {
 
  さて、kotlin-dce-jsも有効になったところで、再度ビルドを走らせて見ましょう！どのくらい小さくなったかな…！
 
-![図2. kotlin-dce-jsを有効にしてビルド](https://subroh0508.net/images/advent-calendar-2019-kotlin-2.png)
+![図2. kotlin-dce-jsを有効にしてビルド](https://storage.googleapis.com/thumbs.subroh0508.net/advent-calendar-2019-kotlin-2.webp)
 
  さっきと同じ<u>**1.12MB**</u>！全然変わってなーい！！！ナンデー？？？
 
@@ -105,7 +105,7 @@ module.exports = {
 
  これで準備は整った…！いざ、ビルド実行！！！
 
-![図3. モジュールの読み込み順を変更してビルド](https://subroh0508.net/images/advent-calendar-2019-kotlin-3.png)
+![図3. モジュールの読み込み順を変更してビルド](https://storage.googleapis.com/thumbs.subroh0508.net/advent-calendar-2019-kotlin-3.webp)
 
 1.12MBあったバンドルファイルが<u>**185KB**</u>まで小さくなりました！大勝利！！！
 
