@@ -33,32 +33,31 @@ export default {
 </template>
 <style scoped lang="scss" >
 @import '~@components/_breakpoints';
-
 .header {
-  display: flex;
-  margin: 0 auto;
+  display: block;
+  margin: 0;
 
   .site-name {
-    flex: 2;
-    margin: 24px 0;
-    cursor: pointer;
+    margin: 24px 0 0;
   }
   nav {
-    flex: 1;
+    margin: 0;
+    justify-content: flex-end;
   }
 }
 
-@media screen and (max-width: $breakpoint-md) {
+@media screen and (min-width: $breakpoint-md) {
   .header {
-    display: block;
-    margin: 0;
+    display: flex;
+    margin: 0 auto;
 
     .site-name {
-      margin: 24px 0 0;
+      flex: 2;
+      margin: 24px 0;
+      cursor: pointer;
     }
     nav {
-      margin: 0;
-      justify-content: flex-end;
+      flex: 1;
     }
   }
 }

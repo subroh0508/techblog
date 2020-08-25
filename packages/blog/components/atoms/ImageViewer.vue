@@ -25,7 +25,7 @@ export default {
     object-fit: cover;
   }
 
-  @media screen and (max-width: $breakpoint-md) {
+  @media screen and (min-width: $breakpoint-md) {
     > img {
       position: relative;
       width: 80%;
@@ -39,7 +39,7 @@ export default {
     }
   }
 
-  @media screen and (max-width: $breakpoint-lg) {
+  @media screen and (min-width: $breakpoint-lg) {
     > img {
       width: 800px;
     }

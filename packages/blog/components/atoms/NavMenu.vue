@@ -25,6 +25,7 @@ export default {
   align-items: center;
 
   > ul {
+    margin-top: 0;
     padding: 0;
 
     > li {
@@ -38,9 +39,9 @@ export default {
     }
   }
 
-  @media screen and (max-width: $breakpoint-md) {
+  @media screen and (min-width: $breakpoint-md) {
     > ul {
-      margin-top: 0;
+      margin: 18px 0;
     }
   }
 }
