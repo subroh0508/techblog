@@ -8,7 +8,7 @@ export default {
 </script>
 <template>
   <div class='image-viewer'>
-    <img src="src" alt="alt"/>
+    <img v-bind="{ src, alt }"/>
   </div>
 </template>
 <style scoped lang='scss'>
@@ -21,7 +21,7 @@ export default {
 
   > img {
     width: 1000px;
-    background-color: transparent;
+    background-color: black;
     object-fit: cover;
   }
 

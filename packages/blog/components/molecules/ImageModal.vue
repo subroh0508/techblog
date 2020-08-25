@@ -16,13 +16,16 @@ export default {
   <transition name='modal'>
     <div class='modal-backdrop'>
       <div class='modal-wrapper'>
-        <span class='button-modal-close' v-on:click='onClick()'>閉じる</span>
-        <image-viewer src="src" alt="alt"/>
+        <div class='modal-content'>
+          <span class='button-modal-close' v-on:click='onClose()'>閉じる</span>
+          <image-viewer v-bind="{ src, alt }"/>
+        </div>
       </div>
     </div>  
   </transition>
 </template>
 <style scoped lang='scss'>
+@import '~@components/_color';
 @import '~@components/_breakpoints';
 
 .modal-backdrop {
@@ -39,9 +42,17 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+}
+
+.modal-content {
+  position: relative;
 }
 
 .button-modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
   background: rgba(255,255,255,0.2);
   padding: 0 0.5em;
   border-radius: 0.25rem;
