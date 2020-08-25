@@ -20,15 +20,14 @@ export default {
   object-fit: cover;
 
   > img {
-    width: 1000px;
     background-color: black;
     object-fit: cover;
   }
 
-  @media screen and (min-width: $breakpoint-md) {
-    > img {
+  @media screen and (min-width: 0) {
+   > img {
       position: relative;
-      width: 80%;
+      width: 80vw;
 
       &::before {
         display: block;
@@ -42,6 +41,12 @@ export default {
   @media screen and (min-width: $breakpoint-lg) {
     > img {
       width: 800px;
+    }
+  }
+
+  @media screen and (min-width: $breakpoint-xl) {
+    > img {
+      width: 1000px;
     }
   }
 }

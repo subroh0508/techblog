@@ -17,8 +17,8 @@ export default {
     <div class='modal-backdrop'>
       <div class='modal-wrapper'>
         <div class='modal-content'>
-          <span class='button-modal-close' v-on:click='onClose()'>閉じる</span>
           <image-viewer v-bind="{ src, alt }"/>
+          <span class='button-modal-close' v-on:click='onClose()'>閉じる</span>
         </div>
       </div>
     </div>  
