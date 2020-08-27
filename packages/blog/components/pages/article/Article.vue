@@ -1,10 +1,13 @@
 <script>
+import config from '@components/const';
 import ArticleHeader from '@components/molecules/ArticleHeader';
+import ImageModal from '@components/molecules/ImageModal';
 import ShareButtons from '@components/organisms/ShareButtons';
 
 export default {
   components: {
     ArticleHeader,
+    ImageModal,
     ShareButtons,
   },
   props: {
@@ -37,6 +40,19 @@ export default {
     },
     article() {
       return this.$store.state.article;
+    },
+    showModal() {
+      const extensions = [config.EXT_JPG, config.EXT_JPEG, config.EXT_GIF, config.EXT_WEBP];
+      return extensions.some(ext => this.$route.hash.endsWith(ext));
+    },
+    previewImage() {
+      return this.showModal ? this.$route.hash.replace('#', '') : '';
+    }
+  },
+  watch: {
+    '$route.hash': (to, from) => {
+      console.log('to', to);
+      console.log('from', from);
     }
   }
 }
@@ -58,6 +74,9 @@ export default {
       title: article.title,
       displayTitle: article.displayTitle,
     }"/>
+    <div v-if="showModal">
+      <image-modal v-bind="{ filename: previewImage }"></image-modal>
+    </div>
   </section>
 </template>
 <style scoped lang='scss'>

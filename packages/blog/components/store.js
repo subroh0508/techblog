@@ -12,13 +12,13 @@ export const createStore = () => {
     }),
     actions: {
       async fetchArticle({ commit }, title) {
-        commit('setArticle', await findFullArticle(title))
-      }
+        commit('setArticle', await findFullArticle(title));
+      },
     },
     mutations: {
       setArticle(state, article) {
         state.article = article;
-      }
+      },
     },
   });
 };

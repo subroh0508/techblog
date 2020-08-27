@@ -58,7 +58,7 @@ export default class MarkdownParser {
     const imgTag = `<img src="${THUMBS_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
   
     if (existsThumbnail(filename)) {
-      return `<a href="/articles/${this.articleTitle}/${filename}">${imgTag}</a>`;
+      return `<a href="#${filename}">${imgTag}</a>`;
     }
   
     return imgTag;

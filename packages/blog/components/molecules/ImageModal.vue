@@ -1,4 +1,5 @@
 <script>
+import config from '@components/const';
 import ImageViewer from '@components/atoms/ImageViewer';
 
 export default {
@@ -6,9 +7,18 @@ export default {
     ImageViewer,
   },
   props: {
-    src: String,
-    alt: String,
+    filename: String,
     onClose: Function,
+  },
+  methods: {
+    close() {
+      this.$router.back();
+    }
+  },
+  computed: {
+    src() {
+      return `${config.IMAGES_BASE_URL}/${this.filename}`;
+    },
   },
 }
 </script>
@@ -17,8 +27,8 @@ export default {
     <div class='modal-backdrop'>
       <div class='modal-wrapper'>
         <div class='modal-content'>
-          <image-viewer v-bind="{ src, alt }"/>
-          <span class='button-modal-close' v-on:click='onClose()'>閉じる</span>
+          <image-viewer v-bind="{ src, alt: filename }"/>
+          <span class='button-modal-close' v-on:click='close()'>閉じる</span>
         </div>
       </div>
     </div>  
