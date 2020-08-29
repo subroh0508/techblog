@@ -8,13 +8,8 @@ export default {
   },
   props: {
     filename: String,
+    showModal: Boolean,
     onClose: Function,
-  },
-  mounted() {
-    this.preventScroll();
-  },
-  destroyed() {
-    this.freeScroll();
   },
   methods: {
     preventScroll() {
@@ -31,23 +26,32 @@ export default {
       return `${config.IMAGES_BASE_URL}/${this.filename}`;
     },
   },
+  watch: {
+    showModal(to, from) {
+      to ? this.preventScroll() : this.freeScroll();
+    },
+  }
 }
 </script>
 <template>
-  <transition name='modal'>
-    <div class='modal-backdrop'>
-      <div class='modal-wrapper'>
-        <div class='modal-content'>
-          <image-viewer v-bind="{ src, alt: filename }"/>
-          <span class='button-modal-close' v-on:click="onClose()">閉じる</span>
+  <transition name='backdrop'>
+    <div v-show="showModal" class='modal-backdrop'>
+      <transition name='modal'>
+        <div v-if="showModal" class='modal-wrapper'>
+          <div class='modal-content'>
+            <image-viewer v-bind="{ src, alt: filename }"/>
+            <span class='button-modal-close' v-on:click="onClose()">閉じる</span>
+          </div>
         </div>
-      </div>
-    </div>  
-  </transition>
+      </transition>
+    </div>
+  </transition>  
 </template>
 <style scoped lang='scss'>
 @import '~@components/_color';
 @import '~@components/_breakpoints';
+
+$transition-delay: 0.15s;
 
 .modal-backdrop {
   position: fixed;
@@ -78,5 +82,36 @@ export default {
   padding: 0 0.5em;
   border-radius: 0.25rem;
   color: $light-text;
+  cursor: pointer;
+}
+
+.backdrop-leave-active {
+ transition-delay: $transition-delay;
+}
+
+.modal-enter-active {
+  animation: scale-in $transition-delay ease-out;
+}
+
+.modal-leave-active {
+  animation: scale-out $transition-delay ease-in;
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5);
+  }
 }
 </style>

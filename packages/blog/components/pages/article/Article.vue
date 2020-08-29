@@ -88,12 +88,11 @@ export default {
       title: article.title,
       displayTitle: article.displayTitle,
     }"/>
-    <div v-if="showModal">
-      <image-modal v-bind="{
-        filename: previewFilename,
-        onClose: closeModal,
-      }"></image-modal>
-    </div>
+    <image-modal v-bind="{
+      showModal,
+      filename: previewFilename,
+      onClose: closeModal,
+    }"></image-modal>
   </section>
 </template>
 <style scoped lang='scss'>
