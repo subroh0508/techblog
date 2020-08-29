@@ -20,6 +20,9 @@ export default {
       document.body.style.overflow = '';
       document.body.style.position = '';
     },
+    onClickContent(event) {
+      event.stopPropagation();
+    },
   },
   computed: {
     src() {
@@ -35,10 +38,10 @@ export default {
 </script>
 <template>
   <transition name='backdrop'>
-    <div v-show="showModal" class='modal-backdrop'>
+    <div v-show="showModal" class='modal-backdrop' v-on:click="onClose()">
       <transition name='modal'>
         <div v-if="showModal" class='modal-wrapper'>
-          <div class='modal-content'>
+          <div class='modal-content' v-on:click="onClickContent">
             <image-viewer v-bind="{ src, alt: filename }"/>
             <span class='button-modal-close' v-on:click="onClose()">閉じる</span>
           </div>
