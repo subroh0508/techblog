@@ -164,5 +164,8 @@ export default {
       height: 100%;
     }
   }
+  .image-preview {
+    cursor: pointer;
+  }
 }
 </style>

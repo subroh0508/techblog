@@ -10,6 +10,22 @@ export default {
     filename: String,
     onClose: Function,
   },
+  mounted() {
+    this.preventScroll();
+  },
+  destroyed() {
+    this.freeScroll();
+  },
+  methods: {
+    preventScroll() {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'relative';
+    },
+    freeScroll() {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+    },
+  },
   computed: {
     src() {
       return `${config.IMAGES_BASE_URL}/${this.filename}`;
