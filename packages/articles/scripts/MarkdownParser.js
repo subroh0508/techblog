@@ -55,13 +55,13 @@ export default class MarkdownParser {
     }
   
     const filename = href.replace(IMAGE_PREFIX, '');
-    const imgTag = `<img src="${THUMBS_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
+    const srcPath = `${THUMBS_BASE_URL}/${filename}`;
   
     if (existsThumbnail(filename)) {
-      return `<a href="#${filename}">${imgTag}</a>`;
+      return `<img class="image-preview" data-filename="${filename}" src="${srcPath}" alt="${text || ''}">${title || ''}</img>`;
     }
   
-    return imgTag;
+    return `<img src="${srcPath}" alt="${text || ''}">${title || ''}</img>`;
   };
 
   _code(code, infostring, escaped) {
