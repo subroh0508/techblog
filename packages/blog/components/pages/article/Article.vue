@@ -13,6 +13,9 @@ export default {
   props: {
     title: String,
   },
+  data: () => ({
+    previewFilename: null,
+  }),
   serverPrefetch() {
     return this.fetchArticle();
   },
@@ -25,11 +28,27 @@ export default {
     if (twttr) {
       twttr.widgets.load();
     }
+
+    this.$nextTick(() => this.addClickListeners(this.$refs.body));
   },
   methods: {
     fetchArticle() {
       return this.$store.dispatch('fetchArticle', this.title);
-    }
+    },
+    addClickListeners(bodyElement) {
+      if (!bodyElement) {
+        return;
+      }
+
+      bodyElement.getElementsByClassName('image-preview').forEach((img) => {
+        img.addEventListener('click', () => {
+          this.previewFilename = img.dataset.filename;
+        });
+      });
+    },
+    closeModal() {
+      this.previewFilename = null;
+    },
   },
   computed: {
     loading() {
@@ -42,17 +61,12 @@ export default {
       return this.$store.state.article;
     },
     showModal() {
-      const extensions = [config.EXT_JPG, config.EXT_JPEG, config.EXT_GIF, config.EXT_WEBP];
-      return extensions.some(ext => this.$route.hash.endsWith(ext));
+      return !!this.previewFilename;
     },
-    previewImage() {
-      return this.showModal ? this.$route.hash.replace('#', '') : '';
-    }
   },
   watch: {
-    '$route.hash': (to, from) => {
-      console.log('to', to);
-      console.log('from', from);
+    article(to, from) {
+      this.$nextTick(() => this.addClickListeners(this.$refs.body));
     }
   }
 }
@@ -68,14 +82,17 @@ export default {
       publishedAt: article.publishedAt,
       tags: article.tags,
     }"/>
-    <span v-show='article.body' v-html='article.body'></span>
+    <span v-show='article.body' v-html='article.body' ref='body'></span>
     <share-buttons v-bind="{
       baseUrl: '/articles',
       title: article.title,
       displayTitle: article.displayTitle,
     }"/>
     <div v-if="showModal">
-      <image-modal v-bind="{ filename: previewImage }"></image-modal>
+      <image-modal v-bind="{
+        filename: previewFilename,
+        onClose: closeModal,
+      }"></image-modal>
     </div>
   </section>
 </template>

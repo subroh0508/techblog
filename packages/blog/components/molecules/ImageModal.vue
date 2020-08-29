@@ -10,11 +10,6 @@ export default {
     filename: String,
     onClose: Function,
   },
-  methods: {
-    close() {
-      this.$router.back();
-    }
-  },
   computed: {
     src() {
       return `${config.IMAGES_BASE_URL}/${this.filename}`;
@@ -28,7 +23,7 @@ export default {
       <div class='modal-wrapper'>
         <div class='modal-content'>
           <image-viewer v-bind="{ src, alt: filename }"/>
-          <span class='button-modal-close' v-on:click='close()'>閉じる</span>
+          <span class='button-modal-close' v-on:click="onClose()">閉じる</span>
         </div>
       </div>
     </div>  
