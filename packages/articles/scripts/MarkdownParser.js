@@ -57,7 +57,6 @@ export default class MarkdownParser {
   
     const filename = href.replace(IMAGE_PREFIX, '');
   
-    console.log(filename, existsThumbnail(filename));
     if (existsThumbnail(filename)) {
       return `<img class="image-preview" data-filename="${filename}" src="${THUMBS_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
     }
