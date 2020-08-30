@@ -3,6 +3,7 @@ import marked from 'marked';
 import existsThumbnail from './existsThumbnail';
 
 const IMAGE_PREFIX = 'images/';
+const IMAGES_BASE_URL = 'https://storage.googleapis.com/images.subroh0508.net';
 const THUMBS_BASE_URL = 'https://storage.googleapis.com/thumbs.subroh0508.net';
 
 export default class MarkdownParser {
@@ -55,13 +56,12 @@ export default class MarkdownParser {
     }
   
     const filename = href.replace(IMAGE_PREFIX, '');
-    const srcPath = `${THUMBS_BASE_URL}/${filename}`;
   
     if (existsThumbnail(filename)) {
-      return `<img class="image-preview" data-filename="${filename}" src="${srcPath}" alt="${text || ''}">${title || ''}</img>`;
+      return `<img class="image-preview" data-filename="${filename}" src="${THUMBS_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
     }
   
-    return `<img src="${srcPath}" alt="${text || ''}">${title || ''}</img>`;
+    return `<img src="${IMAGES_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
   };
 
   _code(code, infostring, escaped) {
