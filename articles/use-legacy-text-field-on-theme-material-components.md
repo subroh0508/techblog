@@ -2,8 +2,8 @@
 title: use-legacy-text-field-on-theme-material-components
 displayTitle: Theme.MaterialComponentsのテーマ内でも以前のスタイルのText fieldを使いたい
 description: Design Support Library時代のスタイルのText fieldを使いたくなった時の備忘録です。
-publishedAt: 
-updatedAt: 
+publishedAt: 2020-08-30T11:58:56+0900
+updatedAt: 2020-08-30T11:58:56+0900
 tags:
   - Android
   - Material Design
@@ -18,7 +18,7 @@ tags:
 
 みなさんは、2014年のMaterial Design発表当時のText fieldのスタイルをまだ覚えているでしょうか？
 
-![図1. Design Support Library時代のTextInputLayout](images/text-input-legacy.gif)
+![図1. Design Support Library時代のTextInputLayout](images/text-input-layout-legacy.gif)
 
 `android.support.design.widget.TextInputLayout`を使い、Text fieldを実装していた頃のスタイルです。懐かしい！
 
