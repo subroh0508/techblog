@@ -164,7 +164,12 @@ export default {
     }
   }
   .image-preview {
-    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+
+    &[data-filename] {
+      cursor: pointer;
+    }
   }
 }
 </style>

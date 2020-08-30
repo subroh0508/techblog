@@ -61,7 +61,7 @@ export default class MarkdownParser {
       return `<img class="image-preview" data-filename="${filename}" src="${THUMBS_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
     }
   
-    return `<img src="${IMAGES_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
+    return `<img class="image-preview" src="${IMAGES_BASE_URL}/${filename}" alt="${text || ''}">${title || ''}</img>`;
   };
 
   _code(code, infostring, escaped) {
