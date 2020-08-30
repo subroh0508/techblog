@@ -11,7 +11,7 @@ tags:
 
 # TL;DR
 
-`com.google.android.material.textfield.TextInputLayout`に`style="@style/Widget.Design.TextInputLayout"`を指定すれば🙆‍♂️
+`TextInputLayout`のstyleに`@style/Widget.Design.TextInputLayout`を指定すれば🙆‍♂️
 
 # 詳しい解説
 ## Design Support Library時代のText field
