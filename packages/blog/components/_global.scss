@@ -72,6 +72,7 @@ code {
   border-radius: 4px;
   background-color: $inline-code-background;
   color: $inline-code-text;
+  word-wrap: break-word;
 }
 img {
   max-width: 100%;
