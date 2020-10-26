@@ -41,17 +41,17 @@ module.exports = merge(common, {
         {
           name: 'vue',
           var: 'Vue',
-          path: 'dist/vue.min.js',
+          path: 'dist/vue.runtime.global.prod.js',
         },
         {
           name: 'vue-router',
           var: 'VueRouter',
-          path: 'dist/vue-router.min.js',
+          path: 'dist/vue-router.global.prod.js',
         },
         {
           name: 'vuex',
           var: 'Vuex',
-          path: 'dist/vuex.min.js',
+          path: 'dist/vuex.global.prod.js',
         },
       ],
       prod: true,
