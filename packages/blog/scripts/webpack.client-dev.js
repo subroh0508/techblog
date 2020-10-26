@@ -16,7 +16,7 @@ module.exports = merge(common, {
       {
         test: /(\.css|\.scss)/,
         use: [
-          'vue-style-loader',
+          'style-loader',
           { loader: 'css-loader', options: { esModule: false } },
           'sass-loader',
         ],
