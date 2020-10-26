@@ -1,12 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { createStore as createVuexStore } from 'vuex';
 
 import { findFullArticle } from '@components/finder';
 
-Vue.use(Vuex);
-
 export const createStore = () => {
-  return new Vuex.Store({
+  return createVuexStore({
     state: () => ({
       article: {},
     }),
