@@ -1,6 +1,6 @@
-import { createApp } from './app';
+import { createClientApp } from './app';
 
-const { app, router } = createApp();
+const { app, router } = createClientApp();
 router.isReady().then(() => {
   app.mount('#app');
 });

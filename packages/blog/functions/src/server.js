@@ -1,12 +1,10 @@
 import express from 'express';
 import path from 'path';
-import { createBundleRenderer } from 'vue-server-renderer';
-import serverBundle from '../assets/server-bundle.json';
-import template from '../assets/index.html';
+import { renderToString } from '@vue/server-renderer';
+import serverBundle from '../assets/server.bundle.js';
 
 import metatags from './metatags';
 
-const renderer = createBundleRenderer(serverBundle, { template });
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
@@ -16,8 +14,8 @@ if (process.env.NODE_ENV === 'development') {
 
 app.get('*', (req, res) => {
   const context = { ...metatags(req.path, req.query), url: req.url };
-  renderer.renderToString(context, (error, html) => {
-    res.end(html);
+  serverBundle().then(app => {
+    renderToString(app, context).then(html => { res.end(html); });
   });
 });
 

@@ -1,12 +1,12 @@
-import { h, createApp as createVueApp } from 'vue';
+import { h, createApp as createClientVueApp, createSSRApp as createSSRVueApp } from 'vue';
 import { sync } from 'vuex-router-sync';
 
-import { createRouter } from './router';
+import { createClientRouter, createSSRRouter } from './router';
 import { createStore } from './components/store';
 import App from './components/App';
 import NotFound from './components/pages/global/NotFound';
 
-export const createApp = () => {
+const createApp = (createVueApp, createRouter) => {
   const router = createRouter();
   const store = createStore();
 
@@ -21,4 +21,7 @@ export const createApp = () => {
   app.component('not-found', NotFound);
 
   return { app, router, store };
-};
+}
+
+export const createClientApp = () => createApp(createClientVueApp, createClientRouter);
+export const createSSRApp = () => createApp(createSSRVueApp, createSSRRouter)

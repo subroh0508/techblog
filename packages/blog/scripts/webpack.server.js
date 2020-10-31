@@ -1,7 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.common.js');
 
@@ -12,21 +11,28 @@ module.exports = merge(common, {
     path.resolve(__dirname, '../entry-server.js'),
   ],
   externals: nodeExternals({
-    allowlist: /\.css$/,
+    allowlist: /\.(css|scss|vue)$/,
   }),
   output: {
     ...common.output,
     path: path.resolve(__dirname, '../functions/assets'),
-    filename: 'server.[chunkhash].js',
+    filename: 'server.bundle.js',
     libraryTarget: 'commonjs2',
   },
   target: 'node',
-  devtool: 'source-map',
+  resolve: {
+    extensions: ['.js', '.vue'],
+    alias: {
+      vue$: 'vue/dist/vue.cjs.js',
+      '@components': path.resolve(__dirname, '../components'),
+    },
+    mainFields: ['main', 'module'], // https://github.com/vuejs/vue-next/issues/2244
+  },
   module: {
     rules: [
       {
         test: /(\.css|\.scss)/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+        use: ['css-loader', 'sass-loader'],
       },
     ],
   },
@@ -34,8 +40,9 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'common.[chunkhash].css',
     }),
-    new VueSSRServerPlugin({
-      filename: 'server-bundle.json',
-    }),
   ],
+  optimization: {
+    splitChunks: false,
+    minimize: false,
+  },
 });

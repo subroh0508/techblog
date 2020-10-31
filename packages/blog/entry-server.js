@@ -1,17 +1,14 @@
-import { createApp } from './app';
+import { createSSRApp } from './app';
 
-export default (context) => {
+export default () => {
   return new Promise((resolve, reject) => {
-    const { app, router, store } = createApp();
+    const { app, router } = createSSRApp();
 
-    router.push(context.url);
-
+    resolve(app);
+    /*
     router.isReady().then(() => {
-      context.rendered = () => {
-        context.state = store.state;
-      };
-
       resolve(app);
     });
+    */
   });
 };

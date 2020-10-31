@@ -1,7 +1,7 @@
-import { createRouter as createVueRouter, createWebHistory } from 'vue-router';
+import { createRouter as createVueRouter, createWebHistory, createMemoryHistory } from 'vue-router';
 
-export const createRouter = () => createVueRouter({
-  history: createWebHistory(),
+const createRouter = (history) => createVueRouter({
+  history,
   routes: [
     { path: '/', name: 'home', component: () => import('./components/pages/home/Home') },
     { path: '/articles', name: 'articles', component: () => import('./components/pages/article/Articles') },
@@ -13,3 +13,6 @@ export const createRouter = () => createVueRouter({
     return { left: 0, top: 0 };
   },
 });
+
+export const createClientRouter = () => createRouter(createWebHistory());
+export const createSSRRouter = () => createRouter(createMemoryHistory());
