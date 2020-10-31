@@ -10,6 +10,6 @@ export const createRouter = () => createVueRouter({
     { path: '/:catchAll(.*)', component: () => import('./components/pages/global/NotFound') },
   ],
   scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 };
+    return { left: 0, top: 0 };
   },
 });

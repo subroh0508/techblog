@@ -6,7 +6,7 @@ export default (context) => {
 
     router.push(context.url);
 
-    router.onReady(() => {
+    router.isReady().then(() => {
       context.rendered = () => {
         context.state = store.state;
       };
