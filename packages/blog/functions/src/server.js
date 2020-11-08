@@ -12,11 +12,15 @@ if (process.env.NODE_ENV === 'development') {
   app.use(express.static(path.resolve(__dirname, '../../public')));
 }
 
-app.get('*', (req, res) => {
+app.get('*', async (req, res) => {
   const context = { ...metatags(req.path, req.query), url: req.url };
-  serverBundle().then(app => {
-    renderToString(app, context).then(html => { res.end(html); });
-  });
+  const { app, router } = serverBundle();
+
+  router.push(context.url);
+  await router.isReady();
+  const html = renderToString(app, context);
+
+  res.end(html);
 });
 
 if (process.env.NODE_ENV === 'development') {

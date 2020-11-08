@@ -11,13 +11,15 @@ export default {
     SiteFooter,
   },
   mounted() {
-    updateConfig(this.$route);
-    insertMetaTags(this.$route);
+    // metaタグが無いと落ちるので一旦コメントアウト
+    // updateConfig(this.$route);
+    // insertMetaTags(this.$route);
   },
   watch: {
     '$route': function (to, from) {
-      updateConfig(to);
-      insertMetaTags(to);
+      // metaタグが無いと落ちるので一旦コメントアウト
+      // updateConfig(to);
+      // insertMetaTags(to);
     }
   }
 }
