@@ -23,7 +23,7 @@ module.exports = merge(common, {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      vue$: 'vue/dist/vue.cjs.js',
+      vue: '@vue/runtime-dom/dist/runtime-dom.cjs.js',
       '@components': path.resolve(__dirname, '../components'),
     },
     mainFields: ['main', 'module'], // https://github.com/vuejs/vue-next/issues/2244
