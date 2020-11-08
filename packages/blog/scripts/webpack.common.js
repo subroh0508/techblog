@@ -10,15 +10,9 @@ const htmlOutputPath = dev ?
   path.resolve(__dirname, '../functions/assets/index.html');
 
 module.exports = {
-  output: {
-    path: path.resolve(__dirname, '../build'),
-    publicPath: '/',
-    filename: '[name].[chunkhash].js',
-  },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      vue: '@vue/runtime-dom/dist/runtime-dom.esm-bundler.js',
       '@components': path.resolve(__dirname, '../components'),
     },
   },

@@ -2,8 +2,8 @@
 import SiteHeader from './organisms/SiteHeader';
 import SiteFooter from './organisms/SiteFooter';
 
-import insertMetaTags from './insertMetaTags';
-import { updateConfig } from './analytics';
+// import insertMetaTags from './insertMetaTags';
+// import { updateConfig } from './analytics';
 
 export default {
   components: {
