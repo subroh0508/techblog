@@ -18,7 +18,7 @@ app.get('*', async (req, res) => {
 
   router.push(context.url);
   await router.isReady();
-  const html = renderToString(app, context);
+  const html = await renderToString(app, context);
 
   res.end(html);
 });

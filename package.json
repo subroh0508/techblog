@@ -6,9 +6,19 @@
   "author": "subroh_0508",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/@vue/**",
+      "**/vue",
+      "**/vue-loader",
+      "**/vue-router",
+      "**/vuex",
+      "**/vuex-router-sync"
+    ]
+  },
   "scripts": {
     "prepublish": "yarn run build:articles && yarn run build:blog",
     "upload:images": "lerna run upload --scope @techblog/articles --stream",
