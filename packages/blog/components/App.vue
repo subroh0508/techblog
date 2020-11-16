@@ -2,8 +2,8 @@
 import SiteHeader from './organisms/SiteHeader';
 import SiteFooter from './organisms/SiteFooter';
 
-// import insertMetaTags from './insertMetaTags';
-// import { updateConfig } from './analytics';
+import insertMetaTags from './insertMetaTags';
+import { updateConfig } from './analytics';
 
 export default {
   components: {
@@ -11,15 +11,13 @@ export default {
     SiteFooter,
   },
   mounted() {
-    // metaタグが無いと落ちるので一旦コメントアウト
-    // updateConfig(this.$route);
-    // insertMetaTags(this.$route);
+    updateConfig(this.$route);
+    insertMetaTags(this.$route);
   },
   watch: {
     '$route': function (to, from) {
-      // metaタグが無いと落ちるので一旦コメントアウト
-      // updateConfig(to);
-      // insertMetaTags(to);
+      updateConfig(to);
+      insertMetaTags(to);
     }
   }
 }
