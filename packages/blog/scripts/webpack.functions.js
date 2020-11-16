@@ -5,7 +5,7 @@ const externals = [
   'express',
   'firebase-admin',
   'firebase-functions',
-  'vue-server-renderer',
+  '@vue/server-renderer',
 ];
 
 module.exports = {
