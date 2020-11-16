@@ -95,10 +95,10 @@ export default {
     }"></image-modal>
   </section>
 </template>
-<style scoped lang='scss'>
+<style lang='scss'>
 @import '~@components/_color';
 
-.article /deep/ {
+.article {
   @import 'highlight.js/styles/androidstudio';
 
   pre {
