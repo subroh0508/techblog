@@ -38,6 +38,13 @@ module.exports = merge(common, {
           path: 'runtime.js',
           prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
         },
+      ],
+      prod: true,
+      pathToNodeModules: path.resolve(__dirname, '../../../'),
+      publicPath: '/',
+    }),
+    new WebpackCdnPlugin({
+      modules: [
         {
           name: 'vue',
           var: 'Vue',
@@ -55,7 +62,6 @@ module.exports = merge(common, {
         },
       ],
       prod: true,
-      pathToNodeModules: path.resolve(__dirname, '../../../'),
       publicPath: '/',
     }),
     new MiniCssExtractPlugin({
