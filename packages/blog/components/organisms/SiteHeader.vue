@@ -13,8 +13,8 @@ export default {
   }),
   methods: {
     redirectTo(name) {
-      const currentName = this.$router.currentRoute.name;
-      const currentQuery = this.$router.currentRoute.query;
+      const currentName = this.$router.currentRoute.value.name;
+      const currentQuery = this.$router.currentRoute.value.query;
 
       if (currentName === name && !Object.keys(currentQuery).length) {
         return;

@@ -24,8 +24,8 @@ export default {
       this.$router.push({ name: 'article', params: { title } });
     },
     searchByTag(tag) {
-      const currentPath = this.$router.currentRoute.path;
-      const currentTag = this.$router.currentRoute.query.tag;
+      const currentPath = this.$router.currentRoute.value.path;
+      const currentTag = this.$router.currentRoute.value.query.tag;
       if (currentPath === '/articles' && currentTag === tag) {
         return;
       }
