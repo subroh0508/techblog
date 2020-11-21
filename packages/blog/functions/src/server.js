@@ -15,13 +15,13 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 server.get('*', async (req, res) => {
-  const context = { ...metatags(req.path, req.query), url: req.url };
-
-  router.push(context.url);
+  router.push(req.url);
   await router.isReady();
-  const html = await renderToString(app, context);
 
-  res.end(template.replace('<!--vue-ssr-outlet-->', html));
+  const html = await renderToString(app, { url: req.url });
+  const meta = metatags(req.path, req.query);
+
+  res.end(template.replace('<!--vue-ssr-meta-->', meta.head).replace('<!--vue-ssr-outlet-->', html));
 });
 
 if (process.env.NODE_ENV === 'development') {
