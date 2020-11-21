@@ -1,0 +1,28 @@
+{
+  "name": "@techblog/functions",
+  "version": "1.0.0",
+  "description": "Cloud Functions for Firebase",
+  "main": "index.js",
+  "engines": {
+    "node": "12"
+  },
+  "private": true,
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1"
+  },
+  "dependencies": {
+    "@vue/server-renderer": "^3.0.2",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.1.0",
+    "firebase-functions": "^3.9.1",
+    "vue": "^3.0.2",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "scripts": {
+    "build": "yarn run clean && NODE_ENV=production yarn run webpack --config ../blog/scripts/webpack.functions.js && yarn run copyfiles -f ./package.json ./build",
+    "clean": "yarn run rimraf ./build",
+    "firebase:local": "firebase serve --only functions:ritsuko,hosting"
+  }
+}

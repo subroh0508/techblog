@@ -5,13 +5,16 @@ const common = require('./webpack.common.js');
 
 const mode = process.env.NODE_ENV || 'development';
 const dev = mode === 'development';
+const outputPath = dev ?
+  path.resolve(__dirname, '../build') :
+  path.resolve(__dirname, '../../functions/assets');
 const htmlOutputPath = dev ?
   path.resolve(__dirname, '../build/index.html') :
-  path.resolve(__dirname, '../functions/assets/index.html');
+  path.resolve(__dirname, '../assets/index.html');
 
 module.exports = merge(common, {
   output: {
-    path: path.resolve(__dirname, '../build'),
+    path: outputPath,
     publicPath: '/',
     filename: '[name].[chunkhash].js',
   },
@@ -19,6 +22,14 @@ module.exports = merge(common, {
     alias: {
       vue: '@vue/runtime-dom/dist/runtime-dom.esm-bundler.js',
     },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js/,
+        loader: 'babel-loader',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

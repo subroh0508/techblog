@@ -5,12 +5,16 @@ const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-  entry: path.resolve(__dirname, '../entry-server.js'),
+  entry: [
+    'core-js',
+    'regenerator-runtime/runtime',
+    path.resolve(__dirname, '../entry-server.js'),
+  ],
   externals: nodeExternals({
-    allowlist: /\.(css|scss|vue)$/,
+    allowlist: /\.css$/,
   }),
   output: {
-    path: path.resolve(__dirname, '../functions/assets'),
+    path: path.resolve(__dirname, '../build/server'),
     filename: 'server.bundle.js',
     libraryTarget: 'commonjs2',
   },
@@ -23,6 +27,14 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
+      {
+        test: /\.js/,
+        loader: 'babel-loader',
+        options: {
+          plugins: ['transform-html-import-require-to-string'],
+        },
+        exclude: /node_modules/,
+      },
       {
         test: /(\.css|\.scss)/,
         use: ['css-loader', 'sass-loader'],

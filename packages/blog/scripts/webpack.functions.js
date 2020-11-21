@@ -6,13 +6,17 @@ const externals = [
   'firebase-admin',
   'firebase-functions',
   '@vue/server-renderer',
+  'vue',
+  'vue-router',
+  'vuex',
+  'vuex-router-sync',
 ];
 
 module.exports = {
-  entry: path.resolve(__dirname, '../functions/index.js'),
+  entry: path.resolve(__dirname, '../../functions/index.js'),
   target: 'node',
   output: {
-    path: path.resolve(__dirname, '../functions/build'),
+    path: path.resolve(__dirname, '../../functions/build'),
     filename: 'index.js',
     libraryTarget: 'commonjs2',
   },
@@ -30,6 +34,7 @@ module.exports = {
                   "corejs": 3,
                 }],
               ],
+              plugins: ['@babel/plugin-transform-modules-commonjs'],
             },
           }
         ],
@@ -48,4 +53,8 @@ module.exports = {
     (acc, name) => ({ ...acc, [name]: true }),
     {}
   ),
+  optimization: {
+    splitChunks: false,
+    minimize: false,
+  },
 }
