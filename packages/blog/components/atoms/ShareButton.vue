@@ -21,7 +21,7 @@ export default {
   box-shadow: inset 0 0 0 2px $title;
   border-radius: 100%;
 
-  > svg {
+  :first-child {
     width: 20px;
     height: 20px;
   }

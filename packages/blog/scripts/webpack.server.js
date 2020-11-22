@@ -1,7 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.common.js');
 
@@ -9,33 +8,48 @@ module.exports = merge(common, {
   entry: [
     'core-js',
     'regenerator-runtime/runtime',
-    path.resolve(__dirname, '../entry-server.js'),
+    path.resolve(__dirname, '../entry-functions.js'),
   ],
   externals: nodeExternals({
     allowlist: /\.css$/,
   }),
   output: {
-    ...common.output,
-    path: path.resolve(__dirname, '../functions/assets'),
-    filename: 'server.[chunkhash].js',
+    path: path.resolve(__dirname, '../build'),
+    filename: 'index.js',
     libraryTarget: 'commonjs2',
   },
   target: 'node',
-  devtool: 'source-map',
+  resolve: {
+    alias: {
+      vue: '@vue/runtime-dom/dist/runtime-dom.cjs.js',
+    },
+    mainFields: ['main', 'module'], // https://github.com/vuejs/vue-next/issues/2244
+  },
   module: {
     rules: [
       {
+        test: /\.js/,
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ["@babel/preset-env", {
+              "useBuiltIns": "usage",
+              "corejs": 3,
+            }],
+          ],
+          plugins: ['transform-html-import-require-to-string'],
+        },
+        exclude: /node_modules/,
+      },
+      {
         test: /(\.css|\.scss)/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+        use: ['css-loader', 'sass-loader'],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'common.[chunkhash].css',
-    }),
-    new VueSSRServerPlugin({
-      filename: 'server-bundle.json',
     }),
   ],
 });

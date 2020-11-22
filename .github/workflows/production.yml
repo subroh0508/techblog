@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: 12.x
     - name: Get serviceAccount.json
-      working-directory: ./packages/blog/functions
+      working-directory: ./packages/blog
       run: |
         mkdir secrets
         echo "$GCLOUD_STORAGE_SERVICE_ACCOUNT" | base64 --decode > secrets/serviceAccount.json
@@ -28,16 +28,16 @@ jobs:
       run: |
         yarn install
         yarn run prepublish
-    - name: Archive Production Artifact for blog
+    - name: Archive Production Artifact for frontend
       uses: actions/upload-artifact@master
       with:
-        name: blog
+        name: frontend
+        path: ./packages/blog/assets
+    - name: Archive Production Artifact for backend
+      uses: actions/upload-artifact@master
+      with:
+        name: backend
         path: ./packages/blog/build
-    - name: Archive Production Artifact for functions
-      uses: actions/upload-artifact@master
-      with:
-        name: functions
-        path: ./packages/blog/functions/build
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -47,24 +47,20 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - name: Download Artifact of blog
+    - name: Download Artifact of frontend
       uses: actions/download-artifact@master
       with:
-        name: blog
+        name: frontend
+        path: ./packages/blog/assets
+    - name: Download Artifact of backend
+      uses: actions/download-artifact@master
+      with:
+        name: backend
         path: ./packages/blog/build
-    - name: Download Artifact of functions
-      uses: actions/download-artifact@master
-      with:
-        name: functions
-        path: ./packages/blog/functions/build
     - name: yarn add --dev firebase-tools
       working-directory: ./packages/blog
       run: |
-        yarn add --dev firebase-tools
-    - name: yarn install for functions
-      working-directory: ./packages/blog/functions/build
-      run: |
-        yarn install    
+        yarn add --dev firebase-tools 
     - name: Deploy to Firebase
       working-directory: ./packages/blog
       run: |

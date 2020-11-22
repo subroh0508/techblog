@@ -1,6 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
+const common = require('./webpack.client-common.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = merge(common, {
@@ -16,7 +16,7 @@ module.exports = merge(common, {
       {
         test: /(\.css|\.scss)/,
         use: [
-          'vue-style-loader',
+          'style-loader',
           { loader: 'css-loader', options: { esModule: false } },
           'sass-loader',
         ],

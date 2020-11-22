@@ -11,7 +11,7 @@ const SITE_NAME = '横須賀第765管区情報局';
 const fsp = fs.promises;
 
 const build = async () => {
-  const buildDir = path.resolve(__dirname, 'build');
+  const buildDir = path.resolve(__dirname, '../assets');
 
   let builder = XmlBuilder.create('rss', { encoding: 'utf-8' })
     .att('version', '2.0')

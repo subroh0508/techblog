@@ -1,18 +1,19 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import { defineAsyncComponent } from 'vue';
+import { createRouter as createVueRouter, createWebHistory, createMemoryHistory } from 'vue-router';
 
-Vue.use(VueRouter);
-
-export const createRouter = () => new VueRouter({
-  mode: 'history',
+const createRouter = (history) => createVueRouter({
+  history,
   routes: [
-    { path: '/', name: 'home', component: () => import('./components/pages/home/Home') },
-    { path: '/articles', name: 'articles', component: () => import('./components/pages/article/Articles') },
-    { path: '/articles/:title', name: 'article', component: () => import('./components/pages/article/Article'), props: true },
-    { path: '/about', name: 'about', component: () => import('./components/pages/about/About') },
-    { path: '*', component: () => import('./components/pages/global/NotFound') },
+    { path: '/', name: 'home', component: defineAsyncComponent(() => import('./components/pages/home/Home')) },
+    { path: '/articles', name: 'articles', component: defineAsyncComponent(() => import('./components/pages/article/Articles')) },
+    { path: '/articles/:title', name: 'article', component: defineAsyncComponent(() => import('./components/pages/article/Article')), props: true },
+    { path: '/about', name: 'about', component: defineAsyncComponent(() => import('./components/pages/about/About')) },
+    { path: '/:catchAll(.*)', component: defineAsyncComponent(() => import('./components/pages/global/NotFound')) },
   ],
   scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 };
+    return { left: 0, top: 0 };
   },
 });
+
+export const createClientRouter = () => createRouter(createWebHistory());
+export const createSSRRouter = () => createRouter(createMemoryHistory());

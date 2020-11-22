@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
-const common = require('./webpack.common.js');
+const common = require('./webpack.client-common.js');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -38,24 +38,30 @@ module.exports = merge(common, {
           path: 'runtime.js',
           prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
         },
+      ],
+      prod: true,
+      pathToNodeModules: path.resolve(__dirname, '../../../'),
+      publicPath: '/',
+    }),
+    new WebpackCdnPlugin({
+      modules: [
         {
           name: 'vue',
           var: 'Vue',
-          path: 'dist/vue.min.js',
+          path: 'dist/vue.runtime.global.prod.js',
         },
         {
           name: 'vue-router',
           var: 'VueRouter',
-          path: 'dist/vue-router.min.js',
+          path: 'dist/vue-router.global.prod.js',
         },
         {
           name: 'vuex',
           var: 'Vuex',
-          path: 'dist/vuex.min.js',
+          path: 'dist/vuex.global.prod.js',
         },
       ],
       prod: true,
-      pathToNodeModules: path.resolve(__dirname, '../../../'),
       publicPath: '/',
     }),
     new MiniCssExtractPlugin({

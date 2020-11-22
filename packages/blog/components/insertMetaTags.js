@@ -64,30 +64,55 @@ const setAllAttributes = (
   type, title, description, publishedAt, updatedAt, tags,
 ) => {
   document.title = title;
-  document.querySelector("meta[name='description']")
-    .setAttribute('content', description);
-
-  document.querySelector("meta[property='og:type']")
-    .setAttribute('content', type);
-  document.querySelector("meta[property='og:title']")
-    .setAttribute('content', title);
-  document.querySelector("meta[property='og:description']")
-    .setAttribute('content', description);
-  document.querySelector("meta[property='og:url']")
-    .setAttribute('content', window.location.href);
+  
+  removeContentTags();
+  appendContentTags(description, type, title);
 
   removeArticleTags();
   if (type === TYPE_ARTICLE) {
     appendArticleTags(publishedAt, updatedAt, tags);
   }
-
-  document.querySelector("meta[name='twitter:title']")
-    .setAttribute('content', title);
-  document.querySelector("meta[name='twitter:description']")
-    .setAttribute('content', type === TYPE_ARTICLE ? description : '');
-  document.querySelector("meta[name='twitter:url']")
-    .setAttribute('content', window.location.href);
 };
+
+const appendContentTags = (description, type, title) => {
+  const fragment = document.createDocumentFragment();
+
+  const metaDescription = document.createElement('meta');
+  metaDescription.setAttribute('name', 'description');
+  metaDescription.setAttribute('content', description);
+
+  const ogType = document.createElement('meta');
+  const ogTitle = document.createElement('meta');
+  const ogDescription = document.createElement('meta');
+  const ogUrl = document.createElement('meta');
+  ogType.setAttribute('property','og:type');
+  ogType.setAttribute('content', type);
+  ogTitle.setAttribute('property', 'og:title');
+  ogTitle.setAttribute('content', title);
+  ogDescription.setAttribute('property', 'og:description');
+  ogDescription.setAttribute('content', description);
+  ogUrl.setAttribute('property', 'og:url');
+  ogUrl.setAttribute('content', window.location.href);
+
+  const twitterTitle = document.createElement('meta');
+  const twitterDescription = document.createElement('meta');
+  const twitterUrl = document.createElement('meta');
+
+  twitterTitle.setAttribute('name', 'twitter:title');
+  twitterTitle.setAttribute('content', title);
+  twitterDescription.setAttribute('name', 'twitter:description');
+  twitterDescription.setAttribute('content', type === TYPE_ARTICLE ? description : '');
+  twitterUrl.setAttribute('name', 'twitter:url');
+  twitterUrl.setAttribute('content', window.location.href);
+
+  [
+    metaDescription,
+    ogType, ogTitle, ogDescription, ogUrl,
+    twitterTitle, twitterDescription, twitterUrl,
+  ].forEach(node => fragment.appendChild(node));
+
+  document.head.appendChild(fragment);
+}
 
 const appendArticleTags = (publishedAt, updatedAt, tags) => {
   const fragment = document.createDocumentFragment();
@@ -117,6 +142,31 @@ const appendArticleTags = (publishedAt, updatedAt, tags) => {
 
   document.head.appendChild(fragment);
 };
+
+const removeContentTags = () => {
+  const description = document.querySelector("meta[name='description']");
+
+  const ogType = document.querySelector("meta[property='og:type']");
+  const ogTitle = document.querySelector("meta[property='og:title']");
+  const ogDescription = document.querySelector("meta[property='og:description']");
+  const ogUrl = document.querySelector("meta[property='og:url']");
+
+  const twitterTitle = document.querySelector("meta[name='twitter:title']");
+  const twitterDescription = document.querySelector("meta[name='twitter:description']");
+  const twitterUrl = document.querySelector("meta[name='twitter:url']");
+
+  const head = document.head;
+
+  [
+    description,
+    ogType, ogTitle, ogDescription, ogUrl,
+    twitterTitle, twitterDescription, twitterUrl,
+  ].forEach(node => {
+    if (node) {
+      head.removeChild(node);
+    }
+  });
+}
 
 const removeArticleTags = () => {
   const published = document.querySelector("meta[property='article:published_time']");
