@@ -20,7 +20,7 @@
     ]
   },
   "scripts": {
-    "prepublish": "yarn run build:articles && yarn run build:blog && yarn run build:functions",
+    "prepublish": "yarn run build:articles && yarn run build:blog",
     "upload:images": "lerna run upload --scope @techblog/articles --stream",
     "firebase:local": "lerna run firebase:local --stream",
     "preview:articles": "yarn run watch:articles & yarn run watch:client",

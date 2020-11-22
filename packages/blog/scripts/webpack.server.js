@@ -8,14 +8,14 @@ module.exports = merge(common, {
   entry: [
     'core-js',
     'regenerator-runtime/runtime',
-    path.resolve(__dirname, '../entry-server.js'),
+    path.resolve(__dirname, '../entry-functions.js'),
   ],
   externals: nodeExternals({
     allowlist: /\.css$/,
   }),
   output: {
-    path: path.resolve(__dirname, '../build/server'),
-    filename: 'server.bundle.js',
+    path: path.resolve(__dirname, '../build'),
+    filename: 'index.js',
     libraryTarget: 'commonjs2',
   },
   target: 'node',
@@ -31,6 +31,12 @@ module.exports = merge(common, {
         test: /\.js/,
         loader: 'babel-loader',
         options: {
+          presets: [
+            ["@babel/preset-env", {
+              "useBuiltIns": "usage",
+              "corejs": 3,
+            }],
+          ],
           plugins: ['transform-html-import-require-to-string'],
         },
         exclude: /node_modules/,

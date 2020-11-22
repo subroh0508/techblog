@@ -3,7 +3,7 @@ import path from 'path';
 import { renderToString } from '@vue/server-renderer';
 import { createSSRApp } from './app';
 
-import template from './assets/index.html';
+import template from './build/index.html';
 import metatags from './metatags';
 
 const server = express();
