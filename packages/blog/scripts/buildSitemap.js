@@ -8,7 +8,7 @@ import list from '@techblog/articles/build/list';
 const fsp = fs.promises;
 
 const build = async () => {
-  const buildDir = path.resolve(__dirname, 'assets');
+  const buildDir = path.resolve(__dirname, '../assets');
 
   let builder = XmlBuilder.create('urlset', { encoding: 'utf-8' })
     .att('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
