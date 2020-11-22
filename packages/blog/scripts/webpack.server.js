@@ -52,8 +52,4 @@ module.exports = merge(common, {
       filename: 'common.[chunkhash].css',
     }),
   ],
-  optimization: {
-    splitChunks: false,
-    minimize: false,
-  },
 });
