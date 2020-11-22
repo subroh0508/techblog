@@ -7,12 +7,14 @@ const make = async () => {
   const rawJson = await fsp.readFile(path.resolve(__dirname, '../package.json'));
   const json = JSON.parse(rawJson);
 
+  const dependencies = json.dependencies;
+  delete dependencies['@techblog/articles'];
   const output = {
     name: 'functions',
     description: 'Cloud Functions for Firebase',
     main: 'index.js',
     engines: { node: '12' },
-    dependencies: json.dependencies.filter(d => d !== '@techblog/articles'),
+    dependencies,
     private: true,
   }
   
