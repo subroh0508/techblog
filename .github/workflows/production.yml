@@ -60,11 +60,7 @@ jobs:
     - name: yarn add --dev firebase-tools
       working-directory: ./packages/blog
       run: |
-        yarn add --dev firebase-tools
-    - name: yarn install for functions
-      working-directory: ./packages/blog/functions/build
-      run: |
-        yarn install    
+        yarn add --dev firebase-tools 
     - name: Deploy to Firebase
       working-directory: ./packages/blog
       run: |
