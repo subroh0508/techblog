@@ -59,7 +59,7 @@
     ]
   },
   "scripts": {
-    "build": "yarn run build:client && yarn run build:server && babel-node buildSitemap && babel-node buildRss",
+    "build": "yarn run build:client && yarn run build:server && babel-node ./scripts/buildSitemap && babel-node ./scripts/buildRss",
     "build:client": "yarn run clean:client && NODE_ENV=production yarn run webpack --config ./scripts/webpack.client-prod.js && yarn run copyfiles -f ./public/*.* ./assets",
     "build:server": "yarn run clean:server && NODE_ENV=production yarn run webpack --config ./scripts/webpack.server.js && yarn run babel-node ./scripts/makeFunctionsPackgeJson.js",
     "watch:client": "yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
