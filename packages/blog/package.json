@@ -37,6 +37,7 @@
     "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cdn-plugin": "^3.3.1",
     "webpack-cli": "^3.3.12",
+    "webpack-dev-middleware": "^4.0.2",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.1.1",
     "webpack-node-externals": "^2.5.1",
@@ -61,13 +62,13 @@
   "scripts": {
     "build": "yarn run build:client && yarn run build:server && babel-node ./scripts/buildSitemap && babel-node ./scripts/buildRss",
     "build:client": "yarn run clean:client && NODE_ENV=production yarn run webpack --config ./scripts/webpack.client-prod.js && yarn run copyfiles -f ./public/*.* ./assets",
-    "build:server": "yarn run clean:server && NODE_ENV=production yarn run webpack --config ./scripts/webpack.server.js && yarn run babel-node ./scripts/makeFunctionsPackgeJson.js",
+    "build:server": "yarn run clean:server && NODE_ENV=production yarn run webpack --config ./scripts/webpack.server-prod.js && yarn run babel-node ./scripts/makeFunctionsPackgeJson.js",
     "watch:client": "yarn run webpack-dev-server --config scripts/webpack.client-dev.js",
-    "watch:server": "yarn run webpack --watch --config scripts/webpack.server.js & nodemon --exec NODE_ENV=development babel-node entry-server.js --config-file ./scripts/babel.config.js",
+    "watch:server": "NODE_ENV=development babel-node ./server.js",
     "analyze": "yarn run clean:client && NODE_ENV=production yarn run webpack --config ./scripts/webpack.client-analyze.js",
     "clean": "run-p clean:client clean:server",
-    "clean:client": "yarn run rimraf ./assets",
-    "clean:server": "yarn run copyfiles -f ./build/index.html ./assets && yarn run rimraf ./build && yarn run copyfiles -f ./assets/index.html ./build && yarn run rimraf ./assets/index.html",
+    "clean:client": "yarn run rimraf ./assets && yarn run rimraf ./index.html",
+    "clean:server": "yarn run rimraf ./build",
     "firebase:local": "firebase serve --only functions:ritsuko,hosting"
   }
 }

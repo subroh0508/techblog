@@ -10,7 +10,7 @@ const outputPath = dev ?
   path.resolve(__dirname, '../assets');
 const htmlOutputPath = dev ?
   path.resolve(__dirname, '../build/index.html') :
-  path.resolve(__dirname, '../assets/index.html');
+  path.resolve(__dirname, '../index.html');
 
 module.exports = merge(common, {
   output: {
@@ -34,7 +34,7 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../index.template.ejs'),
-      filename: path.resolve(__dirname, '../build/index.html'),
+      filename: htmlOutputPath,
       templateParameters: { dev },
       minify: { removeComments: false },
     }),

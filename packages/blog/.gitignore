@@ -2,4 +2,5 @@
 node_modules
 assets
 build
+index.html
 firebase-debug.log
