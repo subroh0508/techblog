@@ -4,11 +4,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeExternals = require('webpack-node-externals');
 const common = require('./webpack.common.js');
 
+const mode = process.env.NODE_ENV || 'development';
+const dev = mode === 'development';
+const entryPath = dev ?
+  path.resolve(__dirname, '../entry-server.js') :
+  path.resolve(__dirname, '../entry-functions.js')
+
 module.exports = merge(common, {
   entry: [
     'core-js',
     'regenerator-runtime/runtime',
-    path.resolve(__dirname, '../entry-server.js'),
+    entryPath,
   ],
   externals: nodeExternals({
     allowlist: /\.css$/,
