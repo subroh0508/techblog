@@ -1,5 +1,10 @@
 import { getFilename, requireFromString } from './utils';
 
+/**
+ * ref. https://blog.mahoroi.com/posts/2019/09/nodejs-server-hot-reload/
+ * TODO Multiple chunk files are output in a pattern that causes all files other than main to be reloaded.
+ */
+
 const MIDDLEWARE_NAME = 'hot-server-middleware';
 
 const options = {
