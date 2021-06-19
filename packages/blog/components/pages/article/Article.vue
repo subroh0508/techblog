@@ -101,6 +101,10 @@ export default {
 .article {
   @import 'highlight.js/styles/androidstudio';
 
+  .hljs {
+    display: block;
+  }
+
   pre {
     background: $code-background;
     border-radius: 0.25rem;
