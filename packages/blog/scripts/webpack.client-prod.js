@@ -2,6 +2,7 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 const common = require('./webpack.client-common.js');
 
 module.exports = merge(common, {
@@ -65,6 +66,9 @@ module.exports = merge(common, {
     }),
     new MiniCssExtractPlugin({
       filename: 'common.[chunkhash].css',
+    }),
+    new HTMLInlineCSSWebpackPlugin({
+      leaveCSSFile: true,
     }),
   ],
 });
