@@ -16,7 +16,7 @@
     "highlight.js": "^10.1.2",
     "image-size": "^1.0.0",
     "marked": "^1.1.1",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.33",
     "sharp": "^0.28.3"
   },
   "scripts": {
