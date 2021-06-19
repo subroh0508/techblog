@@ -1,11 +1,3 @@
 module.exports = {
-  presets: [
-    ["@babel/preset-env", {
-      "useBuiltIns": "usage",
-      "corejs": 3,
-    }],
-  ],
-  plugins: [
-    "babel-plugin-transform-html-import-to-string",
-  ],
+  presets: ["@babel/preset-env"],
 };

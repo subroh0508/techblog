@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const sass = require('sass');
 const common = require('./webpack.client-common.js');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -18,7 +19,7 @@ module.exports = merge(common, {
         use: [
           'style-loader',
           { loader: 'css-loader', options: { esModule: false } },
-          'sass-loader',
+          { loader: 'sass-loader', options: { implementation: sass } },
         ],
       },
     ],

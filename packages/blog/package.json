@@ -12,7 +12,12 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.5",
-    "@vue/compiler-sfc": "^3.0.2",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/builder-webpack5": "^6.2.9",
+    "@storybook/vue3": "^6.2.9",
+    "@vue/compiler-sfc": "^3.1.1",
     "babel-loader": "^8.2.1",
     "babel-plugin-transform-html-import-to-string": "^1.0.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -25,14 +30,14 @@
     "html-webpack-plugin": "^5.3.1",
     "mini-css-extract-plugin": "^1.6.0",
     "moment-timezone": "^0.5.33",
-    "node-sass": "^4.14.1",
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
     "regenerator-runtime": "^0.13.7",
     "rimraf": "^3.0.2",
+    "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^2.0.0",
-    "vue-loader": "^16.0.0-0",
+    "vue-loader": "^16.2.0",
     "webpack": "^5.39.1",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cdn-plugin": "^3.3.1",
@@ -45,30 +50,28 @@
   },
   "dependencies": {
     "@techblog/articles": "0.0.1",
-    "@vue/server-renderer": "^3.0.2",
+    "@vue/server-renderer": "^3.1.1",
     "express": "^4.17.1",
     "firebase-admin": "^9.9.0",
     "firebase-functions": "^3.14.1",
-    "vue": "^3.0.2",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0",
+    "vue": "^3.1.1",
+    "vue-router": "^4.0.9",
+    "vuex": "^4.0.2",
     "vuex-router-sync": "^5.0.0"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  },
   "scripts": {
-    "build": "yarn run build:client && yarn run build:server && babel-node ./scripts/buildSitemap && babel-node ./scripts/buildRss",
+    "build": "yarn run build:client && yarn run build:server && yarn run build:xml",
     "build:client": "yarn run clean:client && NODE_ENV=production yarn run webpack --config ./scripts/webpack.client-prod.js && yarn run copyfiles -f ./public/*.* ./assets",
-    "build:server": "yarn run clean:server && NODE_ENV=production yarn run webpack --config ./scripts/webpack.server.js && yarn run babel-node ./scripts/makeFunctionsPackgeJson.js",
+    "build:server": "yarn run clean:server && NODE_ENV=production yarn run webpack --config ./scripts/webpack.server.js && yarn run babel-node ./scripts/makeFunctionsPackgeJson.js --config-file ./scripts/babel.config.js",
+    "build:xml": "yarn run babel-node ./scripts/buildSitemap --config-file ./scripts/babel.config.js && yarn run babel-node ./scripts/buildRss --config-file ./scripts/babel.config.js",
     "watch:client": "yarn run webpack server --config scripts/webpack.client-dev.js",
-    "watch:server": "NODE_ENV=development babel-node ./devServer.js",
+    "watch:server": "NODE_ENV=development yarn run babel-node ./devServer.js --config-file ./scripts/babel.config.js",
     "analyze": "yarn run clean:client && NODE_ENV=production yarn run webpack --config ./scripts/webpack.client-analyze.js",
     "clean": "run-p clean:client clean:server",
     "clean:client": "yarn run rimraf ./assets && yarn run rimraf ./index.html",
     "clean:server": "yarn run rimraf ./build",
-    "firebase:local": "firebase serve --only functions:ritsuko,hosting"
+    "firebase:local": "firebase serve --only functions:ritsuko,hosting",
+    "storybook": "yarn run start-storybook -p 6006",
+    "build-storybook": "yarn run build-storybook"
   }
 }

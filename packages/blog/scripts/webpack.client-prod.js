@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const sass = require('sass');
 const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
@@ -21,28 +22,12 @@ module.exports = merge(common, {
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { esModule: false } },
-          'sass-loader',
+          { loader: 'sass-loader', options: { implementation: sass } },
         ],
       },
     ],
   },
   plugins: [
-    new WebpackCdnPlugin({
-      modules: [
-        {
-          name: 'core-js-bundle',
-          path: 'minified.js',
-        },
-        {
-          name: 'regenerator-runtime',
-          path: 'runtime.js',
-          prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
-        },
-      ],
-      prod: true,
-      pathToNodeModules: path.resolve(__dirname, '../../../'),
-      publicPath: '/',
-    }),
     new WebpackCdnPlugin({
       modules: [
         {
@@ -60,8 +45,18 @@ module.exports = merge(common, {
           var: 'Vuex',
           path: 'dist/vuex.global.prod.js',
         },
+        {
+          name: 'core-js-bundle',
+          path: 'minified.js',
+        },
+        {
+          name: 'regenerator-runtime',
+          path: 'runtime.js',
+          prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
+        },
       ],
       prod: true,
+      pathToNodeModules: path.resolve(__dirname, '../../../'),
       publicPath: '/',
     }),
     new MiniCssExtractPlugin({

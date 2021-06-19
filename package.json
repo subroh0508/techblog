@@ -6,23 +6,14 @@
   "author": "subroh_0508",
   "license": "MIT",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**/@vue/**",
-      "**/vue",
-      "**/vue-loader",
-      "**/vue-router",
-      "**/vuex",
-      "**/vuex-router-sync"
-    ]
-  },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "prepublish": "yarn run build:articles && yarn run build:blog",
     "upload:images": "lerna run upload --scope @techblog/articles --stream",
     "firebase:local": "lerna run firebase:local --stream",
+    "preview:components": "lerna run storybook --stream",
     "preview:articles": "yarn run watch:articles & yarn run watch:client",
     "preview:ssr": "yarn run build:articles && yarn run build:client && yarn run watch:server",
     "build:articles": "lerna run build --scope @techblog/articles --stream",
