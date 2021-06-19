@@ -1,5 +1,6 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
+const sass = require('sass');
 const WebpackCdnPlugin = require('webpack-cdn-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HTMLInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
@@ -21,7 +22,7 @@ module.exports = merge(common, {
         use: [
           MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { esModule: false } },
-          'sass-loader',
+          { loader: 'sass-loader', options: { implementation: sass } },
         ],
       },
     ],
