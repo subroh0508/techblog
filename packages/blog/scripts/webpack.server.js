@@ -43,7 +43,7 @@ module.exports = merge(common, {
               "corejs": 3,
             }],
           ],
-          plugins: ['transform-html-import-require-to-string'],
+          plugins: ['babel-plugin-transform-html-import-to-string'],
         },
         exclude: /node_modules/,
       },
