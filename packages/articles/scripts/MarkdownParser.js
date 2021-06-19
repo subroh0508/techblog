@@ -95,7 +95,7 @@ export default class MarkdownParser {
     );
   }
 
-  _codeHighlight(code, lang) {
-    return lang ? highlight(lang, code).value : highlightAuto(code).value
+  _codeHighlight(code, language) {
+    return language ? highlight(code, { language }).value : highlightAuto(code).value
   }
 }

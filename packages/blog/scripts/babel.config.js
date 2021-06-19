@@ -6,6 +6,6 @@ module.exports = {
     }],
   ],
   plugins: [
-    "transform-html-import-require-to-string",
+    "babel-plugin-transform-html-import-to-string",
   ],
 };
