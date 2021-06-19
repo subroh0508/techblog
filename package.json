@@ -23,6 +23,7 @@
     "prepublish": "yarn run build:articles && yarn run build:blog",
     "upload:images": "lerna run upload --scope @techblog/articles --stream",
     "firebase:local": "lerna run firebase:local --stream",
+    "preview:components": "lerna run storybook",
     "preview:articles": "yarn run watch:articles & yarn run watch:client",
     "preview:ssr": "yarn run build:articles && yarn run build:client && yarn run watch:server",
     "build:articles": "lerna run build --scope @techblog/articles --stream",
