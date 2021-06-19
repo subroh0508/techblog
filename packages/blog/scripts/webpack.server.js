@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeExternals = require('webpack-node-externals');
@@ -54,6 +55,10 @@ module.exports = merge(common, {
     ],
   },
   plugins: [
+    // Workaround
+    new webpack.DefinePlugin({
+      __VUE_PROD_DEVTOOLS__: false,
+    }),
     new MiniCssExtractPlugin({
       filename: 'common.[chunkhash].css',
     }),

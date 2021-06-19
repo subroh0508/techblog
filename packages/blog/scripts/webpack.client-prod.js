@@ -31,22 +31,6 @@ module.exports = merge(common, {
     new WebpackCdnPlugin({
       modules: [
         {
-          name: 'core-js-bundle',
-          path: 'minified.js',
-        },
-        {
-          name: 'regenerator-runtime',
-          path: 'runtime.js',
-          prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
-        },
-      ],
-      prod: true,
-      pathToNodeModules: path.resolve(__dirname, '../../../'),
-      publicPath: '/',
-    }),
-    new WebpackCdnPlugin({
-      modules: [
-        {
           name: 'vue',
           var: 'Vue',
           path: 'dist/vue.runtime.global.prod.js',
@@ -61,8 +45,18 @@ module.exports = merge(common, {
           var: 'Vuex',
           path: 'dist/vuex.global.prod.js',
         },
+        {
+          name: 'core-js-bundle',
+          path: 'minified.js',
+        },
+        {
+          name: 'regenerator-runtime',
+          path: 'runtime.js',
+          prodUrl: 'https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.3/runtime.min.js',
+        },
       ],
       prod: true,
+      pathToNodeModules: path.resolve(__dirname, '../../../'),
       publicPath: '/',
     }),
     new MiniCssExtractPlugin({
