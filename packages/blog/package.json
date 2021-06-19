@@ -10,8 +10,8 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
     "@vue/compiler-sfc": "^3.0.2",
     "babel-loader": "^8.2.1",
     "babel-plugin-transform-html-import-to-string": "^1.0.0",
