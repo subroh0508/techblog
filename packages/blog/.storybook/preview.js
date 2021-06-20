@@ -9,7 +9,6 @@ app.use(createRouter(
       { path: '/articles', name: 'articles' },
       { path: '/articles/:title', name: 'article' },
       { path: '/about', name: 'about' },
-      { path: '/:catchAll(.*)', name: 'not_found' },
     ]
   }
 ));

@@ -8,7 +8,7 @@ export default {
 const Template = (args) => ({
   components: { DisplayTitle },
   setup() {
-    return { args }
+    return { args };
   },
   template: '<display-title v-bind="args"/>',
 });

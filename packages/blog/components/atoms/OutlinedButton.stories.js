@@ -8,7 +8,7 @@ export default {
 export const OutlinedButton = (args) => ({
   components: { OutlinedButtonComponent },
   setup() {
-    return { args }
+    return { args };
   },
   template: `
     <outlined-button-component v-bind="args">

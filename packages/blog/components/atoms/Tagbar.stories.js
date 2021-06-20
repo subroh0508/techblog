@@ -8,7 +8,7 @@ export default {
 export const Tagbar = (args) => ({
   components: { TagbarComponent },
   setup() {
-    return { args }
+    return { args };
   },
   template: '<tagbar-component v-bind="args"/>',
 });

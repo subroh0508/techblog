@@ -8,7 +8,7 @@ export default {
 const Template = (args) => ({
   components: { DateComponent },
   setup() {
-    return { args }
+    return { args };
   },
   template: '<date-component v-bind="args"/>',
 });

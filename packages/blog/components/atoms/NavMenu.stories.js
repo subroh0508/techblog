@@ -8,7 +8,7 @@ export default {
 export const NavMenu = (args) => ({
   components: { NavMenuComponent },
   setup() {
-    return { args }
+    return { args };
   },
   template: '<nav-menu-component v-bind="args"/>',
 });
