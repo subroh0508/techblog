@@ -42,6 +42,7 @@ module.exports = {
           'process.env': {
             NODE_ENV: `"${mode}"`,
             BASE_URL: `"${dev ? 'http://localhost:8080' : 'https://subroh0508.net'}"`,
+            IMAGES_BASE_URL: `"static/media/.storybook/assets"`,
           },
         }),
       ],

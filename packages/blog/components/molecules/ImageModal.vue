@@ -1,5 +1,4 @@
 <script>
-import config from '@components/const';
 import ImageViewer from '@components/atoms/ImageViewer';
 
 export default {
@@ -26,7 +25,7 @@ export default {
   },
   computed: {
     src() {
-      return `${config.IMAGES_BASE_URL}/${this.filename}`;
+      return `${process.env.IMAGES_BASE_URL}/${this.filename}`;
     },
   },
   watch: {
