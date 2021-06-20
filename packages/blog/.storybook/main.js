@@ -5,14 +5,14 @@ const sass = require('sass');
 
 module.exports = {
   "stories": [
-    "../components/**/*.stories.@(js|mdx)"
+    "../components/**/*.stories.@(js|mdx)",
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-essentials",
   ],
   "core": {
-    "builder": "webpack5"
+    "builder": "webpack5",
   },
   webpackFinal: async (config, { configType }) => {
     const mode = configType.toLowerCase();
