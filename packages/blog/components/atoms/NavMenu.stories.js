@@ -18,4 +18,4 @@ NavMenu.args = {
     { name: 'about', display: 'About' },
   ],
   onClick: (name) => console.log(`${name} is clicked!`),
-}
+};
