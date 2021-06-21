@@ -3,31 +3,50 @@ import ArticleHeaderComponent from '@components/molecules/ArticleHeader';
 export default {
   title: 'Components/molecules/ArticleHeader',
   component: ArticleHeaderComponent,
+  argTypes: {
+    'className.title': {
+      defaultValue: 'text',
+      options: ['text', 'link'],
+      control: { type: 'radio' },
+    },
+    'className.publishedAt': {
+      defaultValue: 'subtitle',
+      options: ['subtitle', 'text'],
+      control: { type: 'radio' },
+    },
+    title: {
+      defaultValue: 'title',
+      control: { type: 'text' },
+    },
+    displayTitle: {
+      defaultValue: '記事タイトル',
+      control: { type: 'text' },
+    },
+    publishedAt: {
+      defaultValue: new Date().getTime(),
+      control: { type: 'date' },
+    },
+    tags: {
+      defaultValue: ['Android', 'Kotlin', '怪文書'],
+      controle: { type: 'array' },
+    },
+  }
 }
 
-const Template = (args) => ({
+export const ArticleHeader = (args) => ({
   components: { ArticleHeaderComponent },
   setup() {
-    return { args };
+    return {
+      args: {
+        ...args,
+        className: {
+          title: args['className.title'],
+          publishedAt: args['className.publishedAt'],
+        },
+        publishedAt: new Date(args.publishedAt),
+      },
+    };
   },
   template: '<article-header-component v-bind="args"/>',
 });
-
-const article = {
-  title: 'title',
-  displayTitle: '記事タイトル',
-  publishedAt: new Date(),
-  tags: ['Android', 'Kotlin', '怪文書'],
-};
-
-export const TextArticleHeader = Template.bind({});
-TextArticleHeader.args = {
-  className: { displayTitle: 'text', publishedAt: 'subtitle' },
-  ...article,
-};
-
-export const LinkArticleHeader = Template.bind({});
-LinkArticleHeader.args = {
-  className: { displayTitle: 'link', publishedAt: 'subtitle' },
-  ...article,
-};
+ArticleHeader.storyName = 'ArticleHeader';

@@ -3,6 +3,18 @@ import ImageModalComponent from '@components/molecules/ImageModal';
 export default {
   title: 'Components/molecules/ImageModal',
   component: ImageModalComponent,
+  argTypes: {
+    filename: {
+      defaultValue: 'madoka.png',
+      options: ['madoka.png', 'poplinks.png'],
+      control: { type: 'radio' },
+    },
+    showModal: {
+      defaultValue: true,
+      control: { type: 'boolean' },
+    },
+    onClose: { action: 'closed' },
+  }
 }
 
 export const ImageModal = (args) => ({
@@ -12,8 +24,4 @@ export const ImageModal = (args) => ({
   },
   template: '<image-modal-component v-bind="args" />'
 });
-ImageModal.args = {
-  filename: 'madoka.png',
-  showModal: true,
-  onClose: () => console.log('clicked!'),
-};
+ImageModal.storyName = 'ImageModal';

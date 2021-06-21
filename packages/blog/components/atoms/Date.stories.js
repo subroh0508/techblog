@@ -1,23 +1,29 @@
 import DateComponent from '@components/atoms/Date';
 
 export default {
-  title: 'Components/atoms/Date',
+  title: 'Components/atoms/DateLabel',
   component: DateComponent,
+  argTypes: {
+    className: {
+      options: ['title', 'subtitle', 'text'],
+      control: { type: 'radio' },
+    },
+    value: {
+      defaultValue: new Date(),
+      control: { type: 'date' },
+    },
+  }
 }
 
-const Template = (args) => ({
+export const DateLabel = (args) => ({
   components: { DateComponent },
   setup() {
+    if (typeof args.value === 'number') {
+      return { args: { ...args, value: new Date(args.value) } };
+    }
+
     return { args };
   },
   template: '<date-component v-bind="args"/>',
 });
-
-export const TitleDate = Template.bind({});
-TitleDate.args = { className: 'title', value: new Date() };
-
-export const SubtitleDate = Template.bind({});
-SubtitleDate.args = { className: 'subtitle', value: new Date() };
-
-export const TextDate = Template.bind({});
-TextDate.args = { className: 'text', value: new Date() };
+DateLabel.storyName = 'DateLabel';

@@ -1,20 +1,26 @@
-import DisplayTitle from '@components/atoms/DisplayTitle';
+import DisplayTitleComponent from '@components/atoms/DisplayTitle';
 
 export default {
   title: 'Components/atoms/DisplayTitle',
-  component: DisplayTitle,
+  component: DisplayTitleComponent,
+  argTypes: {
+    className: {
+      options: ['text', 'link'],
+      control: { type: 'radio' },
+    },
+    value: {
+      defaultValue: '記事タイトル',
+      control: { type: 'text' },
+    },
+    onClick: { action: 'clicked' },
+  },
 }
 
-const Template = (args) => ({
-  components: { DisplayTitle },
+export const DisplayTitle = (args) => ({
+  components: { DisplayTitleComponent },
   setup() {
     return { args };
   },
-  template: '<display-title v-bind="args"/>',
+  template: '<display-title-component v-bind="args"/>',
 });
-
-export const TextDisplayTitle = Template.bind({});
-TextDisplayTitle.args = { className: 'text', value: '記事タイトル', onClick: () => console.log('clicked!') };
-
-export const LinkDisplayTitle = Template.bind({});
-LinkDisplayTitle.args = { className: 'link', value: '記事タイトル', onClick: () => console.log('clicked!') };
+DisplayTitle.storyName = 'DisplayTitle';

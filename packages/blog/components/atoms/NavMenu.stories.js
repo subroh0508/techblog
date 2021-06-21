@@ -3,6 +3,12 @@ import NavMenuComponent from '@components/atoms/NavMenu';
 export default {
   title: 'Components/atoms/NavMenu',
   component: NavMenuComponent,
+  argTypes: {
+    manuList: {
+      control: { type: 'array' },
+    },
+    onClick: { action: 'clicked' },
+  }
 }
 
 export const NavMenu = (args) => ({
@@ -17,5 +23,5 @@ NavMenu.args = {
     { name: 'articles', display: 'Articles' },
     { name: 'about', display: 'About' },
   ],
-  onClick: (name) => console.log(`${name} is clicked!`),
 };
+NavMenu.storyName = 'NavMenu';
