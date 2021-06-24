@@ -1,5 +1,6 @@
 import { app } from '@storybook/vue3';
 import { createRouter, createWebHistory } from 'vue-router';
+import { createStore } from 'vuex';
 
 const Home = { template: '<div>Home</div>' };
 const Articles = { template: '<div>Articles</div>' };
@@ -19,3 +20,16 @@ app.use(createRouter(
     ]
   }
 ));
+app.use(createStore({
+  state: () => ({}),
+  actions: {
+    async fetchArticle({ commit }, title) {
+      commit('setArticle', title);
+    },
+  },
+  mutations: {
+    setArticle(state, title) {
+      console.log(title);
+    },
+  },
+}));

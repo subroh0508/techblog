@@ -4,7 +4,7 @@ export default {
   title: 'Components/molecules/ArticleHeader',
   component: ArticleHeaderComponent,
   argTypes: {
-    'className.title': {
+    'className.displayTitle': {
       defaultValue: 'text',
       options: ['text', 'link'],
       control: { type: 'radio' },
@@ -40,7 +40,7 @@ export const ArticleHeader = (args) => ({
       args: {
         ...args,
         className: {
-          title: args['className.title'],
+          displayTitle: args['className.displayTitle'],
           publishedAt: args['className.publishedAt'],
         },
         publishedAt: new Date(args.publishedAt),
