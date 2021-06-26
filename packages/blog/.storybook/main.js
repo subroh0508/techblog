@@ -4,15 +4,15 @@ const webpack = require('webpack');
 const sass = require('sass');
 
 module.exports = {
-  "stories": [
-    "../components/**/*.stories.@(js|mdx)",
+  'stories': [
+    '../components/**/*.stories.@(js|mdx)',
   ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
+  'addons': [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
   ],
-  "core": {
-    "builder": "webpack5",
+  'core': {
+    'builder': 'webpack5',
   },
   webpackFinal: async (config, { configType }) => {
     const mode = configType.toLowerCase();
@@ -40,9 +40,9 @@ module.exports = {
       plugins: [
         new webpack.DefinePlugin({
           'process.env': {
-            NODE_ENV: `"${mode}"`,
-            BASE_URL: `"${dev ? 'http://localhost:8080' : 'https://subroh0508.net'}"`,
-            IMAGES_BASE_URL: `"static/media/.storybook/assets"`,
+            NODE_ENV: `'${mode}'`,
+            BASE_URL: `'${dev ? 'http://localhost:8080' : 'https://subroh0508.net'}'`,
+            IMAGES_BASE_URL: `'static/media/.storybook/assets'`,
           },
         }),
       ],
