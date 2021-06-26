@@ -1,3 +1,5 @@
+import '!style-loader!css-loader!sass-loader!@components/_global.scss';
+
 import { app } from '@storybook/vue3';
 import { createRouter, createWebHistory } from 'vue-router';
 import { createStore } from 'vuex';
