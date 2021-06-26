@@ -1,5 +1,4 @@
 <script>
-import config from '@components/const';
 import ArticleHeader from '@components/molecules/ArticleHeader';
 import ImageModal from '@components/molecules/ImageModal';
 import ShareButtons from '@components/organisms/ShareButtons';
