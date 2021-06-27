@@ -10,6 +10,7 @@ module.exports = {
     extensions: ['.js', '.vue'],
     alias: {
       '@components': path.resolve(__dirname, '../components'),
+      '@articles': path.resolve(__dirname, '../../articles/build'),
     },
   },
   module: {
