@@ -1,12 +1,5 @@
 import ArticlesTemplateComponent from '@components/templates/ArticlesTemplate';
-
-const articles = Array.from(Array(20), (_, i) => ({
-  title: `title${i + 1}`,
-  displayTitle: `記事タイトル${i + 1}`,
-  description: '記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。',
-  publishedAt: new Date(2020, 1, i + 1),
-  tags: ['Android', 'Kotlin', '怪文書'],
-})).sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
+import articles from '@assets/list';
 
 export default {
   title: 'Components/templates/ArticlesTemplate',
