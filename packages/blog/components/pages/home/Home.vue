@@ -24,7 +24,7 @@ export default {
     </articles-template>
   </section>
 </template>
-<style scoped lang="scss">
+<style scoped lang='scss'>
 .home {
   .top-img {
     display: flex;

@@ -1,6 +1,6 @@
 .firebase
 node_modules
-assets
+/assets
 build
 index.html
 firebase-debug.log

@@ -10,6 +10,7 @@ module.exports = {
     extensions: ['.js', '.vue'],
     alias: {
       '@components': path.resolve(__dirname, '../components'),
+      '@articles': path.resolve(__dirname, '../../articles/build'),
     },
   },
   module: {
@@ -31,6 +32,7 @@ module.exports = {
       'process.env': {
         NODE_ENV: `"${mode}"`,
         BASE_URL: `"${dev ? 'http://localhost:8080' : 'https://subroh0508.net'}"`,
+        IMAGES_BASE_URL: `"https://storage.googleapis.com/images.subroh0508.net"`,
       },
     }),
   ],

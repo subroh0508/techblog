@@ -1,2 +1,2 @@
 <template src='./404.html'/>
-<style src='./404.scss'/>
+<style scoped lang='scss' src='./404.scss'/>

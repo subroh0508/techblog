@@ -22,7 +22,7 @@ export default {
   props: {
     title: String,
     displayTitle: String,
-    baseUrl: String,
+    path: String,
   },
   methods: {
     shareOnTwitter() {
@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     href() {
-      return `${process.env.BASE_URL}${this.baseUrl}/${this.title}`;
+      return `${process.env.BASE_URL}${this.path}/${this.title}`;
     },
   },
 }

@@ -1,4 +1,4 @@
-import articles from '@techblog/articles/build/list';
+import articles from '@articles/list';
 
 export const findArticle = title => articles.find(a => a.title === title);
 
@@ -8,7 +8,7 @@ export const findFullArticle = async title => {
     return null;
   }
 
-  const fullArticle = await import(/* webpackPreload: true */ `@techblog/articles/build/articles/${title}`);
+  const fullArticle = await import(/* webpackPreload: true */ `@articles/articles/${title}`);
 
   return {
     ...fullArticle,

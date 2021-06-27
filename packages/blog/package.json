@@ -71,7 +71,7 @@
     "clean:client": "yarn run rimraf ./assets && yarn run rimraf ./index.html",
     "clean:server": "yarn run rimraf ./build",
     "firebase:local": "firebase serve --only functions:ritsuko,hosting",
-    "storybook": "yarn run start-storybook -p 6006",
+    "storybook": "yarn run start-storybook -s ./public -p 6006",
     "build-storybook": "yarn run build-storybook"
   }
 }

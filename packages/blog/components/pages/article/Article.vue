@@ -1,5 +1,4 @@
 <script>
-import config from '@components/const';
 import ArticleHeader from '@components/molecules/ArticleHeader';
 import ImageModal from '@components/molecules/ImageModal';
 import ShareButtons from '@components/organisms/ShareButtons';
@@ -84,7 +83,7 @@ export default {
     }"/>
     <span v-show='article.body' v-html='article.body' ref='body'></span>
     <share-buttons v-bind="{
-      baseUrl: '/articles',
+      path: '/articles',
       title: article.title,
       displayTitle: article.displayTitle,
     }"/>
