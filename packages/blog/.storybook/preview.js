@@ -4,6 +4,8 @@ import { app } from '@storybook/vue3';
 import { createRouter, createWebHistory } from 'vue-router';
 import { createStore } from 'vuex';
 
+import { findFullArticle } from '@components/finder';
+
 const Home = { template: '<div>Home</div>' };
 const Articles = { template: '<div>Articles</div>' };
 const Article = { template: '<div>Article</div>' };
@@ -23,15 +25,17 @@ app.use(createRouter(
   }
 ));
 app.use(createStore({
-  state: () => ({}),
+  state: () => ({
+    article: {},
+  }),
   actions: {
     async fetchArticle({ commit }, title) {
-      commit('setArticle', title);
+      commit('setArticle', await findFullArticle(title));
     },
   },
   mutations: {
-    setArticle(state, title) {
-      console.log(title);
+    setArticle(state, article) {
+      state.article = article;
     },
   },
 }));

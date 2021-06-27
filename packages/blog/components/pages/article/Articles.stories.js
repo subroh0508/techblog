@@ -10,5 +10,5 @@ export const Articles = (args) => ({
   setup() {
     return { args };
   },
-  template: '<articles-page v-bind="args">',
+  template: '<articles-page v-bind="args"/>',
 });
