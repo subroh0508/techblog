@@ -20,7 +20,16 @@ const mockRouter = createRouter(
   },
 );
 
-mockRouter.replace = (location) => action('router.replace')(location);
-mockRouter.push = (location) => action('router.push')(location);
+const originalReplace = mockRouter.replace.bind(mockRouter);
+const originalPush = mockRouter.push.bind(mockRouter);
+
+mockRouter.replace = (location, success, abort) => {
+  action('router.replace')(location);
+  originalReplace(location, success, abort);
+}
+mockRouter.push = (location) => {
+  action('router.push')(location);
+  originalPush(location, success, abort);
+}
 
 export default mockRouter;
