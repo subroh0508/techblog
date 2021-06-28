@@ -23,6 +23,7 @@
     "watch:articles": "lerna run watch --scope @techblog/articles --stream",
     "watch:client": "lerna run watch:client --scope @techblog/blog --stream",
     "watch:server": "lerna run watch:server --scope @techblog/blog --stream",
-    "analyze": "lerna run analyze --stream"
+    "analyze": "lerna run analyze --stream",
+    "test:snapshot": "lerna run test:storyshots --stream"
   }
 }
