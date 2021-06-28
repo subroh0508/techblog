@@ -1,9 +1,8 @@
-module.exports = require('babel-jest').default.createTransformer({
+module.exports = require('babel-jest').createTransformer({
   presets: [
     [
       '@babel/preset-env',
       { targets: { node: 'current' }},
     ],
   ],
-  plugins: ['require-context-hook'],
 });
