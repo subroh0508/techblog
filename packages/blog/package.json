@@ -40,6 +40,7 @@
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^2.0.0",
+    "vue-jest": "5.0.0-alpha.10",
     "vue-loader": "^16.2.0",
     "webpack": "^5.39.1",
     "webpack-bundle-analyzer": "^4.4.2",
