@@ -4,7 +4,7 @@ module.exports = {
   rootDir: path.resolve(__dirname, '..'),
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.js?$': '<rootDir>/scripts/jest/transform.js',
+    '^.+\\.js$': '<rootDir>/scripts/jest/transform.js',
     '.*\\.(vue)$': '<rootDir>/../../node_modules/vue-jest',
   },
   transformIgnorePatterns: [
