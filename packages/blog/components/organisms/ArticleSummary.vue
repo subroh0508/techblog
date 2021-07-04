@@ -2,6 +2,9 @@
 import OutlinedButton from '@components/atoms/OutlinedButton';
 import ArticleHeader from '@components/molecules/ArticleHeader';
 
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
 export default {
   components: {
     ArticleHeader,
@@ -10,13 +13,14 @@ export default {
   props: {
     article: Object,
   },
-  methods: {
-    readMore(title) {
-      this.$router.push({ name: 'article', params: { title } });
-    },
-    async prefetch(title) {
-      return this.$store.dispatch('fetchArticle', title);
-    },
+  setup() {
+    const router = useRouter();
+    const store = useStore();
+
+    return {
+      readMore: (title) => router.push({ name: 'article', params: { title } }),
+      prefetch: async (title) => store.dispatch('fetchArticle', title),
+    }
   },
 }
 </script>

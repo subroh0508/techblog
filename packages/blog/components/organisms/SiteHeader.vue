@@ -1,27 +1,29 @@
 <script>
 import NavMenu from '@components/atoms/NavMenu';
 
+import { useRoute, useRouter } from 'vue-router';
+
+function redirectTo(router, route, name) {
+  if (route.name === name && !Object.keys(route.query).length) return;
+
+  router.push({ name });
+}
+
 export default {
   components: {
     NavMenu,
   },
-  data: () => ({
-    menuList: [
-      { name: 'articles', display: 'Articles' },
-      { name: 'about', display: 'About' },
-    ],
-  }),
-  methods: {
-    redirectTo(name) {
-      const currentName = this.$router.currentRoute.value.name;
-      const currentQuery = this.$router.currentRoute.value.query;
+  setup() {
+    const router = useRouter();
+    const route = useRoute();
 
-      if (currentName === name && !Object.keys(currentQuery).length) {
-        return;
-      }
-
-      this.$router.push({ name });
-    },
+    return {
+      menuList: [
+        { name: 'articles', display: 'Articles' },
+        { name: 'about', display: 'About' },
+      ],
+      redirectTo: redirectTo.bind(null, router, route),
+    };
   },
 }
 </script>
