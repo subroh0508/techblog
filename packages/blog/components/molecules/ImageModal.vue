@@ -10,29 +10,16 @@ export default {
     showModal: Boolean,
     onClose: Function,
   },
-  methods: {
-    preventScroll() {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'relative';
-    },
-    freeScroll() {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-    },
-    onClickContent(event) {
-      event.stopPropagation();
-    },
+  setup() {
+    return {
+      onClickContent: (event) => event.stopPropagation(),
+    };
   },
   computed: {
     src() {
       return `${process.env.IMAGES_BASE_URL}/${this.filename}`;
     },
   },
-  watch: {
-    showModal(to, from) {
-      to ? this.preventScroll() : this.freeScroll();
-    },
-  }
 }
 </script>
 <template>
