@@ -3,6 +3,18 @@ import Date from '@components/atoms/Date';
 import DisplayTitle from '@components/atoms/DisplayTitle';
 import Tagbar from '@components/atoms/Tagbar';
 
+import { useRouter, useRoute } from 'vue-router';
+
+function openArticle(router, title) {
+  router.push({ name: 'article', params: { title } });
+}
+
+function searchByTag(router, route, tag) {
+  if (route.path === '/articles' && route.query.tag === tag) return;
+
+  router.push({ name: 'articles', query: { tag } });
+};
+
 export default {
   components: {
     Date,
@@ -19,20 +31,16 @@ export default {
     publishedAt: Date,
     tags: Array,
   },
-  methods: {
-    openArticle(title) {
-      this.$router.push({ name: 'article', params: { title } });
-    },
-    searchByTag(tag) {
-      const currentPath = this.$router.currentRoute.value.path;
-      const currentTag = this.$router.currentRoute.value.query.tag;
-      if (currentPath === '/articles' && currentTag === tag) {
-        return;
-      }
+  setup(props) {
+    const router = useRouter();
+    const route = useRoute();
 
-      this.$router.push({ name: 'articles', query: { tag } });
+    return {
+      ...props,
+      openArticle: openArticle.bind(null, router),
+      searchByTag: searchByTag.bind(null, router, route),
     }
-  }
+  },
 }
 </script>
 <template>
