@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   rootDir: path.resolve(__dirname, '..'),
+  globalSetup: '<rootDir>/scripts/jest/global-setup.js',
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.js$': '<rootDir>/scripts/jest/transform.js',
