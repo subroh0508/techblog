@@ -5,11 +5,12 @@ export default {
   component: DateComponent,
   argTypes: {
     className: {
+      defaultValue: 'title',
       options: ['title', 'subtitle', 'text'],
       control: { type: 'radio' },
     },
     value: {
-      defaultValue: new Date(),
+      defaultValue: Date.parse('2020-01-01'),
       control: { type: 'date' },
     },
   }
@@ -18,11 +19,12 @@ export default {
 export const DateLabel = (args) => ({
   components: { DateComponent },
   setup() {
-    if (typeof args.value === 'number') {
-      return { args: { ...args, value: new Date(args.value) } };
-    }
-
-    return { args };
+    return {
+      args: {
+        ...args,
+        value: (typeof args.value === 'number') ? new Date(args.value) : args.value,
+      }
+    };
   },
   template: '<date-component v-bind="args"/>',
 });

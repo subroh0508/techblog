@@ -9,15 +9,6 @@ export default {
       defaultValue: '全ての記事',
       control: { type: 'text' },
     },
-    articles: {
-      defaultValue: '20 articles',
-      options: ['20 articles', 'no articles'],
-      mapping: {
-        '20 articles': articles,
-        'no articles': [],
-      },
-      control: { type: 'radio' },
-    },
     limit: {
       defaultValue: 10,
       control: { type: 'number' },
@@ -29,7 +20,7 @@ export default {
   },
 }
 
-export const ArticlesTemplate = (args) => ({
+const Template = (args) => ({
   components: { ArticlesTemplateComponent },
   setup() {
     return { args };
@@ -40,4 +31,15 @@ export const ArticlesTemplate = (args) => ({
     </articles-template-component>
   `,
 });
-ArticlesTemplate.storyName = 'ArticlesTemplate';
+
+export const ManyArticles = Template.bind({});
+ManyArticles.args = {
+  ...ManyArticles.args,
+  articles,
+};
+
+export const Empty = Template.bind({});
+Empty.args = {
+  ...Empty.args,
+  articles: [],
+}
