@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/atoms/ImageViewer ImageViewer 1`] = `
+<div
+  class="image-viewer"
+>
+  <img
+    src="test-file-stub"
+  />
+</div>
+`;

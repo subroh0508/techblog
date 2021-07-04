@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/atoms/NavMenu NavMenu 1`] = `
+<nav
+  class="nav-menu"
+>
+  <ul>
+    
+    <li>
+      <a>
+        Articles
+      </a>
+    </li>
+    <li>
+      <a>
+        About
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+`;

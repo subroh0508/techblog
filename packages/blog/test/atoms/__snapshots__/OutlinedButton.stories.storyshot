@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/atoms/OutlinedButton OutlinedButton 1`] = `
+<a
+  class="outlined-button"
+  default="Read More >>"
+>
+  
+  Read More &gt;&gt;
+  
+</a>
+`;

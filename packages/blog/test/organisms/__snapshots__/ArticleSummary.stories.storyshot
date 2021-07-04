@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/organisms/ArticleSummary ArticleSummary 1`] = `
+<div
+  class="article-summary"
+  classname.displaytitle="text"
+  classname.publishedat="subtitle"
+  description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+  displaytitle="記事タイトル"
+  publishedat="Wed Jan 01 2020 09:00:00 GMT+0900 (GMT+09:00)"
+  tags="Android,Kotlin,怪文書"
+  title="title"
+>
+  <div
+    classname.displaytitle="text"
+    classname.publishedat="subtitle"
+    description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+  >
+    <span
+      class="date-subtitle"
+    >
+      2020/01/01
+    </span>
+    <h2
+      class="title is-text"
+    >
+      記事タイトル
+    </h2>
+    <div
+      class="bar"
+    >
+      
+      <a>
+        Android
+      </a>
+      <a>
+        Kotlin
+      </a>
+      <a>
+        怪文書
+      </a>
+      
+    </div>
+  </div>
+  <div>
+    記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+    <a
+      class="outlined-button"
+    >
+      
+       Read More &gt;&gt; 
+      
+    </a>
+  </div>
+</div>
+`;
