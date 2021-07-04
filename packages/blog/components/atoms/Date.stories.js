@@ -11,7 +11,7 @@ export default {
       control: { type: 'radio' },
     },
     value: {
-      defaultValue: moment.tz('2020-01-01', 'Asia/Tokyo').toDate(),
+      defaultValue: moment('2020-01-01').toDate(),
       control: { type: 'date' },
     },
   }

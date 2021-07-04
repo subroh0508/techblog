@@ -24,7 +24,7 @@ export default {
       control: { type: 'text' },
     },
     publishedAt: {
-      defaultValue: moment.tz('2020-01-01', 'Asia/Tokyo').toDate(),
+      defaultValue: moment('2020-01-01').toDate(),
       control: { type: 'date' },
     },
     tags: {
