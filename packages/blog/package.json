@@ -20,6 +20,7 @@
     "@storybook/manager-webpack5": "^6.3.2",
     "@storybook/vue3": "^6.3.2",
     "@vue/compiler-sfc": "^3.1.1",
+    "@vue/test-utils": "^2.0.0-rc.9",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.1",
     "babel-plugin-transform-html-import-to-string": "^1.0.0",
