@@ -31,12 +31,11 @@ export default {
     publishedAt: Date,
     tags: Array,
   },
-  setup(props) {
+  setup() {
     const router = useRouter();
     const route = useRoute();
 
     return {
-      ...props,
       openArticle: openArticle.bind(null, router),
       searchByTag: searchByTag.bind(null, router, route),
     }
