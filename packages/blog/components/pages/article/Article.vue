@@ -57,6 +57,10 @@ export default {
       return this.article === null;
     },
     article() {
+      if (!this.$route) {
+        return {};
+      }
+
       return this.$store.state.article;
     },
     showModal() {
