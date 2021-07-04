@@ -1,0 +1,527 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/templates/ArticlesTemplate Empty 1`] = `
+<div
+  class="articles-template"
+  default="全ての記事"
+>
+  <h1>
+    
+    全ての記事
+    
+  </h1>
+  
+  
+  <div
+    class="load-older"
+    style="display: none;"
+  >
+    <a>
+      次の10件
+    </a>
+  </div>
+  <div
+    class="empty"
+  >
+    記事が見つかりません😴
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/templates/ArticlesTemplate Many Articles 1`] = `
+<div
+  class="articles-template"
+  default="全ての記事"
+>
+  <h1>
+    
+    全ての記事
+    
+  </h1>
+  
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/20
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル20
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Kotlin/JS
+          </a>
+          <a>
+            JavaScript
+          </a>
+          <a>
+            Webpack
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/19
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル19
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Android
+          </a>
+          <a>
+            Material Design
+          </a>
+          <a>
+            Kotlin
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/18
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル18
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Advent Calendar
+          </a>
+          <a>
+            怪文書
+          </a>
+          <a>
+            Event
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/17
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル17
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Kotlin/JS
+          </a>
+          <a>
+            JavaScript
+          </a>
+          <a>
+            Webpack
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/16
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル16
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Android
+          </a>
+          <a>
+            Material Design
+          </a>
+          <a>
+            Kotlin
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/15
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル15
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Advent Calendar
+          </a>
+          <a>
+            怪文書
+          </a>
+          <a>
+            Event
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/14
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル14
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Kotlin/JS
+          </a>
+          <a>
+            JavaScript
+          </a>
+          <a>
+            Webpack
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/13
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル13
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Android
+          </a>
+          <a>
+            Material Design
+          </a>
+          <a>
+            Kotlin
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/12
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル12
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Advent Calendar
+          </a>
+          <a>
+            怪文書
+          </a>
+          <a>
+            Event
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="article-list"
+  >
+    <div
+      class="article-summary"
+    >
+      <div
+        description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
+      >
+        <span
+          class="date-subtitle"
+        >
+          2020/02/11
+        </span>
+        <h2
+          class="title is-link"
+        >
+          記事サンプル11
+        </h2>
+        <div
+          class="bar"
+        >
+          
+          <a>
+            Kotlin/JS
+          </a>
+          <a>
+            JavaScript
+          </a>
+          <a>
+            Webpack
+          </a>
+          
+        </div>
+      </div>
+      <div>
+        記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。 
+        <a
+          class="outlined-button"
+        >
+          
+           Read More &gt;&gt; 
+          
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div
+    class="load-older"
+  >
+    <a>
+      次の10件
+    </a>
+  </div>
+  <div
+    class="empty"
+    style="display: none;"
+  >
+    記事が見つかりません😴
+  </div>
+</div>
+`;

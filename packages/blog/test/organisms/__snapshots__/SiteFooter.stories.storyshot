@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/organisms/SiteFooter SiteFooter 1`] = `
+<section
+  class="footer"
+>
+  <small>
+    ©2021 subroh_0508
+  </small>
+</section>
+`;

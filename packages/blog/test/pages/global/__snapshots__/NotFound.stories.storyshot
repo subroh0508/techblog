@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Pages/NotFound NotFound 1`] = `
+<div>
+  <section
+    class="header"
+  >
+    <h1
+      class="site-name"
+    >
+      横須賀第765管区情報局
+    </h1>
+    <nav
+      class="nav-menu"
+    >
+      <ul>
+        
+        <li>
+          <a>
+            Articles
+          </a>
+        </li>
+        <li>
+          <a>
+            About
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </section>
+  <section
+    class="not-found"
+  >
+    <div
+      class="error-img"
+    >
+      <img
+        src="/404.webp"
+      />
+    </div>
+    <div
+      class="error-code"
+    >
+      404
+    </div>
+    <div
+      class="error-msg"
+    >
+      Page not found
+    </div>
+    <div>
+      <small>
+        ページが、見つからないぞ。…しゅん。
+      </small>
+    </div>
+  </section>
+  <section
+    class="footer"
+  >
+    <small>
+      ©2021 subroh_0508
+    </small>
+  </section>
+</div>
+`;

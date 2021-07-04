@@ -1,4 +1,5 @@
 import ArticleHeaderComponent from '@components/molecules/ArticleHeader';
+import moment from 'moment-timezone';
 
 export default {
   title: 'Components/molecules/ArticleHeader',
@@ -23,7 +24,7 @@ export default {
       control: { type: 'text' },
     },
     publishedAt: {
-      defaultValue: new Date().getTime(),
+      defaultValue: moment('2020-01-01').toDate(),
       control: { type: 'date' },
     },
     tags: {
@@ -43,7 +44,7 @@ export const ArticleHeader = (args) => ({
           displayTitle: args['className.displayTitle'],
           publishedAt: args['className.publishedAt'],
         },
-        publishedAt: new Date(args.publishedAt),
+        publishedAt: (typeof args.publishedAt === 'number') ? new Date(args.publishedAt) : args.publishedAt,
       },
     };
   },

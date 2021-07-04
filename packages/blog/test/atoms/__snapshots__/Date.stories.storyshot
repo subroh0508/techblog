@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/atoms/DateLabel DateLabel 1`] = `
+<span
+  class="date-title"
+>
+  2020/01/01
+</span>
+`;

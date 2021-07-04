@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Pages/Articles Articles 1`] = `
+<div
+  query=""
+>
+  <section
+    class="header"
+  >
+    <h1
+      class="site-name"
+    >
+      横須賀第765管区情報局
+    </h1>
+    <nav
+      class="nav-menu"
+    >
+      <ul>
+        
+        <li>
+          <a>
+            Articles
+          </a>
+        </li>
+        <li>
+          <a>
+            About
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </section>
+  <section
+    class="articles"
+  >
+    <div
+      class="articles-template"
+    >
+      <h1>
+        
+        全ての記事
+        
+      </h1>
+      
+      
+      <div
+        class="load-older"
+        style="display: none;"
+      >
+        <a>
+          次の10件
+        </a>
+      </div>
+      <div
+        class="empty"
+      >
+        記事が見つかりません😴
+      </div>
+    </div>
+  </section>
+  <section
+    class="footer"
+  >
+    <small>
+      ©2021 subroh_0508
+    </small>
+  </section>
+</div>
+`;

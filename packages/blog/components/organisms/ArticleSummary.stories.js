@@ -1,4 +1,10 @@
 import ArticleSummaryComponent from '@components/organisms/ArticleSummary';
+import moment from 'moment-timezone';
+
+import { app } from '@storybook/vue3';
+import { handleFetchArticleStore } from '@mock/store';
+
+app.use(handleFetchArticleStore);
 
 export default {
   title: 'Components/organisms/ArticleSummary',
@@ -27,7 +33,7 @@ export default {
       control: { type: 'text' },
     },
     publishedAt: {
-      defaultValue: new Date().getTime(),
+      defaultValue: moment('2020-01-01').toDate(),
       control: { type: 'date' },
     },
     tags: {
@@ -48,7 +54,7 @@ export const ArticleSummary = (args) => ({
             displayTitle: args['className.displayTitle'],
             publishedAt: args['className.publishedAt'],
           },
-          publishedAt: new Date(args.publishedAt),
+          publishedAt: (typeof args.publishedAt === 'number') ? new Date(args.publishedAt) : args.publishedAt,
         },
       },
     }

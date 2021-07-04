@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/molecules/ImageModal ImageModal 1`] = `
+<div
+  class="modal-backdrop"
+>
+  <div
+    class="modal-wrapper"
+  >
+    <div
+      class="modal-content"
+    >
+      <div
+        class="image-viewer"
+      >
+        <img
+          alt="madoka.png"
+          src="undefined/madoka.png"
+        />
+      </div>
+      <span
+        class="button-modal-close"
+      >
+        閉じる
+      </span>
+    </div>
+  </div>
+</div>
+`;

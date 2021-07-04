@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Pages/Article Article Does Not Exist 1`] = `
+<div
+  title="not_found"
+>
+  <section
+    class="header"
+  >
+    <h1
+      class="site-name"
+    >
+      横須賀第765管区情報局
+    </h1>
+    <nav
+      class="nav-menu"
+    >
+      <ul>
+        
+        <li>
+          <a>
+            Articles
+          </a>
+        </li>
+        <li>
+          <a>
+            About
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </section>
+  <div />
+  <section
+    class="footer"
+  >
+    <small>
+      ©2021 subroh_0508
+    </small>
+  </section>
+</div>
+`;
+
+exports[`Storyshots Pages/Article Article Exists 1`] = `
+<div
+  title="sample1"
+>
+  <section
+    class="header"
+  >
+    <h1
+      class="site-name"
+    >
+      横須賀第765管区情報局
+    </h1>
+    <nav
+      class="nav-menu"
+    >
+      <ul>
+        
+        <li>
+          <a>
+            Articles
+          </a>
+        </li>
+        <li>
+          <a>
+            About
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+  </section>
+  <div />
+  <section
+    class="footer"
+  >
+    <small>
+      ©2021 subroh_0508
+    </small>
+  </section>
+</div>
+`;

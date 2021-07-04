@@ -1,0 +1,509 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Components/templates/Article Sample 1 1`] = `
+<section
+  class="article"
+>
+  <div
+    class="article-header"
+  >
+    <span
+      class="date-text"
+    >
+      2020/02/01
+    </span>
+    <h2
+      class="title is-text"
+    >
+      記事サンプル1
+    </h2>
+    <div
+      class="bar"
+    >
+      
+      <a>
+        Advent Calendar
+      </a>
+      <a>
+        THE IDOLM@STER
+      </a>
+      <a>
+        怪文書
+      </a>
+      
+    </div>
+  </div>
+  <span>
+    <p>
+      この技術ブログは
+      <a
+        href="https://v3.vuejs.org/"
+        rel="noopener"
+        target="_blank"
+        title=""
+      >
+        Vue.js
+      </a>
+      を用いて実装されています。各Componentは
+      <a
+        href="https://storybook.js.org/"
+        rel="noopener"
+        target="_blank"
+        title=""
+      >
+        Storybook
+      </a>
+      によって管理されており、見た目や振る舞いをComponent単位で確認することが可能です。
+    </p>
+    
+
+    <p>
+      コードの全容は
+      <a
+        href="https://github.com/subroh0508/techblog"
+        rel="noopener"
+        target="_blank"
+        title=""
+      >
+        subroh0508/techblog
+      </a>
+      のレポジトリを参照ください。
+    </p>
+    
+
+    <hr />
+    
+
+    <h2
+      id="大見出し"
+    >
+      <a
+        data-hash-link=""
+        href="#大見出し"
+      >
+        #
+      </a>
+      <span>
+        大見出し
+      </span>
+    </h2>
+    <h3
+      id="中見出し"
+    >
+      <a
+        data-hash-link=""
+        href="#中見出し"
+      >
+        #
+      </a>
+      <span>
+        中見出し
+      </span>
+    </h3>
+    <h4
+      id="小見出し"
+    >
+      <a
+        data-hash-link=""
+        href="#小見出し"
+      >
+        #
+      </a>
+      <span>
+        小見出し
+      </span>
+    </h4>
+    <ul>
+      
+
+      <li>
+        箇条書き1
+      </li>
+      
+
+      <li>
+        箇条書き2
+      </li>
+      
+
+      <li>
+        箇条書き3
+        <ul>
+          
+
+          <li>
+            箇条書き入れ子3-1
+            <ul>
+              
+
+              <li>
+                箇条書き入れ子3-1-1
+              </li>
+              
+
+            </ul>
+            
+
+          </li>
+          
+
+        </ul>
+        
+
+      </li>
+      
+
+    </ul>
+    
+
+    <p>
+      下線を引くことができます、
+      <u>
+        こんな感じ
+      </u>
+      <br />
+      打ち消し線を引くことができます、
+      <del>
+        こんな感じ
+      </del>
+      <br />
+      太字にすることができます、
+      <strong>
+        こんな感じ
+      </strong>
+      <br />
+      斜体にすることができます、
+      <em>
+        こんな感じ
+      </em>
+    </p>
+    
+
+    <blockquote>
+      
+
+      <p>
+        引用表記が使えます、こんな感じ
+      </p>
+      
+
+    </blockquote>
+    
+
+    <p>
+      コードブロックが使えます、インラインは
+      <code>
+        こんな感じ
+      </code>
+    </p>
+    
+
+    <pre>
+      <div
+        class="filename"
+      >
+        index.js
+      </div>
+      <code
+        class="hljs js"
+      >
+        <span
+          class="hljs-keyword"
+        >
+          class
+        </span>
+         
+        <span
+          class="hljs-title class_"
+        >
+          Test
+        </span>
+         {
+  
+        <span
+          class="hljs-title function_"
+        >
+          constructor
+        </span>
+        (
+        <span
+          class="hljs-params"
+        >
+          message
+        </span>
+        ) {
+    
+        <span
+          class="hljs-variable language_"
+        >
+          this
+        </span>
+        .
+        <span
+          class="hljs-property"
+        >
+          message
+        </span>
+         = message;
+  }
+
+  
+        <span
+          class="hljs-title function_"
+        >
+          show
+        </span>
+        (
+        <span
+          class="hljs-params"
+        />
+        ) {
+    
+        <span
+          class="hljs-variable language_"
+        >
+          console
+        </span>
+        .
+        <span
+          class="hljs-title function_"
+        >
+          log
+        </span>
+        (
+        <span
+          class="hljs-variable language_"
+        >
+          this
+        </span>
+        .
+        <span
+          class="hljs-property"
+        >
+          message
+        </span>
+        );
+  }
+}
+
+
+        <span
+          class="hljs-title class_"
+        >
+          Test
+        </span>
+        (
+        <span
+          class="hljs-string"
+        >
+          'Hello, World!'
+        </span>
+        ).
+        <span
+          class="hljs-title function_"
+        >
+          show
+        </span>
+        ();
+      </code>
+    </pre>
+    <pre>
+      <code
+        class="hljs kotlin"
+      >
+        <span
+          class="hljs-function"
+        >
+          <span
+            class="hljs-keyword"
+          >
+            fun
+          </span>
+           
+          <span
+            class="hljs-title"
+          >
+            main
+          </span>
+          <span
+            class="hljs-params"
+          >
+            ()
+          </span>
+        </span>
+         {
+    println(
+        <span
+          class="hljs-string"
+        >
+          'Hello, World!'
+        </span>
+        )
+}
+      </code>
+    </pre>
+    <p>
+      画像は以下のようにプレビューされます。
+    </p>
+    
+
+    <p>
+      <img
+        alt="図1. 担当アイドル"
+        class="image-preview"
+        data-filename="madoka.png"
+        src="http://localhost:6006/static/media/.storybook/assets/madoka.png"
+      />
+    </p>
+    
+
+    <p>
+      <img
+        alt="図2. とてもかわいい"
+        class="image-preview"
+        data-filename="poplinks.png"
+        src="http://localhost:6006/static/media/.storybook/assets/poplinks.png"
+      />
+    </p>
+    
+
+    <p>
+      テーブル表現も利用できます。
+    </p>
+    
+
+    <table>
+      
+
+      <thead>
+        
+
+        <tr>
+          
+
+          <th>
+            プレイ動画
+          </th>
+          
+
+          <th>
+            プレイ動画(スキル発動時)
+          </th>
+          
+
+        </tr>
+        
+
+      </thead>
+      
+
+      <tbody>
+        <tr>
+          
+
+          <td>
+            <img
+              alt="図3. プレイ動画"
+              class="image-preview"
+              src="http://localhost:6006/static/media/.storybook/assets/poplinks_play1.gif"
+            />
+          </td>
+          
+
+          <td>
+            <img
+              alt="図4. プレイ動画(スキル発動時)"
+              class="image-preview"
+              src="http://localhost:6006/static/media/.storybook/assets/poplinks_play2.gif"
+            />
+          </td>
+          
+
+        </tr>
+        
+
+      </tbody>
+    </table>
+    
+
+  </span>
+  <div
+    class="share-buttons"
+  >
+    <a
+      class="share-button"
+    >
+      
+      <svg
+        class="svg-icon twitter"
+        viewBox="0 0 24 24"
+      >
+        <path
+          class="fill"
+          d="M7.6 21.63c8.95 0 13.84-7.4 13.84-13.84v-.63c.94-.7 1.76-1.55 2.4-2.52-.86.38-1.8.64-2.78.76 1-.6 1.78-1.54 2.14-2.68-.94.56-1.98.96-3.1 1.18-.88-.94-2.14-1.53-3.54-1.53-2.7 0-4.86 2.17-4.86 4.86 0 .38.04.75.12 1.1C7.78 8.14 4.2 6.2 1.8 3.27c-.42.72-.66 1.55-.66 2.44 0 1.7.86 3.18 2.16 4.05-.8-.02-1.55-.24-2.2-.6v.05c0 2.36 1.67 4.33 3.9 4.77-.4.1-.84.17-1.28.17-.32 0-.62-.03-.92-.08.62 1.93 2.42 3.33 4.55 3.37-1.67 1.3-3.76 2.1-6.04 2.1-.4 0-.77-.04-1.15-.08 2.15 1.38 4.7 2.18 7.45 2.18"
+        />
+      </svg>
+      
+    </a>
+    <a
+      class="share-button"
+    >
+      
+      <svg
+        class="svg-icon facebook"
+        viewBox="0 0 300 300"
+      >
+        <path
+          class="fill"
+          d="M283.000,-0.000 C283.000,-0.000 17.000,-0.000 17.000,-0.000 C7.853,-0.000 -0.000,7.854 -0.000,17.000 C-0.000,17.000 -0.000,283.000 -0.000,283.000 C-0.000,292.144 7.853,300.000 17.000,300.000 C17.000,300.000 161.000,300.000 161.000,300.000 C161.000,300.000 161.000,183.000 161.000,183.000 C161.000,183.000 121.000,183.000 121.000,183.000 C121.000,183.000 121.000,139.000 121.000,139.000 C121.000,139.000 161.000,139.000 161.000,139.000 C161.000,139.000 161.000,105.000 161.000,105.000 C161.000,66.251 183.432,45.000 218.000,45.000 C234.558,45.000 249.852,46.449 254.000,47.000 C254.000,47.000 254.000,88.000 254.000,88.000 C254.000,88.000 229.000,88.000 229.000,88.000 C210.201,88.000 207.000,96.891 207.000,110.000 C207.000,110.000 207.000,139.000 207.000,139.000 C207.000,139.000 252.000,139.000 252.000,139.000 C252.000,139.000 246.000,183.000 246.000,183.000 C246.000,183.000 207.000,183.000 207.000,183.000 C207.000,183.000 207.000,300.000 207.000,300.000 C207.000,300.000 283.000,300.000 283.000,300.000 C292.144,300.000 300.000,292.144 300.000,283.000 C300.000,283.000 300.000,17.000 300.000,17.000 C300.000,7.854 292.144,-0.000 283.000,-0.000 Z"
+        />
+      </svg>
+      
+    </a>
+    <a
+      class="share-button"
+    >
+      
+      <svg
+        class="svg-icon hatena"
+        viewBox="0 0 355.004 300"
+      >
+        <path
+          class="fill"
+          d="M280.009,0h70v200.005h-70V0z"
+        />
+        <path
+          class="fill"
+          d="M215.192,160.596c-11.844-13.239-28.314-20.683-49.443-22.288 c18.795-5.122,32.443-12.616,41.077-22.628c8.593-9.88,12.856-23.292,12.856-40.171c0-13.362-2.922-25.184-8.579-35.397 c-5.805-10.152-14.14-18.276-25.102-24.357c-9.586-5.274-20.98-8.994-34.262-11.188c-13.349-2.126-36.709-3.198-70.231-3.198H0 V298.63h83.976c33.737,0,58.064-1.182,72.94-3.441c14.863-2.337,27.334-6.27,37.428-11.662 c12.484-6.587,22.007-15.964,28.662-28.01c6.698-12.085,10.014-26.02,10.014-41.956 C233.017,191.514,227.079,173.798,215.192,160.596z M75.26,67.27h17.398c20.108,0,33.617,2.267,40.59,6.787 c6.877,4.542,10.388,12.38,10.388,23.547c0,10.745-3.733,18.313-11.118,22.751c-7.483,4.354-21.117,6.562-41.079,6.562H75.26 V67.27z M144.276,237.733c-7.916,4.862-21.557,7.251-40.696,7.251H75.265v-64.949h29.54c19.654,0,33.243,2.475,40.469,7.414 c7.343,4.942,10.955,13.665,10.955,26.191C156.226,224.85,152.263,232.899,144.276,237.733z"
+        />
+        <path
+          class="fill"
+          d="M315.014,220.003c-22.101,0-40.002,17.891-40.002,39.991 c0,22.1,17.902,40.006,40.002,40.006c22.072,0,39.99-17.906,39.99-40.006C355.004,237.894,337.088,220.003,315.014,220.003z"
+        />
+      </svg>
+      
+    </a>
+    <a
+      class="share-button"
+    >
+      
+      <svg
+        class="svg-icon pocket"
+        viewBox="75.247 261.708 445.529 401.074"
+      >
+        <path
+          class="fill"
+          d="M114.219 261.708c-24.275 1.582-38.972 15.44-38.972 40.088v147.611c0 119.893 119.242 214.114 222.393 213.37 115.986-.837 223.137-98.779 223.137-213.37V301.796c0-24.741-15.626-38.693-40.088-40.088h-366.47zm93.943 120.079L297.64 466.8l89.571-85.013c40.088-16.835 57.574 28.927 41.111 42.321L311.685 535.443c-3.813 3.628-24.183 3.628-27.996 0L167.051 424.107c-15.72-14.789 4.743-61.295 41.111-42.32z"
+        />
+      </svg>
+      
+    </a>
+  </div>
+  <div
+    class="modal-backdrop"
+    style="display: none;"
+  >
+    <!--v-if-->
+  </div>
+</section>
+`;

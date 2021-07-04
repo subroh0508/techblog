@@ -1,7 +1,12 @@
 import ArticlesPage from '@components/pages/article/Articles';
 import SiteHeader from '@components/organisms/SiteHeader';
 import SiteFooter from '@components/organisms/SiteFooter';
-import mockRouter from '@mock/router';
+
+import { app } from '@storybook/vue3';
+import { handlePushRouter } from '@mock/router';
+import { handleFetchArticleStore } from '@mock/store';
+
+app.use(handleFetchArticleStore);
 
 export default {
   title: 'Pages/Articles',
@@ -18,7 +23,7 @@ export default {
 export const Articles = (args) => ({
   components: { ArticlesPage, SiteHeader, SiteFooter },
   setup() {
-    mockRouter.replace(`/articles${args.query.length ? `?tag=${args.query}` : ''}`);
+    handlePushRouter.replace(`/articles${args.query.length ? `?tag=${args.query}` : ''}`);
     return { args: {} };
   },
   template: `
