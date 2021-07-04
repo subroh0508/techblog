@@ -34,7 +34,7 @@ export default {
       return this.article === null;
     },
     article() {
-      if (!this.$route) {
+      if (!this.$store) {
         return {};
       }
 
