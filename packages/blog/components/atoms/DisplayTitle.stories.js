@@ -5,6 +5,7 @@ export default {
   component: DisplayTitleComponent,
   argTypes: {
     className: {
+      defaultValue: 'text',
       options: ['text', 'link'],
       control: { type: 'radio' },
     },
