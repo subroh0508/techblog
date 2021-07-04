@@ -1,6 +1,11 @@
 import ArticlesTemplateComponent from '@components/templates/ArticlesTemplate';
 import articles from '@assets/list';
 
+import { app } from '@storybook/vue3';
+import { handleFetchArticleStore } from '@mock/store';
+
+app.use(handleFetchArticleStore);
+
 export default {
   title: 'Components/templates/ArticlesTemplate',
   component: ArticlesTemplateComponent,

@@ -1,5 +1,10 @@
 import ArticleSummaryComponent from '@components/organisms/ArticleSummary';
 
+import { app } from '@storybook/vue3';
+import { handleFetchArticleStore } from '@mock/store';
+
+app.use(handleFetchArticleStore);
+
 export default {
   title: 'Components/organisms/ArticleSummary',
   component: ArticleSummaryComponent,

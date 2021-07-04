@@ -3,6 +3,11 @@ import SiteHeader from '@components/organisms/SiteHeader';
 import SiteFooter from '@components/organisms/SiteFooter';
 import mockRouter from '@mock/router';
 
+import { app } from '@storybook/vue3';
+import { handleFetchArticleStore } from '@mock/store';
+
+app.use(handleFetchArticleStore);
+
 export default {
   title: 'Pages/Articles',
   component: ArticlesPage,

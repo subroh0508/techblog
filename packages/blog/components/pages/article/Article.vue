@@ -67,7 +67,7 @@ export default {
     article(to, from) {
       this.$nextTick(() => this.addClickListeners(this.$refs.body));
     }
-  }
+  },
 }
 </script>
 <template>
