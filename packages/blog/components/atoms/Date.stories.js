@@ -10,7 +10,7 @@ export default {
       control: { type: 'radio' },
     },
     value: {
-      defaultValue: Date.parse('2020-01-01'),
+      defaultValue: new Date(Date.parse('2020-01-01')),
       control: { type: 'date' },
     },
   }
