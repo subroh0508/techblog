@@ -1,4 +1,5 @@
 import ArticleSummaryComponent from '@components/organisms/ArticleSummary';
+import moment from 'moment-timezone';
 
 import { app } from '@storybook/vue3';
 import { handleFetchArticleStore } from '@mock/store';
@@ -32,7 +33,7 @@ export default {
       control: { type: 'text' },
     },
     publishedAt: {
-      defaultValue: new Date(Date.parse('2020-01-01')),
+      defaultValue: moment.tz('2020-01-01', 'Asia/Tokyo').toDate(),
       control: { type: 'date' },
     },
     tags: {

@@ -7,7 +7,7 @@ exports[`Storyshots Components/organisms/ArticleSummary ArticleSummary 1`] = `
   classname.publishedat="subtitle"
   description="記事内容の要約文章が入ります。大体2行くらいで収まる長さだとちょうどよし。"
   displaytitle="記事タイトル"
-  publishedat="Wed Jan 01 2020 09:00:00 GMT+0900 (GMT+09:00)"
+  publishedat="Wed Jan 01 2020 00:00:00 GMT+0900 (GMT+09:00)"
   tags="Android,Kotlin,怪文書"
   title="title"
 >

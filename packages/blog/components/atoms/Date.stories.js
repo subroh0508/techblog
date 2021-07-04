@@ -1,4 +1,5 @@
 import DateComponent from '@components/atoms/Date';
+import moment from 'moment-timezone';
 
 export default {
   title: 'Components/atoms/DateLabel',
@@ -10,7 +11,7 @@ export default {
       control: { type: 'radio' },
     },
     value: {
-      defaultValue: new Date(Date.parse('2020-01-01')),
+      defaultValue: moment.tz('2020-01-01', 'Asia/Tokyo').toDate(),
       control: { type: 'date' },
     },
   }
