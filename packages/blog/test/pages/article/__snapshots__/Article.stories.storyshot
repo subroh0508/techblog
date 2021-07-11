@@ -10,7 +10,7 @@ exports[`Storyshots Pages/Article Article Does Not Exist 1`] = `
     <h1
       class="site-name"
     >
-      横須賀第765管区情報局
+      横須賀第283管区情報局
     </h1>
     <nav
       class="nav-menu"
@@ -52,7 +52,7 @@ exports[`Storyshots Pages/Article Article Exists 1`] = `
     <h1
       class="site-name"
     >
-      横須賀第765管区情報局
+      横須賀第283管区情報局
     </h1>
     <nav
       class="nav-menu"

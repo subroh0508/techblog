@@ -11,6 +11,44 @@ import {
   trackPocketShare,
 } from '@components/analytics';
 
+const href = (title, path) => `${process.env.BASE_URL}${path}/${title}`;
+
+function shareOnTwitter({ title, displayTitle, path }) {
+  const url = 'https://twitter.com/intent/tweet' +
+    `?url=${encodeURIComponent(href(title, path))}` +
+    `&text=${encodeURIComponent(displayTitle + ' - 横須賀第283管区情報局')}`;
+
+  trackTwitterShare(title);
+  window.open(url, '_blank');
+}
+
+function shareOnFacebook({ title, path }) {
+  const url = 'https://www.facebook.com/dialog/share' +
+    '?app_id=510289996426924' +
+    '&display=popup' +
+    `&href=${encodeURIComponent(href(title, path))}` +
+    `&redirect_uri=${encodeURIComponent(href(title, path))}`;
+
+  trackFacebookShare(title);
+  window.open(url, '_blank');
+}
+
+function shareOnHatena({ title, path }) {
+  const url = `https://b.hatena.ne.jp/entry/s/${href(title, path).replace(/^(http|https):\/\//, '')}`;
+
+  trackHatenaShare(title);
+  window.open(url, '_blank');
+}
+
+function shareOnPocket({ title, displayTitle, path }) {
+  const url = 'https://getpocket.com/edit' +
+    `?url=${encodeURIComponent(href(title, path))}` +
+    `&title=${encodeURIComponent(displayTitle + ' - 横須賀第283管区情報局')}`;
+
+  trackPocketShare(title);
+  window.open(url, '_blank');
+}
+
 export default {
   components: {
     TwitterIcon,
@@ -26,43 +64,18 @@ export default {
   },
   methods: {
     shareOnTwitter() {
-      const url = 'https://twitter.com/intent/tweet' +
-        `?url=${encodeURIComponent(this.href)}` +
-        `&text=${encodeURIComponent(this.displayTitle + ' - 横須賀第765管区情報局')}`;
-
-      trackTwitterShare(this.title);
-      window.open(url, '_blank');
+      shareOnTwitter(this);
     },
     shareOnFacebook() {
-      const url = 'https://www.facebook.com/dialog/share' +
-        '?app_id=510289996426924' +
-        '&display=popup' +
-        `&href=${encodeURIComponent(this.href)}` +
-        `&redirect_uri=${encodeURIComponent(this.href)}`;
-
-      trackFacebookShare(this.title);
-      window.open(url, '_blank');
+      shareOnFacebook(this);
     },
     shareOnHatena() {
-      const url = `https://b.hatena.ne.jp/entry/s/${this.href.replace(/^(http|https):\/\//, '')}`;
-
-      trackHatenaShare(this.title);
-      window.open(url, '_blank');
+      shareOnHatena(this);
     },
     shareOnPocket() {
-      const url = 'https://getpocket.com/edit' +
-        `?url=${encodeURIComponent(this.href)}` +
-        `&title=${encodeURIComponent(this.displayTitle + ' - 横須賀第765管区情報局')}`;
-
-      trackPocketShare(this.title);
-      window.open(url, '_blank');
+      shareOnPocket(this);
     },
-  },
-  computed: {
-    href() {
-      return `${process.env.BASE_URL}${this.path}/${this.title}`;
-    },
-  },
+  }
 }
 </script>
 <template>

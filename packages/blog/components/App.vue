@@ -4,22 +4,27 @@ import SiteFooter from './organisms/SiteFooter';
 
 import insertMetaTags from './insertMetaTags';
 import { updateConfig } from './analytics';
+import { useRoute } from 'vue-router';
+import { onMounted, watch } from 'vue';
 
 export default {
   components: {
     SiteHeader,
     SiteFooter,
   },
-  mounted() {
-    updateConfig(this.$route);
-    insertMetaTags(this.$route);
-  },
-  watch: {
-    '$route': function (to, from) {
+  setup() {
+    const route = useRoute();
+
+    onMounted(() => {
+      updateConfig(route);
+      insertMetaTags(route);
+    });
+
+    watch(route, (to, _) => {
       updateConfig(to);
       insertMetaTags(to);
-    }
-  }
+    });
+  },
 }
 </script>
 <template>

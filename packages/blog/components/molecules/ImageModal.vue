@@ -10,27 +10,12 @@ export default {
     showModal: Boolean,
     onClose: Function,
   },
+  computed: {
+    src: vm => `${process.env.IMAGES_BASE_URL}/${vm.filename}`,
+  },
   methods: {
-    preventScroll() {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'relative';
-    },
-    freeScroll() {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-    },
     onClickContent(event) {
       event.stopPropagation();
-    },
-  },
-  computed: {
-    src() {
-      return `${process.env.IMAGES_BASE_URL}/${this.filename}`;
-    },
-  },
-  watch: {
-    showModal(to, from) {
-      to ? this.preventScroll() : this.freeScroll();
     },
   }
 }

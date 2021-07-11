@@ -1,5 +1,6 @@
 <script>
 import ArticleSummary from '@components/organisms/ArticleSummary';
+import { computed, ref, toRefs, watch } from 'vue';
 
 export default {
   components: {
@@ -10,31 +11,21 @@ export default {
     limit: { type: Number, default: 10 },
     pagination: { type: Boolean, default: true },
   },
-  data: () => ({ page: 0 }),
-  computed: {
-    items: function() {
-      const { articles, limit, page } = this;
+  setup(props) {
+    const page = ref(0);
+    const { articles, limit, pagination } = toRefs(props);
+    const items = computed(() => articles.value.slice(0, (page.value + 1) * limit.value));
+    const emptyItems = computed(() => !articles.value.length);
+    const showLoadOlder = computed(() => pagination.value && (page.value + 1) * limit.value < articles.value.length);
 
-      return articles.slice(0, (page + 1) * limit);
-    },
-    emptyItems: function() {
-      return !this.articles.length;
-    },
-    showLoadOlder: function() {
-      const { pagination, articles, limit, page } = this;
+    watch(articles, () => { page.value = 0; });
 
-      return pagination && (page + 1) * limit < articles.length;
-    }
-  },
-  watch: {
-    articles: function(to, from) {
-      this.page = 0;
-    }
-  },
-  methods: {
-    loadOlder() {
-      this.page += 1;
-    },
+    return {
+      items,
+      emptyItems,
+      showLoadOlder,
+      loadOlder: () => { page.value++; },
+    };
   },
 }
 </script>

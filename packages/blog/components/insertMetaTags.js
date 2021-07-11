@@ -18,7 +18,7 @@ export default (to) => {
   }
 };
 
-const SITE_NAME = '横須賀第765管区情報局';
+const SITE_NAME = '横須賀第283管区情報局';
 
 const TYPE_WEBSITE = 'website';
 const TYPE_ARTICLE = 'article';

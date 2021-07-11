@@ -3,6 +3,30 @@ import ArticleHeader from '@components/molecules/ArticleHeader';
 import ImageModal from '@components/molecules/ImageModal';
 import ShareButtons from '@components/organisms/ShareButtons';
 
+import { onMounted, ref, computed, watch } from 'vue';
+
+function addClickListeners(previewFilename, bodyElement) {
+  if (!bodyElement) {
+    return;
+  }
+
+  bodyElement.getElementsByClassName('image-preview').forEach((img) => {
+    img.addEventListener('click', () => {
+      previewFilename.value = img.dataset.filename;
+    });
+  });
+}
+
+function preventScroll() {
+  document.body.style.overflow = 'hidden';
+  document.body.style.position = 'relative';
+}
+
+function freeScroll() {
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+}
+
 export default {
   components: {
     ArticleHeader,
@@ -12,32 +36,21 @@ export default {
   props: {
     article: Object,
   },
-  data: () => ({
-    previewFilename: null,
-  }),
-  mounted() {
-    this.addClickListeners(this.$refs.body);
-  },
-  methods: {
-    addClickListeners(bodyElement) {
-      if (!bodyElement) {
-        return;
-      }
+  setup() {
+    const previewFilename = ref(null);
+    const body = ref(null);
 
-      bodyElement.getElementsByClassName('image-preview').forEach((img) => {
-        img.addEventListener('click', () => {
-          this.previewFilename = img.dataset.filename;
-        });
-      });
-    },
-    closeModal() {
-      this.previewFilename = null;
-    },
-  },
-  computed: {
-    showModal() {
-      return !!this.previewFilename;
-    },
+    const showModal = computed(() => !!previewFilename.value);
+
+    onMounted(() => addClickListeners(previewFilename, body.value));
+    watch(showModal, () => showModal.value ? preventScroll() : freeScroll());
+
+    return {
+      body,
+      previewFilename,
+      showModal,
+      closeModal: () => { previewFilename.value = null },
+    }
   },
 }
 </script>

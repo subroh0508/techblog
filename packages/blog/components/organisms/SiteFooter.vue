@@ -1,8 +1,8 @@
 <script>
 export default {
-  data: () => ({
-    year: new Date().getFullYear(),
-  }),
+  computed: {
+    year: () => new Date().getFullYear(),
+  },
 }
 </script>
 <template>

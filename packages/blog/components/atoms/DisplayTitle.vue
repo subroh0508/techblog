@@ -8,6 +8,9 @@ export default {
     value: String,
     onClick: Function,
   },
+  computed: {
+    styleName: vm => `title is-${vm.className}`,
+  },
   methods: {
     handleOnClick() {
       if (this.className === 'text') return;
@@ -19,7 +22,7 @@ export default {
 </script>
 <template>
   <h2
-    v-bind:class="'title is-' + className"
+    v-bind:class="styleName"
     v-on:click='handleOnClick()'
   >{{ value }}</h2>
 </template>

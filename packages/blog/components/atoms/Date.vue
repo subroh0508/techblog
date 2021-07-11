@@ -1,26 +1,29 @@
 <script>
+const format = (date) => {
+  if (!date) {
+    return '1970/01/01';
+  }
+
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+
+  return `${year}/${month}/${day}`;
+}
+
 export default {
   props: {
     className: { type: String, default: 'text' },
     value: Date,
   },
-  methods: {
-    format: (date) => {
-      if (!date) {
-        return '1970/01/01';
-      }
-
-      const year = date.getFullYear();
-      const month = (date.getMonth() + 1).toString().padStart(2, '0');
-      const day = date.getDate().toString().padStart(2, '0');
-
-      return `${year}/${month}/${day}`;
-    },
-  }
+  computed: {
+    styleName: vm => `date-${vm.className}`,
+    date: vm => format(vm.value),
+  },
 }
 </script>
 <template>
-  <span v-bind:class="'date-' + className">{{ format(value) }}</span>
+  <span v-bind:class="styleName">{{ date }}</span>
 </template>
 <style scoped lang='scss'>
 @import '~@components/_color';
