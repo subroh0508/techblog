@@ -13,7 +13,6 @@ export default {
   },
   setup(props) {
     const page = ref(0);
-
     const { articles, limit, pagination } = toRefs(props);
     const items = computed(() => articles.value.slice(0, (page.value + 1) * limit.value));
     const emptyItems = computed(() => !articles.value.length);

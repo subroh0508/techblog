@@ -2,25 +2,27 @@
 import ArticlesTemplate from '@components/templates/ArticlesTemplate';
 
 import { searchArticles } from '@components/finder';
+import { useRoute } from 'vue-router';
+import { computed, onMounted, ref, watch } from 'vue';
 
 export default {
   components: {
     ArticlesTemplate,
   },
-  data: () => ({
-    articles: [],
-    title: '全ての記事',
-  }),
-  mounted() {
-    this.articles = searchArticles(this.$route.query);
-    this.title = this.$route.query.tag ? `タグ: ${this.$route.query.tag}` : '全ての記事';
+  setup() {
+    const articles = ref([]);
+    const route = useRoute();
+
+    onMounted(() => { articles.value = searchArticles(route.query) });
+    watch(route, () => { articles.value = searchArticles(route.query); });
+
+    const title = computed(() => route.query.tag ? `タグ: ${route.query.tag}` : '全ての記事');
+
+    return {
+      articles,
+      title,
+    };
   },
-  watch: {
-    '$route.query': function() {
-      this.articles = searchArticles(this.$route.query);
-      this.title = this.$route.query.tag ? `タグ: ${this.$route.query.tag}` : '全ての記事';
-    },
-  }
 }
 </script>
 <template>
