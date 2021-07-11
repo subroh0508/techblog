@@ -31,7 +31,7 @@ export default {
 </script>
 <template>
   <section class="header">
-    <h1 class='site-name' v-on:click="redirectTo('home')">横須賀第765管区情報局</h1>
+    <h1 class='site-name' v-on:click="redirectTo('home')">横須賀第283管区情報局</h1>
     <nav-menu v-bind="{ menuList, onClick: redirectTo }"/>
   </section>
 </template>

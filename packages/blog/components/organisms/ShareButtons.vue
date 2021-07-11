@@ -16,7 +16,7 @@ const href = (title, path) => `${process.env.BASE_URL}${path}/${title}`;
 function shareOnTwitter({ title, displayTitle, path }) {
   const url = 'https://twitter.com/intent/tweet' +
     `?url=${encodeURIComponent(href(title, path))}` +
-    `&text=${encodeURIComponent(displayTitle + ' - 横須賀第765管区情報局')}`;
+    `&text=${encodeURIComponent(displayTitle + ' - 横須賀第283管区情報局')}`;
 
   trackTwitterShare(title);
   window.open(url, '_blank');
@@ -43,7 +43,7 @@ function shareOnHatena({ title, path }) {
 function shareOnPocket({ title, displayTitle, path }) {
   const url = 'https://getpocket.com/edit' +
     `?url=${encodeURIComponent(href(title, path))}` +
-    `&title=${encodeURIComponent(displayTitle + ' - 横須賀第765管区情報局')}`;
+    `&title=${encodeURIComponent(displayTitle + ' - 横須賀第283管区情報局')}`;
 
   trackPocketShare(title);
   window.open(url, '_blank');

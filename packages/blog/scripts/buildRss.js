@@ -7,7 +7,7 @@ import list from '@techblog/articles/build/list';
 
 const TIME_ZOME = 'Asia/Tokyo';
 const FORMAT = 'ddd, DD MMM YYYY HH:mm:ss';
-const SITE_NAME = '横須賀第765管区情報局';
+const SITE_NAME = '横須賀第283管区情報局';
 const fsp = fs.promises;
 
 const build = async () => {
