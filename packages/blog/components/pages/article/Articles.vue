@@ -16,7 +16,8 @@ export default {
     onMounted(() => { articles.value = searchArticles(route.query) });
     watch(route, () => { articles.value = searchArticles(route.query); });
 
-    const title = computed(() => route.query.tag ? `タグ: ${route.query.tag}` : '全ての記事');
+    // Null check for Snapshot Test
+    const title = computed(() => route && route.query && route.query.tag ? `タグ: ${route.query.tag}` : '全ての記事');
 
     return {
       articles,

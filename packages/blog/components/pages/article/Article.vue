@@ -13,7 +13,8 @@ export default {
   setup(props) {
     const store = useStore();
 
-    const article = computed(() => store.state.article)
+    // Null check for Snapshot Test
+    const article = computed(() => store ? store.state.article : {});
     const loading = computed(() => !Object.keys(article.value).length);
     const notFound = computed(() => article.value === null);
     const fetchArticle = async () => await store.dispatch('fetchArticle', props.title);
