@@ -10,16 +10,14 @@ export default {
     showModal: Boolean,
     onClose: Function,
   },
-  setup() {
-    return {
-      onClickContent: (event) => event.stopPropagation(),
-    };
-  },
   computed: {
-    src() {
-      return `${process.env.IMAGES_BASE_URL}/${this.filename}`;
-    },
+    src: vm => `${process.env.IMAGES_BASE_URL}/${vm.filename}`,
   },
+  methods: {
+    onClickContent(event) {
+      event.stopPropagation();
+    },
+  }
 }
 </script>
 <template>

@@ -1,7 +1,7 @@
 <script>
 export default {
-  setup() {
-    return { year: new Date().getFullYear() };
+  computed: {
+    year: () => new Date().getFullYear(),
   },
 }
 </script>

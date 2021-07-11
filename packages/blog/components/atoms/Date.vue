@@ -16,11 +16,9 @@ export default {
     className: { type: String, default: 'text' },
     value: Date,
   },
-  setup({ className, value }) {
-    return {
-      styleName: `date-${className}`,
-      date: format(value),
-    };
+  computed: {
+    styleName: vm => `date-${vm.className}`,
+    date: vm => format(vm.value),
   },
 }
 </script>

@@ -8,19 +8,16 @@ export default {
     value: String,
     onClick: Function,
   },
-  setup({ className, value, onClick }) {
-    const handleOnClick = () => {
-      if (className === 'text') return;
-
-      onClick();
-    }
-
-    return {
-      styleName: `title is-${className}`,
-      value,
-      handleOnClick,
-    };
+  computed: {
+    styleName: vm => `title is-${vm.className}`,
   },
+  methods: {
+    handleOnClick() {
+      if (this.className === 'text') return;
+
+      this.onClick();
+    },
+  }
 }
 </script>
 <template>

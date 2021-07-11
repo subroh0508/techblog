@@ -18,12 +18,14 @@ export default {
     const route = useRoute();
 
     return {
-      menuList: [
-        { name: 'articles', display: 'Articles' },
-        { name: 'about', display: 'About' },
-      ],
       redirectTo: redirectTo.bind(null, router, route),
     };
+  },
+  computed: {
+    menuList: () => ([
+      { name: 'articles', display: 'Articles' },
+      { name: 'about', display: 'About' },
+    ]),
   },
 }
 </script>

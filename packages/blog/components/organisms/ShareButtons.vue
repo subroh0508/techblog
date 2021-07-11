@@ -11,36 +11,38 @@ import {
   trackPocketShare,
 } from '@components/analytics';
 
-function shareOnTwitter(title, displayTitle, href) {
+const href = (title, path) => `${process.env.BASE_URL}${path}/${title}`;
+
+function shareOnTwitter({ title, displayTitle, path }) {
   const url = 'https://twitter.com/intent/tweet' +
-    `?url=${encodeURIComponent(href)}` +
+    `?url=${encodeURIComponent(href(title, path))}` +
     `&text=${encodeURIComponent(displayTitle + ' - 横須賀第765管区情報局')}`;
 
   trackTwitterShare(title);
   window.open(url, '_blank');
 }
 
-function shareOnFacebook(title, href) {
+function shareOnFacebook({ title, path }) {
   const url = 'https://www.facebook.com/dialog/share' +
     '?app_id=510289996426924' +
     '&display=popup' +
-    `&href=${encodeURIComponent(href)}` +
-    `&redirect_uri=${encodeURIComponent(href)}`;
+    `&href=${encodeURIComponent(href(title, path))}` +
+    `&redirect_uri=${encodeURIComponent(href(title, path))}`;
 
   trackFacebookShare(title);
   window.open(url, '_blank');
 }
 
-function shareOnHatena(title, href) {
-  const url = `https://b.hatena.ne.jp/entry/s/${href.replace(/^(http|https):\/\//, '')}`;
+function shareOnHatena({ title, path }) {
+  const url = `https://b.hatena.ne.jp/entry/s/${href(title, path).replace(/^(http|https):\/\//, '')}`;
 
   trackHatenaShare(title);
   window.open(url, '_blank');
 }
 
-function shareOnPocket(title, displayTitle, href) {
+function shareOnPocket({ title, displayTitle, path }) {
   const url = 'https://getpocket.com/edit' +
-    `?url=${encodeURIComponent(href)}` +
+    `?url=${encodeURIComponent(href(title, path))}` +
     `&title=${encodeURIComponent(displayTitle + ' - 横須賀第765管区情報局')}`;
 
   trackPocketShare(title);
@@ -60,16 +62,20 @@ export default {
     displayTitle: String,
     path: String,
   },
-  setup({ title, displayTitle, path }) {
-    const href = `${process.env.BASE_URL}${path}/${title}`;
-
-    return {
-      shareOnTwitter: shareOnTwitter.bind(null, title, displayTitle, href),
-      shareOnFacebook: shareOnFacebook.bind(null, title, href),
-      shareOnHatena: shareOnHatena.bind(null, title, href),
-      shareOnPocket: shareOnPocket.bind(null, title, displayTitle, href),
-    }
-  },
+  methods: {
+    shareOnTwitter() {
+      shareOnTwitter(this);
+    },
+    shareOnFacebook() {
+      shareOnFacebook(this);
+    },
+    shareOnHatena() {
+      shareOnHatena(this);
+    },
+    shareOnPocket() {
+      shareOnPocket(this);
+    },
+  }
 }
 </script>
 <template>
