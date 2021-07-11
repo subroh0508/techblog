@@ -1,5 +1,7 @@
 <script>
 import ArticleTemplate from '@components/templates/ArticleTemplate';
+import { useStore } from 'vuex';
+import { computed, onMounted, onServerPrefetch } from 'vue';
 
 export default {
   components: {
@@ -8,38 +10,32 @@ export default {
   props: {
     title: String,
   },
-  serverPrefetch() {
-    return this.fetchArticle();
-  },
-  mounted() {
-    if (this.loading) {
-      this.fetchArticle();
-    }
+  setup(props) {
+    const store = useStore();
 
-    // Initialize Twitter widgets when transit article
-    if (twttr) {
-      twttr.widgets.load();
-    }
-  },
-  methods: {
-    fetchArticle() {
-      return this.$store.dispatch('fetchArticle', this.title);
-    },
-  },
-  computed: {
-    loading() {
-      return !Object.keys(this.article).length;
-    },
-    notFound() {
-      return this.article === null;
-    },
-    article() {
-      if (!this.$store) {
-        return {};
+    const article = computed(() => store.state.article)
+    const loading = computed(() => !Object.keys(article.value).length);
+    const notFound = computed(() => article.value === null);
+    const fetchArticle = async () => await store.dispatch('fetchArticle', props.title);
+
+    onMounted(async () => {
+      if (loading.value) {
+        await fetchArticle();
       }
 
-      return this.$store.state.article;
-    },
+      // Initialize Twitter widgets when transit article
+      if (twttr) {
+        twttr.widgets.load();
+      }
+    });
+
+    onServerPrefetch(fetchArticle);
+
+    return {
+      article,
+      loading,
+      notFound,
+    };
   },
 }
 </script>

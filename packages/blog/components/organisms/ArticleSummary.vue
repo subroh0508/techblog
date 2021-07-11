@@ -19,7 +19,7 @@ export default {
 
     return {
       readMore: (title) => router.push({ name: 'article', params: { title } }),
-      prefetch: async (title) => store.dispatch('fetchArticle', title),
+      prefetch: async (title) => await store.dispatch('fetchArticle', title),
     }
   },
 }
