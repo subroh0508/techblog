@@ -17,7 +17,7 @@
     "image-size": "^1.0.0",
     "marked": "^2.1.1",
     "moment-timezone": "^0.5.33",
-    "sharp": "^0.28.3"
+    "sharp": "^0.30.5"
   },
   "scripts": {
     "build": "babel-node ./scripts/build.js",
